@@ -1,0 +1,15 @@
+# /etc/systemd/system/nodered_duadata.service
+[Unit]
+Description=Auto Run NodeRED Dua Data
+After=network.target
+
+[Service]
+User=citamonitoring2025
+WorkingDirectory=/home/citamonitoring2025/Desktop
+ExecStart=/home/citamonitoring2025/Desktop/venv/bin/python /home/citamonitoring2025/Desktop/NodeRED_DuaData.py
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+% Alur preprocessing data (ml/common/preprocess.py)
+\begin{tikzpicture}[node distance=0.32cm, every node/.style={font=\scriptsize}]
+  \tikzset{lk/.style={milik=izma, text width=2.35cm, minimum height=1.05cm}}
+  \node[abu, text width=2.35cm, minimum height=1.05cm] (a) {\textbf{9 CSV mentah}\\2,22 jt baris\\30 Mar–20 Okt};
+  \node[lk, right=of a] (b) {\textbf{Parse waktu}\\WIB$\to$UTC, urutkan\\buang 9.056 duplikat};
+  \node[lk, right=of b] (c) {\textbf{Sel rusak Excel}\\$>$45.000 $\to$ NaN\\(Suhu 334 rb, Daya 119 rb)};
+  \node[lk, right=of c] (d) {\textbf{Daya}\\OFF $\to$ 0 W\\hitung ulang V$\times$I (105 rb)};
+  \node[lk, below=0.55cm of d] (e) {\textbf{Batas fisik}\\spike $>$ V$^2$/35\,$\Omega$\\angin $>$ 8 m/s $\to$ NaN};
+  \node[lk, left=of e] (f) {\textbf{Sentinel}\\arah $-115$, RH $<$ 0\\suhu $<$ 5\,$^\circ$C $\to$ NaN};
+  \node[lk, left=of f] (g) {\textbf{Resample 1 menit}\\daya rata-rata\\angin median};
+  \node[milik=genis, text width=2.35cm, minimum height=1.05cm, left=of g] (h) {\textbf{181.228 menit}\\156 segmen\\(celah $>$10 mnt putus)};
+  \draw[panah] (a) -- (b); \draw[panah] (b) -- (c); \draw[panah] (c) -- (d); \draw[panah] (d) -- (e);
+  \draw[panah] (e) -- (f); \draw[panah] (f) -- (g); \draw[panah] (g) -- (h);
+\end{tikzpicture}

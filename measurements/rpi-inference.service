@@ -1,0 +1,14 @@
+[Unit]
+Description=Wind Edge Chip native INT8 inference comparison
+After=network-online.target
+
+[Service]
+WorkingDirectory=%h/wec-comparison
+EnvironmentFile=%h/wec-comparison/mqtt.env
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/python3 %h/wec-comparison/rpi_inference.py --worker %h/wec-comparison/inference_worker --model-header %h/wec-comparison/mlp_int8.h
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

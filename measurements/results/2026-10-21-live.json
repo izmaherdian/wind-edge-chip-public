@@ -1,0 +1,63 @@
+{
+  "kind": "normal_live",
+  "generated_at_ms": 1792579072230,
+  "started_utc_ms": 1792578696609,
+  "observed_seconds": 375.62009059699994,
+  "window": "last 24 hours or since recorder start",
+  "matched_pairs": 6,
+  "mismatches": 0,
+  "benchmark_running": false,
+  "last_pair": {
+    "t": 1792579020000,
+    "out_q": 30,
+    "rpi_core_us": 5.0,
+    "fpga_uart_us": 560
+  },
+  "rpi_core_us_median": 4.8515,
+  "fpga_uart_us_median": 563.0,
+  "energy": {
+    "rpi": {
+      "valid": false,
+      "reasons": [
+        "meter_not_verified",
+        "insufficient_valid_power_coverage"
+      ],
+      "duration_s": 375.62009059699994,
+      "covered_s": 0.0,
+      "coverage": 0.0,
+      "energy_j": null,
+      "energy_wh": null,
+      "average_w": null,
+      "projected_wh_per_day_at_this_workload": null,
+      "total_j_per_prediction": null,
+      "incremental_j_per_prediction": null,
+      "daily_projection_reason": "minimum_normal_observation_1800_seconds"
+    },
+    "fpga": {
+      "valid": false,
+      "reasons": [
+        "meter_not_verified",
+        "insufficient_valid_power_coverage",
+        "channel_not_installed"
+      ],
+      "duration_s": 375.62009059699994,
+      "covered_s": 0.0,
+      "coverage": 0.0,
+      "energy_j": null,
+      "energy_wh": null,
+      "average_w": null,
+      "projected_wh_per_day_at_this_workload": null,
+      "total_j_per_prediction": null,
+      "incremental_j_per_prediction": null,
+      "daily_projection_reason": "minimum_normal_observation_1800_seconds"
+    }
+  },
+  "energy_comparison_ready": false,
+  "notes": [
+    "Same INT8 features; Pi also acquires sensors and runs TA software.",
+    "Core time and UART round-trip time have different boundaries.",
+    "Wh/day is projected at the observed normal workload; not a measured daily total.",
+    "Total J/prediction amortizes whole-board energy including idle/background tasks.",
+    "Incremental J/prediction requires a controlled baseline experiment."
+  ]
+}

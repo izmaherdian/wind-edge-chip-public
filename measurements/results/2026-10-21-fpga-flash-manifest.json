@@ -1,0 +1,21 @@
+{
+  "board": "Tang Nano 4K",
+  "chip": "GW1NSR-4C",
+  "idcode": "0x0100981b",
+  "programmer": "openFPGALoader v1.2.0",
+  "target": "internal configuration flash",
+  "bitstream_local_path": "hw/build/tang_nano_4k/wind_edge_chip_20261021.fs",
+  "bitstream_bytes": 1771710,
+  "bitstream_md5": "c5a970a367d2830ca3079774815057ce",
+  "bitstream_sha256": "f0cc5520d695ea89beba4e16123d6027606c704a71b9bf0456717fb40a4c830d",
+  "model_sha256": "6fe160272b02a14f6261d1a121d19c3c35a78f298b9e0c1bb95121f2af3cd226",
+  "weights": 1040,
+  "biases": 49,
+  "programming_crc_success": true,
+  "jtag_reset_completed": true,
+  "post_reset_mqtt_vectors_passed": 3,
+  "physical_power_cycle_verified": true,
+  "power_cycle_status": "User removed and restored power to both boards; 3/3 MQTT FPGA predictions matched without any programmer operation after power cycle.",
+  "cold_boot_report": "measurements/results/2026-10-21-fpga-cold-boot-check.json",
+  "cold_boot_verified_utc": "2026-10-21T13:36:03Z"
+}

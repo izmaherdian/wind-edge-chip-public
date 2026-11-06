@@ -1,0 +1,42 @@
+{
+  "baris_mentah": 2218464,
+  "duplikat_dibuang": 9056,
+  "baris_off": 1356184,
+  "sel_nomor_seri_excel": {
+    "voltage_v": 16329,
+    "current_a": 7572,
+    "power_w": 119052,
+    "wind_ms": 35960,
+    "humidity_pct": 215,
+    "temp_c": 334239
+  },
+  "daya_dihitung_ulang_vxi": 105329,
+  "spike_daya_dibuang": 31,
+  "angin_lebih_batas": 27081,
+  "arah_sentinel": 578128,
+  "baris_bersih": 2209408,
+  "menit_total": 293661,
+  "menit_ada_data": 181228,
+  "persen_menit_ada_data": 61.7,
+  "jumlah_segmen": 156,
+  "rentang_utc": [
+    "2026-03-30 06:24:00+00:00",
+    "2026-10-20 04:44:00+00:00"
+  ],
+  "nan_per_kolom_pada_menit_ada_data": {
+    "n_sampel": 0,
+    "power_w": 16,
+    "power_max_w": 16,
+    "voltage_v": 94316,
+    "current_a": 94192,
+    "turbin_on": 0,
+    "wind_ms": 2116,
+    "wind_max_ms": 2116,
+    "dir_sin": 15590,
+    "dir_cos": 15590,
+    "humidity_pct": 0,
+    "temp_c": 22425,
+    "segmen": 0
+  },
+  "persen_menit_turbin_on": 36.9
+}

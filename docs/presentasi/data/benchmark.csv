@@ -1,0 +1,37 @@
+label,kelompok,MAE_W,RMSE_W,skill_vs_persistence
+Transformer (riwayat 60 menit),Jaringan saraf (sekuensial),5.699,10.073,0.411
+Regresi linear,Linear,5.711,10.23,0.402
+Ridge,Linear,5.711,10.23,0.402
+TCN (riwayat 60 menit),Jaringan saraf (sekuensial),5.462,10.247,0.401
+MLP float 16-8-1,Jaringan saraf (tabular),5.592,10.249,0.401
+MLP INT8 (QAT; identik RTL),Varian hardware (INT8),5.481,10.251,0.401
+Lasso,Linear,5.706,10.252,0.401
+ElasticNet,Linear,5.699,10.255,0.401
+LSTM (riwayat 60 menit),Jaringan saraf (sekuensial),5.588,10.352,0.395
+GRU (riwayat 60 menit),Jaringan saraf (sekuensial),5.539,10.409,0.392
+MLP float 16-16-1,Jaringan saraf (tabular),5.669,10.414,0.392
+MLP float 16-32-16-1 (acuan QAT; train_mlp.py),Varian hardware (INT8),5.585,10.436,0.39
+CNN 1D (riwayat 60 menit),Jaringan saraf (sekuensial),5.596,10.462,0.389
+MLP float 16-32-16-1,Jaringan saraf (tabular),5.618,10.475,0.388
+MLP float 16-64-32-1,Jaringan saraf (tabular),5.642,10.488,0.387
+ExtraTrees,Pohon,5.458,10.585,0.382
+KNN (k=25),Kernel/tetangga,5.516,10.615,0.38
+MLP INT8 (PTQ: dibulatkan tanpa QAT),Varian hardware (INT8),6.752,10.648,0.378
+ARIMA(2;0;1) deret 10 menit*,Statistik,6.19,10.774,0.391
+Polinomial derajat 2 + Ridge,Linear,5.887,10.871,0.365
+Random Forest,Pohon,5.741,10.907,0.363
+campuran mean60 + klimatologi (a=0.35),Baseline,5.91,11.002,0.357
+LightGBM tanpa Open-Meteo (offline),Varian data,5.762,11.032,0.355
+LightGBM kuantil P50 (+ interval P10–P90),Probabilistik,5.642,11.121,0.35
+LightGBM,Pohon,5.793,11.158,0.348
+SVR RBF (15 rb sampel),Kernel/tetangga,5.648,11.233,0.344
+HistGradientBoosting,Pohon,5.823,11.274,0.341
+XGBoost,Pohon,5.981,11.398,0.334
+CatBoost,Pohon,5.914,11.466,0.33
+Decision Tree,Pohon,6.195,11.582,0.323
+Kurva daya × angin 60 menit terakhir,Fisika,7.062,12.379,0.277
+smart persistence (rata-rata 60 menit terakhir),Baseline,7.125,12.625,0.262
+klimatologi per jam,Baseline,6.853,12.891,0.247
+moving average 10 menit,Baseline,7.47,14.386,0.159
+persistence (P sekarang),Baseline,8.674,17.115,0.0
+Kurva daya × prakiraan Open-Meteo,Fisika,11.455,17.193,-0.005

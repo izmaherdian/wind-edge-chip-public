@@ -1,0 +1,19 @@
+{
+  "sklearn": "1.8.0",
+  "n_latih_seimbang": 10539,
+  "n_uji_okt": 12002,
+  "akurasi_vs_label_cp_okt": 0.9619,
+  "distribusi_label_okt": {
+    "Optimal": 0.723,
+    "Anomaly": 0.275,
+    "Infisien": 0.002
+  },
+  "distribusi_prediksi_okt": {
+    "Optimal": 0.687,
+    "Anomaly": 0.31,
+    "Infisien": 0.003
+  },
+  "diameter_m": 2.5,
+  "cp_median_okt": 0.456,
+  "catatan": "label tetap rumus Cp; angin stasiun berbeda tempat dengan rotor, jadi sebagian 'Anomaly' (Cp > 0,59) masih asumsi angin/diameter"
+}

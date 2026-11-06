@@ -1,0 +1,182 @@
+{
+  "kind": "ESP32-S3 FPGA cold boot after user-confirmed physical power removal",
+  "captured_utc": "2026-10-21T13:36:03Z",
+  "programmer_used_after_power_cycle": false,
+  "passed": true,
+  "checks": [
+    {
+      "expected_q": 0,
+      "request": {
+        "t": 1792589761171,
+        "run_id": "coldboot-0562f83019",
+        "seq": 0,
+        "phase": "active",
+        "xq": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          4,
+          11,
+          0,
+          0,
+          0,
+          116,
+          -52,
+          22,
+          38
+        ]
+      },
+      "reply": {
+        "t": 1792589761171,
+        "run_id": "coldboot-0562f83019",
+        "seq": 0,
+        "phase": "active",
+        "executed": true,
+        "ok": true,
+        "source": "esp32s3+fpga",
+        "xq": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          4,
+          11,
+          0,
+          0,
+          0,
+          116,
+          -52,
+          22,
+          38
+        ],
+        "out_q": 0,
+        "uart_us": 560,
+        "cycles": 309
+      },
+      "passed": true
+    },
+    {
+      "expected_q": 87,
+      "request": {
+        "t": 1792589761172,
+        "run_id": "coldboot-0562f83019",
+        "seq": 1,
+        "phase": "active",
+        "xq": [
+          127,
+          55,
+          77,
+          57,
+          19,
+          92,
+          127,
+          95,
+          74,
+          58,
+          -116,
+          -52,
+          -54,
+          -115,
+          -62,
+          85
+        ]
+      },
+      "reply": {
+        "t": 1792589761172,
+        "run_id": "coldboot-0562f83019",
+        "seq": 1,
+        "phase": "active",
+        "executed": true,
+        "ok": true,
+        "source": "esp32s3+fpga",
+        "xq": [
+          127,
+          55,
+          77,
+          57,
+          19,
+          92,
+          127,
+          95,
+          74,
+          58,
+          -116,
+          -52,
+          -54,
+          -115,
+          -62,
+          85
+        ],
+        "out_q": 87,
+        "uart_us": 561,
+        "cycles": 309
+      },
+      "passed": true
+    },
+    {
+      "expected_q": 10,
+      "request": {
+        "t": 1792589761173,
+        "run_id": "coldboot-0562f83019",
+        "seq": 2,
+        "phase": "active",
+        "xq": [
+          4,
+          11,
+          0,
+          11,
+          0,
+          20,
+          29,
+          33,
+          40,
+          3,
+          -127,
+          6,
+          79,
+          -99,
+          -26,
+          51
+        ]
+      },
+      "reply": {
+        "t": 1792589761173,
+        "run_id": "coldboot-0562f83019",
+        "seq": 2,
+        "phase": "active",
+        "executed": true,
+        "ok": true,
+        "source": "esp32s3+fpga",
+        "xq": [
+          4,
+          11,
+          0,
+          11,
+          0,
+          20,
+          29,
+          33,
+          40,
+          3,
+          -127,
+          6,
+          79,
+          -99,
+          -26,
+          51
+        ],
+        "out_q": 10,
+        "uart_us": 570,
+        "cycles": 309
+      },
+      "passed": true
+    }
+  ]
+}

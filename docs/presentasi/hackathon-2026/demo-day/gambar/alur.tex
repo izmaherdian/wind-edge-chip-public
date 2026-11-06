@@ -1,0 +1,20 @@
+% Cara sistem bekerja untuk pelanggan dalam sehari: prediksi -> keputusan energi.
+\documentclass[border=4pt]{standalone}
+\input{gaya.tex}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,
+  langkah/.style={rounded corners=6pt, text width=3.0cm, minimum height=3.55cm, align=left, inner sep=7pt, anchor=north west},
+  waktu/.style={font=\fontsize{9}{11}\selectfont, text=gelap, anchor=north west, align=left}]
+  \def\kotak#1#2#3#4#5{%
+    \node[waktu] at (#1,1.05) {#2};
+    \node[langkah, fill=#3] (#5) at (#1,0) {#4};}
+  \kotak{0}{{\judulfont\bfseries\fontsize{11}{13}\selectfont Pagi\textsuperscript{*}}\\{\color{abu}angin naik}}{muda}{\textbf{Prediksi: surplus 1 jam ke depan}\\[3pt]$\Rightarrow$ isi baterai dulu, beban tetap dari turbin}{s1}
+  \kotak{3.95}{{\judulfont\bfseries\fontsize{11}{13}\selectfont Siang\textsuperscript{*}}\\{\color{abu}angin kencang}}{amber!35}{\textbf{Baterai hampir penuh}\\[3pt]$\Rightarrow$ \textbf{pengaman}: kelebihan dialihkan ke dump load, generator \& baterai aman}{s2}
+  \kotak{7.9}{{\judulfont\bfseries\fontsize{11}{13}\selectfont Sore\textsuperscript{*}}\\{\color{abu}angin turun}}{muda}{\textbf{Prediksi: produksi turun}\\[3pt]$\Rightarrow$ simpan energi baterai untuk malam, beban besar ditunda}{s3}
+  \kotak{11.85}{{\judulfont\bfseries\fontsize{11}{13}\selectfont Malam\textsuperscript{*}}\\{\color{abu}turbin diam}}{gelap!12}{\textbf{Baterai mendekati batas}\\[3pt]$\Rightarrow$ peringatan di ponsel, pindah ke PLN \emph{sebelum} padam}{s4}
+  \foreach \a/\b in {s1/s2,s2/s3,s3/s4} \draw[panah] (\a.east) -- (\b.west);
+  \node[inti, text width=14.8cm, anchor=north west, font=\fontsize{9.5}{12}\selectfont] at (0,-3.85)
+    {\textcolor{amber}{\textbf{Di balik layar:}} chip menghitung prediksi tiap menit di turbin, tetap jalan tanpa internet; semua keputusan tercatat di database dan tampil di dashboard + digital twin.};
+  \node[anchor=north, text=abu, text width=14.6cm, align=center, font=\fontsize{8.5}{10}\selectfont] at ([yshift=-4pt]current bounding box.south) {\textsuperscript{*} Keputusan baterai otomatis lewat relai: pengembangan selanjutnya. Saat ini: prediksi live, baterai masih simulasi di dashboard.};
+\end{tikzpicture}
+\end{document}

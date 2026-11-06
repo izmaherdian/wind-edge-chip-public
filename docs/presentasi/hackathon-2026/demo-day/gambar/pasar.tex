@@ -1,0 +1,24 @@
+% Dua pasar: rumah menengah ke atas (peduli iklim) dan B2B multi-turbin.
+\documentclass[border=4pt]{standalone}
+\input{gaya.tex}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,
+  persona/.style={rounded corners=7pt, text width=6.3cm, minimum height=5.45cm, align=left, inner sep=9pt, anchor=north west}]
+  \node[persona, fill=gelap, text=white] (a) at (0,0) {%
+    {\color{amber}\fontsize{8.5}{10}\selectfont\bfseries PASAR AWAL \textbullet{} MENENGAH KE ATAS}\\[3pt]
+    {\judulfont\bfseries\fontsize{13}{15}\selectfont Rumah \& vila yang peduli iklim}\\[6pt]
+    {\color{amber}\textbf{Yang mereka cari}}\\
+    energi hijau sendiri, kemandirian saat PLN padam, kebanggaan, bukan sekadar lebih murah\\[5pt]
+    {\color{amber}\textbf{Yang mereka dapat}}\\
+    turbin yang tidak boros, baterai awet\textsuperscript{*}, turbin ``hidup'' di ponsel lewat digital twin};
+  \node[persona, fill=muda] (b) at (7.4,0) {%
+    {\color{teal}\fontsize{8.5}{10}\selectfont\bfseries EKSPANSI \textbullet{} B2B}\\[3pt]
+    {\judulfont\bfseries\fontsize{13}{15}\selectfont Pemilik banyak turbin \& hybrid PLTS}\\[6pt]
+    {\color{teal}\textbf{Siapa}}\\
+    resort \& pulau, menara telekomunikasi, tambang \& agro, PLN off-grid, perusahaan luar negeri dengan armada turbin\\[5pt]
+    {\color{teal}\textbf{Yang mereka dapat}}\\
+    semua turbin + PLTS dalam satu dashboard, hemat daya di setiap lokasi, perawatan terpantau};
+  \draw[panah] (a.east) -- (b.west);
+  \node[anchor=north, text=abu, text width=13.5cm, align=center, font=\fontsize{8.5}{10}\selectfont] at ([yshift=-4pt]current bounding box.south) {\textsuperscript{*} Pengembangan selanjutnya. Saat ini: prediksi live, baterai masih simulasi di dashboard.};
+\end{tikzpicture}
+\end{document}

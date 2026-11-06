@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1050" viewBox="0 0 1500 1050">
+  <defs>
+    <marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#2563eb"/></marker>
+    <marker id="orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#c65b12"/></marker>
+    <marker id="green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#15803d"/></marker>
+    <style>
+      text { font-family: 'DejaVu Sans', sans-serif; fill: #1e293b; }
+      .title { font-size: 31px; font-weight: bold; }
+      .head { font-size: 25px; font-weight: bold; }
+      .label { font-size: 22px; }
+      .small { font-size: 19px; }
+      .tiny { font-size: 17px; }
+    </style>
+  </defs>
+  <rect width="1500" height="1050" fill="#f8fafc"/>
+  <text x="750" y="48" class="title" text-anchor="middle">Kabel ESP32-S3 ↔ Tang Nano 4K + USB laptop</text>
+  <text x="750" y="80" class="small" text-anchor="middle">Skema hubungan listrik; bukan posisi lubang header. Cocokkan label pin pada papan.</text>
+  <rect x="510" y="110" width="480" height="110" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="750" y="155" class="head" text-anchor="middle">LAPTOP / USB HUB</text>
+  <text x="750" y="189" class="small" text-anchor="middle">Dua kabel USB terpisah ke dua papan</text>
+  <path d="M620 220V260H250V350" fill="none" stroke="#2563eb" stroke-width="6" marker-end="url(#blue)"/>
+  <path d="M880 220V260H1250V350" fill="none" stroke="#2563eb" stroke-width="6" marker-end="url(#blue)"/>
+  <text x="250" y="302" class="small" text-anchor="middle">USB: daya + upload / monitor</text>
+  <text x="1250" y="302" class="small" text-anchor="middle">USB: daya + programmer JTAG</text>
+  <rect x="60" y="350" width="380" height="410" rx="20" fill="#ecfdf5" stroke="#168062" stroke-width="3"/>
+  <rect x="1060" y="350" width="380" height="410" rx="20" fill="#fff7ed" stroke="#c65b12" stroke-width="3"/>
+  <rect x="195" y="350" width="110" height="30" rx="12" fill="#2563eb"/>
+  <rect x="1195" y="350" width="110" height="30" rx="12" fill="#2563eb"/>
+  <text x="250" y="417" class="head" text-anchor="middle">ESP32-S3</text>
+  <text x="1250" y="417" class="head" text-anchor="middle">TANG NANO 4K</text>
+  <text x="250" y="450" class="small" text-anchor="middle">Konektor USB papan</text>
+  <text x="1250" y="450" class="small" text-anchor="middle">Konektor USB papan</text>
+  <text x="90" y="524" class="label">GPIO6 — TX</text>
+  <text x="90" y="604" class="label">GPIO5 — RX</text>
+  <text x="90" y="704" class="label">GND</text>
+  <text x="1095" y="524" class="label">44 — RX FPGA</text>
+  <text x="1095" y="604" class="label">46 — TX FPGA</text>
+  <text x="1095" y="704" class="label">GND</text>
+  <text x="250" y="739" class="tiny" text-anchor="middle">GPIO5/6 sesuai firmware proyek</text>
+  <text x="1250" y="739" class="tiny" text-anchor="middle">44/46 = nomor pin chip pada CST</text>
+  <rect x="550" y="475" width="400" height="180" rx="14" fill="#fffbeb" stroke="#b45309" stroke-width="2" stroke-dasharray="8 5"/>
+  <text x="750" y="505" class="small" font-weight="bold" text-anchor="middle">KABEL LANGSUNG (3,3 V)*</text>
+  <text x="750" y="548" class="small" text-anchor="middle">ESP32 TX → FPGA RX</text>
+  <text x="750" y="590" class="small" text-anchor="middle">ESP32 RX ← FPGA TX</text>
+  <text x="750" y="628" class="tiny" text-anchor="middle">Bank 1 FPGA (pin 44/46) diukur 3,3 V</text>
+  <path d="M440 515H550 M950 515H1060" fill="none" stroke="#c65b12" stroke-width="6" marker-end="url(#orange)"/>
+  <path d="M1060 595H950 M550 595H440" fill="none" stroke="#15803d" stroke-width="6" marker-end="url(#green)"/>
+  <path d="M440 695H1060" fill="none" stroke="#334155" stroke-width="5"/>
+  <text x="750" y="687" class="small" text-anchor="middle">Ground bersama</text>
+  <rect x="60" y="790" width="1380" height="200" rx="14" fill="white" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="85" y="825" class="small" font-weight="bold">* 21 Okt: bank 1 FPGA (pin 44 dan 46) diukur 3,3 V, jadi TX/RX boleh kabel langsung.</text>
+  <text x="85" y="858" class="small">Diukur pin 46 ke GND saat UART diam. Uji HIL: 5.373/5.373 inferensi identik, 309 siklus.</text>
+  <text x="85" y="891" class="small">Papan lain/revisi lain: ukur dulu; bila 1,8 V, pakai penerjemah level UART.</text>
+  <text x="85" y="924" class="small">Kedua papan mendapat daya dari USB masing-masing: pin 5V dan 3V3 tidak dijumper antar papan.</text>
+  <text x="85" y="957" class="small">Reset GPIO7 → pin 14 FPGA belum perlu dipasang. UART proyek: 921600 bps, 8N1.</text>
+  <text x="750" y="1026" class="tiny" text-anchor="middle">USB-C FPGA bukan sambungan UART pin 44/46 pada rancangan ini; data inferensi memakai jalur TX/RX di atas.</text>
+</svg>

@@ -1,0 +1,32 @@
+# Uji HIL ESP32-S3 <-> Tang Nano 4K, 21 Okt 2026
+# Kabel: GPIO6 (TX) -> pin 44, GPIO5 (RX) <- pin 46, GND bersama; bank 1 FPGA diukur 3,3 V (kabel langsung).
+# Bitstream: feature/integrasi (RTL 21 Okt, paket + CRC-8, 921600 bps, bobot hasil latih), dimuat ke SRAM; md5 c5a970a3...
+# Firmware: edge/esp32 env esp32s3_hil (src/hil_main.cpp), 597 vektor uji nyata (ml/forecast/model/export/test_vectors.csv).
+HIL Wind Edge Chip: ESP32-S3 TX=GPIO6 RX=GPIO5 -> FPGA pin 44/46, 921600 bps, 597 vektor
+TX: AA 55 00 00 00 00 00 00 00 04 0B 00 00 00 74 CC 16 26 88
+RX (7 byte): 55 AA 00 00 01 35 9E
+HIL ronde 1: 597/597 identik, 0 beda, 0 tanpa jawaban | siklus FPGA 309 | pulang-pergi rata-rata 482.1 us (maks 494 us) | coba ulang 0
+TX: AA 55 00 00 00 00 00 00 00 04 0B 00 00 00 74 CC 16 26 88
+RX (7 byte): 55 AA 00 00 01 35 9E
+HIL ronde 2: 597/597 identik, 0 beda, 0 tanpa jawaban | siklus FPGA 309 | pulang-pergi rata-rata 482.2 us (maks 494 us) | coba ulang 0
+TX: AA 55 00 00 00 00 00 00 00 04 0B 00 00 00 74 CC 16 26 88
+RX (7 byte): 55 AA 00 00 01 35 9E
+HIL ronde 3: 597/597 identik, 0 beda, 0 tanpa jawaban | siklus FPGA 309 | pulang-pergi rata-rata 482.3 us (maks 494 us) | coba ulang 0
+TX: AA 55 00 00 00 00 00 00 00 04 0B 00 00 00 74 CC 16 26 88
+RX (7 byte): 55 AA 00 00 01 35 9E
+HIL ronde 4: 597/597 identik, 0 beda, 0 tanpa jawaban | siklus FPGA 309 | pulang-pergi rata-rata 482.2 us (maks 494 us) | coba ulang 0
+TX: AA 55 00 00 00 00 00 00 00 04 0B 00 00 00 74 CC 16 26 88
+RX (7 byte): 55 AA 00 00 01 35 9E
+HIL ronde 5: 597/597 identik, 0 beda, 0 tanpa jawaban | siklus FPGA 309 | pulang-pergi rata-rata 482.2 us (maks 494 us) | coba ulang 0
+TX: AA 55 00 00 00 00 00 00 00 04 0B 00 00 00 74 CC 16 26 88
+RX (7 byte): 55 AA 00 00 01 35 9E
+HIL ronde 6: 597/597 identik, 0 beda, 0 tanpa jawaban | siklus FPGA 309 | pulang-pergi rata-rata 482.2 us (maks 494 us) | coba ulang 0
+TX: AA 55 00 00 00 00 00 00 00 04 0B 00 00 00 74 CC 16 26 88
+RX (7 byte): 55 AA 00 00 01 35 9E
+HIL ronde 7: 597/597 identik, 0 beda, 0 tanpa jawaban | siklus FPGA 309 | pulang-pergi rata-rata 482.2 us (maks 494 us) | coba ulang 0
+TX: AA 55 00 00 00 00 00 00 00 04 0B 00 00 00 74 CC 16 26 88
+RX (7 byte): 55 AA 00 00 01 35 9E
+HIL ronde 8: 597/597 identik, 0 beda, 0 tanpa jawaban | siklus FPGA 309 | pulang-pergi rata-rata 482.2 us (maks 494 us) | coba ulang 0
+TX: AA 55 00 00 00 00 00 00 00 04 0B 00 00 00 74 CC 16 26 88
+RX (7 byte): 55 AA 00 00 01 35 9E
+HIL ronde 9: 597/597 identik, 0 beda, 0 tanpa jawaban | siklus FPGA 309 | pulang-pergi rata-rata 482.3 us (maks 494 us) | coba ulang 0

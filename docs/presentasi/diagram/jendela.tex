@@ -1,0 +1,12 @@
+% Jendela waktu fitur dan target
+\begin{tikzpicture}[x=0.075cm, y=1cm]
+  \fill[izma!12] (-60,0) rectangle (0,0.8);
+  \fill[shania!15] (0,0) rectangle (60,0.8);
+  \draw[line width=0.8pt, ->] (-66,0) -- (68,0) node[right, font=\scriptsize] {menit};
+  \foreach \x/\l in {-60/$t-60$, -30/$t-30$, -15/$t-15$, -5/$t-5$, 0/$t$, 60/$t+60$}
+    {\draw (\x,0) -- (\x,-0.12) node[below, font=\tiny] {\l};}
+  \node[font=\scriptsize, align=center] at (-30,0.4) {\textbf{fitur} (hanya data $\le t$)\\lag daya, rata-rata angin, $v^3$, arah, jam, $\rho$};
+  \node[font=\scriptsize, align=center] at (30,0.4) {\textbf{target}\\rata-rata daya $t{+}1\ldots t{+}60$};
+  \draw[merah, line width=1pt] (0,-0.05) -- (0,0.95) node[above left, font=\scriptsize, text=merah] {prediksi dibuat};
+  \node[font=\tiny, text=black!60, anchor=west] at (14,1.05) {+ prakiraan angin Open-Meteo untuk jam ini};
+\end{tikzpicture}

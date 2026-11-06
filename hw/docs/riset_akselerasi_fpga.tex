@@ -1,0 +1,580 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[indonesian]{babel}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+
+\usepackage[top=2.7cm,bottom=2.7cm,left=2.8cm,right=2.8cm]{geometry}
+\usepackage{setspace}
+\setstretch{1.4}
+
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{needspace}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,shapes.multipart,arrows.meta,positioning,fit,backgrounds,calc}
+
+\usepackage[hidelinks]{hyperref}
+
+% Format Judul Bab
+\titleformat{\section}[block]{\normalsize\bfseries\centering}{\thesection.}{0.5em}{\MakeUppercase}
+\titlespacing*{\section}{0pt}{14pt}{8pt}
+
+\titleformat{\subsection}[block]{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\titlespacing*{\subsection}{0pt}{10pt}{4pt}
+
+\setlength{\parindent}{1.15cm}
+\setlength{\parskip}{0pt}
+
+% Palet Warna & Gaya Diagram UML Standar
+\definecolor{umlblue}{RGB}{225,238,252}
+\definecolor{umlborder}{RGB}{40,85,145}
+\definecolor{umlgreen}{RGB}{222,242,225}
+\definecolor{umlgreenborder}{RGB}{45,120,60}
+\definecolor{umlyellow}{RGB}{255,246,214}
+\definecolor{umlyellowborder}{RGB}{165,125,20}
+\definecolor{umlorange}{RGB}{253,233,217}
+\definecolor{umlorangeborder}{RGB}{180,90,30}
+\definecolor{umlgray}{RGB}{244,245,247}
+
+\tikzset{
+    umlcomp/.style={rectangle, draw=umlborder, line width=0.8pt, fill=umlblue, text width=3.6cm, align=center, minimum height=1.2cm, font=\footnotesize},
+    umlhw/.style={rectangle, draw=umlgreenborder, line width=0.8pt, fill=umlgreen, text width=3.6cm, align=center, minimum height=1.2cm, font=\footnotesize},
+    umlmem/.style={rectangle, draw=umlyellowborder, line width=0.8pt, fill=umlyellow, text width=3.5cm, align=center, minimum height=1.1cm, font=\footnotesize},
+    umlpost/.style={rectangle, draw=umlorangeborder, line width=0.8pt, fill=umlorange, text width=3.5cm, align=center, minimum height=1.1cm, font=\footnotesize},
+    umlport/.style={rectangle, draw=black, fill=white, minimum width=0.22cm, minimum height=0.22cm, inner sep=0pt},
+    umlstate/.style={rectangle, rounded corners=5pt, draw=umlborder, line width=0.8pt, fill=umlblue, text width=3.1cm, align=center, minimum height=1.0cm, font=\footnotesize},
+    umlarrow/.style={-{Stealth[length=2.4mm]}, line width=0.8pt, draw=black!85},
+    umldashed/.style={-{OpenTriangle 45[length=2.3mm]}, dashed, line width=0.75pt, draw=black!75}
+}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{1.5cm}
+    {\large\bfseries LAPORAN PERANCANGAN PERANGKAT KERAS CHIP FPGA\par}
+    \vspace{0.7cm}
+    {\large\bfseries AKSELERATOR JARINGAN SARAF TIRUAN BERBASIS PIPELINE MAC4 PADA FPGA UNTUK PREDIKSI DAYA TURBIN ANGIN SKALA KECIL\par}
+    \vspace{1.0cm}
+    {\normalsize Ringkasan Masalah, Solusi Arsitektur, Diagram Blok UML 2.5, Evaluasi Capaian MVP, Rencana Improvisasi Chip, dan Daftar Pertanyaan Lapangan\par}
+    \vspace{2.4cm}
+    
+    \begin{minipage}{0.85\textwidth}
+        \centering
+        \textbf{Sub-Proyek Lapisan 3 (L3 — Semikonduktor Hemat Daya):}\\
+        Proyek \textit{WindEdgeChip} — DeepTech for Smart-X Hackathon 2026\\
+        Sub-Topik: \textit{Wind Power Output Forecasting}
+    \end{minipage}
+    
+    \vfill
+    {\bfseries TIM CHITATO (WINDEDGECHIP)\par}
+    {\bfseries INSTITUT TEKNOLOGI BANDUNG\par}
+    {\bfseries OKTOBER 2026\par}
+\end{titlepage}
+
+\newpage
+\pagenumbering{arabic}
+
+% ============================================================================
+\section{POSISI CAPAIAN SAAT INI TERHADAP MVP DAN RENCANA PENGEMBANGAN}
+% ============================================================================
+
+Laporan ini merangkum perancangan perangkat keras akselerator pada papan FPGA \textbf{Sipeed Tang Nano 4K (Gowin GW1NSR-LV4C)} untuk memprediksi daya turbin angin satu jam ke depan. Sebagai gambaran awal, Gambar \ref{fig:timeline_mvp} memetakan posisi program chip yang telah selesai dikerjakan saat ini terhadap batas \textit{Minimum Viable Product} (MVP) serta tahapan pengembangan selanjutnya.
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=0.92, every node/.style={transform shape}]
+    \draw[draw=umlborder!50, fill=umlgray!50, rounded corners=5pt] (-0.6, -2.4) rectangle (15.8, 2.2);
+    \node[font=\footnotesize\bfseries, text=umlborder] at (7.6, 1.8) {GARIS PROGRES PENGEMBANGAN CHIP FPGA};
+
+    \draw[line width=3.0pt, draw=umlgreenborder] (0.6, 0.3) -- (6.8, 0.3);
+    \draw[line width=2.5pt, draw=umlorangeborder, dashed] (6.8, 0.3) -- (14.6, 0.3);
+
+    \draw[line width=1.0pt, draw=red!75!black, dotted] (8.3, -2.1) -- (8.3, 1.45);
+    \node[font=\tiny\bfseries, text=red!75!black, fill=white, inner sep=1.5pt] at (8.3, 1.3) {BATAS SYARAT MVP};
+
+    \filldraw[fill=umlgreenborder, draw=white, line width=1.2pt] (0.8, 0.3) circle (0.22cm);
+    \node[font=\tiny\bfseries, text=white] at (0.8, 0.3) {1};
+    \node[font=\scriptsize\bfseries, align=center, text=umlgreenborder] at (0.8, 0.9) {Tahap 1\\(Selesai)};
+    \node[font=\tiny, align=center, text width=2.4cm] at (0.8, -0.8) {\textbf{Golden Model}\\Kuantisasi \texttt{INT8} \& Ekspor \texttt{.hex}};
+
+    \filldraw[fill=umlgreenborder, draw=white, line width=1.2pt] (3.8, 0.3) circle (0.22cm);
+    \node[font=\tiny\bfseries, text=white] at (3.8, 0.3) {2};
+    \node[font=\scriptsize\bfseries, align=center, text=umlgreenborder] at (3.8, 0.9) {Tahap 2\\(Selesai)};
+    \node[font=\tiny, align=center, text width=2.5cm] at (3.8, -0.8) {\textbf{RTL \& Simulasi}\\6 Modul Verilog, Uji 2.000 Sampel};
+
+    \filldraw[fill=umlgreen!80, draw=umlgreenborder, line width=1.0pt] (6.8, 0.3) circle (0.36cm);
+    \filldraw[fill=umlgreenborder, draw=white, line width=1.2pt] (6.8, 0.3) circle (0.22cm);
+    \node[font=\tiny\bfseries, text=white] at (6.8, 0.3) {3};
+    \node[font=\scriptsize\bfseries, align=center, fill=umlyellow, draw=umlyellowborder, rounded corners=2pt, inner sep=2pt] at (6.8, 1.1) {POSISI SEKARANG\\(MVP Inti Tercapai)};
+    \node[font=\tiny, align=center, text width=2.7cm] at (6.8, -0.9) {\textbf{Uji Papan FPGA}\\Flash Permanen \& Uji Serial UART};
+
+    \filldraw[fill=white, draw=umlorangeborder, line width=1.6pt] (10.5, 0.3) circle (0.22cm);
+    \node[font=\tiny\bfseries, text=umlorangeborder] at (10.5, 0.3) {4};
+    \node[font=\scriptsize\bfseries, align=center, text=umlorangeborder] at (10.5, 0.9) {Tahap 4\\(Penguatan MVP)};
+    \node[font=\tiny, align=center, text width=2.8cm] at (10.5, -0.9) {\textbf{Integrasi Sistem}\\Paket \texttt{CRC-8}, Watchdog, \& Ukur Daya};
+
+    \filldraw[fill=white, draw=umlborder, line width=1.6pt] (14.1, 0.3) circle (0.22cm);
+    \node[font=\tiny\bfseries, text=umlborder] at (14.1, 0.3) {5};
+    \node[font=\scriptsize\bfseries, align=center, text=umlborder] at (14.1, 0.9) {Tahap 5\\(Melebihi MVP)};
+    \node[font=\tiny, align=center, text width=2.9cm] at (14.1, -0.9) {\textbf{Pengembangan Lanjut}\\Quad-SPI, Update Bobot RAM, \& Getaran};
+\end{tikzpicture}
+\caption{Garis Progres Posisi Program Chip Saat Ini terhadap Standar MVP dan Rencana Improvisasi.}
+\label{fig:timeline_mvp}
+\end{figure}
+
+Berdasarkan panduan kompetisi, syarat utama MVP untuk Lapisan 3 (Semikonduktor) adalah adanya rancangan sirkuit atau \textit{IP Core} buatan sendiri yang dapat didemokan langsung melalui FPGA atau simulasi fungsional beserta bukti pengukuran daya dan latensinya. Saat ini, \textbf{program chip kami telah berada di Titik 3 dan sudah memenuhi syarat fungsional MVP inti}: rangkaian telah tertanam permanen di memori internal papan FPGA dan berhasil menjalankan prediksi secara langsung melalui komunikasi serial UART. Dengan tercapainya fungsi dasar ini, rencana kerja berikutnya diarahkan pada penguatan protokol komunikasi untuk integrasi penuh dengan ESP32 (Titik 4) serta improvisasi fitur di atas standar MVP (Titik 5).
+
+% ============================================================================
+\section{RINGKASAN MASALAH}
+% ============================================================================
+
+Secara fisika, daya listrik yang dihasilkan turbin angin berbanding lurus dengan pangkat tiga kecepatan anginnya:
+\begin{equation}
+    P_{\text{angin}} = \frac{1}{2} \, \rho \, A \, v^3 \, C_p
+\end{equation}
+Hubungan pangkat tiga ini membuat keluaran daya sangat sensitif terhadap perubahan angin. Dari rekaman data selama 11 bulan pada turbin angin berdiameter 3 meter di atap Gedung PAU ITB \cite{hartanto2026}, kenaikan kecepatan angin dari $2{,}05\text{ m/s}$ ke $3{,}80\text{ m/s}$ sudah cukup untuk membuat daya melonjak 28 kali lipat (dari $5{,}6\text{ W}$ menjadi $158{,}7\text{ W}$). Tanpa prediksi daya ke depan, pengelola tidak dapat menjadwalkan kapan listrik harus disimpan ke baterai, disalurkan ke beban, atau dicadangkan dari jaringan PLN \cite{pln2025}, sehingga seluruh listrik turbin saat ini hanya dibuang menjadi panas pada resistor beban (\textit{dump load}).
+
+Ketika model kecerdasan buatan (\textit{Machine Learning}) hendak dipasang langsung pada perangkat di dekat turbin (\textit{edge device}), terdapat empat kendala perangkat keras:
+
+\begin{enumerate}[leftmargin=0.7cm, itemsep=3pt]
+    \item \textbf{Pemborosan Daya Diam pada Komputer Mini:}
+    Sistem pemantauan sebelumnya menggunakan komputer papan tunggal Raspberry Pi 4 \cite{hartanto2026}. Dari pengujian lapangan, prosesornya hanya terpakai sekitar $2\%$ dan memori RAM sekitar $8\%$, tetapi perangkat tetap membutuhkan daya $3\text{--}5\text{ W}$ sepanjang waktu untuk menjalankan sistem operasi Linux. Saat angin pelan dan turbin hanya menghasilkan $5\text{--}10\text{ W}$, lebih dari separuh energi yang dihasilkan habis terpakai oleh alat pemantaunya sendiri.
+
+    \item \textbf{Inefisiensi Eksekusi Berurutan pada Prosesor Umum:}
+    Prosesor standar mengeksekusi instruksi satu per satu secara berurutan (ambil instruksi, terjemahkan, ambil data, lalu hitung). Untuk model jaringan saraf tiruan yang membutuhkan ribuan perkalian dan penjumlahan (\textit{Multiply-Accumulate} / MAC), sebagian besar waktu dan energi habis pada lalu lintas pembacaan instruksi, bukan pada proses hitungnya.
+
+    \item \textbf{Keterbatasan Ruang jika Menggunakan Prosesor Lunak di FPGA Kecil:}
+    Pendekatan seperti \textit{CFU Playground} \cite{prakash2023} menanamkan prosesor lunak RISC-V (\textit{VexRiscv}) ke dalam FPGA. Namun, pada chip FPGA berdaya rendah yang berukuran kecil ($4.000\text{--}5.000\text{ LUT}$), prosesor lunak tersebut memakan lebih dari $70\%$ kapasitas gerbang logika, sehingga ruang yang tersisa untuk akselerator sangat terbatas.
+
+    \item \textbf{Risiko Gangguan Koneksi dan Waktu Tanggap yang Tidak Pasti:}
+    Mengandalkan komputasi di server awan (\textit{cloud}) berisiko gagal saat koneksi internet di lokasi turbin terputus. Selain itu, perangkat berbasis sistem operasi memiliki jeda penjadwalan (\textit{jitter}), sedangkan sistem kendali daya membutuhkan waktu hitung yang pasti (\textit{deterministik}).
+\end{enumerate}
+
+% ============================================================================
+\section{IDE SOLUSI PERANGKAT KERAS}
+% ============================================================================
+
+Untuk mengatasi masalah di atas, tugas komputasi dibagi ke dua perangkat hemat daya sesuai keahliannya masing-masing:
+\begin{itemize}[leftmargin=0.7cm, itemsep=3pt]
+    \item \textbf{Mikrokontroler ESP32 ($< 0{,}5\text{ W}$):} Menangani komunikasi luar, yaitu membaca sensor daya dan cuaca lewat protokol \texttt{Modbus RTU (RS-485)}, mengambil prakiraan cuaca BMKG \cite{bmkg2026} lewat WiFi, menyusun 16 fitur masukan menjadi bilangan bulat 8-bit (\texttt{INT8}), serta mengirim hasil prediksi ke dashboard melalui \texttt{MQTT}.
+    \item \textbf{Chip FPGA Sipeed Tang Nano 4K (Gowin GW1NSR-LV4C):} Berfungsi murni sebagai mesin hitung khusus (\textit{co-processor}) tanpa prosesor dan tanpa sistem operasi \cite{borras2022}. Chip ini hanya berisi jalur pengali-penjumlah paralel yang diatur oleh mesin status (\textit{Finite State Machine} / FSM).
+\end{itemize}
+
+Rancangan akselerator di dalam FPGA didasarkan pada tiga pilihan teknis:
+\begin{enumerate}[leftmargin=0.7cm, itemsep=3pt]
+    \item \textbf{Menggunakan Arsitektur MLP dibanding LSTM:} Model deret waktu seperti LSTM membutuhkan fungsi aktivasi $\tanh$ dan $\text{sigmoid}$ yang rumit dibuat di sirkuit digital. Sebagai gantinya, digunakan \textit{Multi-Layer Perceptron} (MLP) tiga lapis ($16 \to 32 \to 16 \to 1$) yang membaca riwayat data melalui fitur jendela waktu (\textit{sliding window}). Seluruh hitungannya murni kali-jumlah linier dengan aktivasi \textbf{ReLU} ($\max(0,x)$), yang di perangkat keras cukup dibuat dengan memeriksa bit tanda negatif.
+    \item \textbf{Kuantisasi Bilangan Bulat 8-Bit (\texttt{INT8}):} Mengikuti metode kuantisasi integer \cite{jacob2018}, seluruh fitur dan bobot disederhanakan dari angka desimal 32-bit (\texttt{FP32}) ke bilangan bulat 8-bit ($[-128, +127]$) dengan register penampung 32-bit (\texttt{INT32}). Cara ini memangkas ukuran rangkaian pengali secara drastis tanpa penurunan akurasi yang berarti.
+    \item \textbf{Pipa Hitung 4-Jalur Paralel (\texttt{MAC4}):} Empat unit pengali bekerja serentak dalam satu langkah detak (\textit{clock}), sehingga $1.040$ operasi perkalian pada jaringan MLP dapat diselesaikan hanya dalam $1.040 / 4 = 260$ langkah hitung.
+\end{enumerate}
+
+\begin{table}[h!]
+\centering
+\small
+\setstretch{1.15}
+\caption{Perbandingan Pendekatan Arsitektur Akselerasi ML pada FPGA}
+\label{tab:komparasi_metode}
+\begin{tabularx}{\textwidth}{p{3.2cm}Xp{3.5cm}p{3.1cm}}
+\toprule
+\textbf{Pendekatan Arsitektur} & \textbf{Cara Kerja} & \textbf{Kelebihan} & \textbf{Kekurangan pada Chip Kecil} \\
+\midrule
+\textbf{1. Soft-Core RISC-V + Instruksi Khusus} & Menanam prosesor lunak di FPGA ditambah instruksi tambahan \cite{prakash2023}. & Mudah diprogram dengan bahasa C/C++. & Prosesor lunak menghabiskan $>70\%$ ruang logika FPGA kecil. \\
+\midrule
+\textbf{2. Systolic Array (Serupa TPU)} & Susunan sel hitung 2D yang mengalirkan data secara berantai \cite{jouppi2017}. & Sangat cepat untuk matriks berukuran ribuan. & Pengaturan aliran data rumit; kurang efisien untuk input kecil ($N=16$). \\
+\midrule
+\textbf{3. Recurrent Engine (LSTM / GRU)} & Rangkaian khusus yang meniru sel memori berurutan. & Menangkap urutan waktu secara langsung. & Butuh tabel aproksimasi fungsi $\tanh$/sigmoid yang boros gerbang. \\
+\midrule
+\textbf{4. Pipeline MAC4 Tanpa CPU (Pilihan Kami)} & Empat pengali paralel + pohon penjumlah yang diatur langsung oleh FSM. & \textbf{Tanpa beban CPU; sangat hemat ruang logika dan daya; waktu hitung pasti} \cite{borras2022}. & Urutan lapisan mengikuti FSM; perubahan struktur butuh sintesis ulang. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================================
+\section{DIAGRAM BLOK SISTEM DAN CHIP BERSTANDAR UML 2.5}
+% ============================================================================
+
+Dokumentasi arsitektur disusun menggunakan standar \textbf{Unified Modeling Language (UML 2.5)} \cite{omg_uml25} dalam tiga tingkatan: hubungan antarkomponen sistem secara menyeluruh (Gambar \ref{fig:uml_system}), struktur modul di dalam chip FPGA \texttt{top\_soc.v} (Gambar \ref{fig:uml_ibd}), serta diagram transisi mesin status pada pengendali \texttt{fsm\_controller.v} (Gambar \ref{fig:uml_fsm}).
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=0.86, every node/.style={transform shape}]
+    \draw[draw=umlborder, line width=1pt] (-0.4, -5.2) rectangle (16.4, 3.6);
+    \fill[umlborder] (-0.4, 3.05) rectangle (6.6, 3.6);
+    \node[text=white, font=\footnotesize\bfseries, anchor=west] at (-0.2, 3.32) {cmp Sistem\_Terintegrasi\_WindEdgeChip [UML 2.5]};
+
+    \node[umlcomp, fill=umlgray, draw=black!70, text width=3.7cm, minimum height=2.2cm] (sens) at (2.0, 1.4) {
+        {\scriptsize\texttt{<<subsystem>>}}\\
+        \textbf{Akuisisi Sensor Turbin}\\[2pt]
+        \scriptsize $\bullet$ PZEM-017 (V, I, Daya DC)\\
+        \scriptsize $\bullet$ Anemometer Optikal\\
+        \scriptsize $\bullet$ Weather Station ($T, RH, \theta$)
+    };
+    \node[umlport, label={[font=\tiny]above:\texttt{p\_rs485}}] (p_sens) at (4.0, 1.4) {};
+
+    \node[umlcomp, fill=umlgray, draw=black!70, text width=3.7cm, minimum height=1.5cm] (bmkg) at (2.0, -1.3) {
+        {\scriptsize\texttt{<<external\_service>>}}\\
+        \textbf{Server Cuaca BMKG}\\[2pt]
+        \scriptsize Prakiraan Cuaca Per 3 Jam\\
+        \scriptsize (\texttt{adm4: 32.73.02.1006})
+    };
+    \node[umlport, label={[font=\tiny]above:\texttt{p\_https}}] (p_bmkg) at (4.0, -1.3) {};
+
+    \node[umlcomp, text width=4.0cm, minimum height=3.8cm] (esp) at (8.0, 0.2) {
+        {\scriptsize\texttt{<<mcu\_node>>}}\\
+        \textbf{ESP32 Host Controller}\\[3pt]
+        \scriptsize \textbf{Atribut \& Fungsi:}\\
+        \scriptsize + \texttt{feature\_vec[16]: int8}\\
+        \scriptsize + \texttt{quantize\_fp32\_to\_int8()}\\
+        \scriptsize + \texttt{dequantize\_to\_watt()}\\
+        \scriptsize + \texttt{fallback\_tflite\_micro()}
+    };
+    \node[umlport] (p_esp_in1) at (5.85, 1.4) {};
+    \node[umlport] (p_esp_in2) at (5.85, -1.3) {};
+    \node[umlport, label={[font=\tiny]above:\texttt{p\_uart\_qspi}}] (p_esp_fpga) at (10.15, 0.6) {};
+    \node[umlport, label={[font=\tiny]left:\texttt{p\_mqtt}}] (p_esp_mqtt) at (8.0, -1.85) {};
+
+    \node[umlhw, text width=4.2cm, minimum height=3.8cm] (fpga) at (13.8, 0.2) {
+        {\scriptsize\texttt{<<fpga\_soc>>}}\\
+        \textbf{Tang Nano 4K (GW1NSR-4C)}\\[2pt]
+        \scriptsize \textbf{Top Module:} \texttt{top\_soc.v}\\
+        \scriptsize $\bullet$ \texttt{u\_uart\_rx} / \texttt{u\_uart\_tx}\\
+        \scriptsize $\bullet$ \texttt{u\_accelerator\_core (MAC4)}\\
+        \scriptsize $\bullet$ Osilator: $27\text{ MHz}$
+    };
+    \node[umlport] (p_fpga_io) at (11.55, 0.6) {};
+
+    \node[umlpost, text width=4.2cm, minimum height=1.3cm] (ina) at (13.8, -3.6) {
+        {\scriptsize\texttt{<<measurement\_instrument>>}}\\
+        \textbf{Sensor Arus \& Daya INA219}\\
+        \scriptsize Pengukuran Daya ($E = V \cdot I \cdot t$)
+    };
+
+    \node[umlcomp, fill=umlyellow, draw=umlyellowborder, text width=6.5cm, minimum height=1.5cm] (srv) at (5.8, -3.7) {
+        {\scriptsize\texttt{<<application\_layer>>}}\\
+        \textbf{L1: Node-RED + InfluxDB + Dashboard Vue.js}\\
+        \scriptsize Tampilan Daya Aktual vs. Prediksi 1 Jam Ke Depan \& Turbin Virtual
+    };
+    \node[umlport] (p_srv_in) at (8.0, -2.8) {};
+
+    \draw[umlarrow] (p_sens) -- node[above, font=\scriptsize\bfseries] {\texttt{<<Modbus RTU>>}} node[below, font=\tiny] {RS-485} (p_esp_in1);
+    \draw[umlarrow] (p_bmkg) -- node[above, font=\scriptsize\bfseries] {\texttt{<<REST JSON>>}} node[below, font=\tiny] {WiFi HTTPS} (p_esp_in2);
+    \draw[umlarrow] ($(p_esp_fpga)+(0,0.18)$) -- node[above, font=\tiny\bfseries] {TX: 16B Fitur \texttt{INT8}} ($(p_fpga_io)+(0,0.18)$);
+    \draw[umlarrow] ($(p_fpga_io)+(0,-0.18)$) -- node[below, font=\tiny\bfseries] {RX: 3B (\texttt{Pred + Cycles})} ($(p_esp_fpga)+(0,-0.18)$);
+    \draw[umlarrow] (p_esp_mqtt) -- node[right, font=\scriptsize\bfseries] {\texttt{<<MQTT>>} (Daya \& Prediksi W)} (p_srv_in);
+    \draw[umldashed] (ina.north) -- node[right, font=\tiny] {\texttt{<<monitor\_power>>}} (fpga.south);
+    \draw[umldashed] (ina.west) -| node[pos=0.25, above, font=\tiny] {\texttt{<<monitor\_power>>}} (esp.south east);
+\end{tikzpicture}
+\caption{Diagram Komponen Sistem Terintegrasi (\textit{UML 2.5 Component Diagram}).}
+\label{fig:uml_system}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=0.83, every node/.style={transform shape}]
+    \draw[draw=umlgreenborder, line width=1.1pt, fill=umlgreen!20] (-0.6, -5.8) rectangle (16.8, 4.3);
+    \fill[umlgreenborder] (-0.6, 3.75) rectangle (8.2, 4.3);
+    \node[text=white, font=\footnotesize\bfseries, anchor=west] at (-0.4, 4.02) {ibd [<<fpga\_soc>> top\_soc (GW1NSR-LV4C @ 27 MHz)]};
+
+    \node[umlport, label={[font=\scriptsize\bfseries]left:\texttt{clk (Pin 45)}}] (p_clk) at (-0.6, 2.7) {};
+    \node[umlport, label={[font=\scriptsize\bfseries]left:\texttt{rst\_n (Pin 14)}}] (p_rst) at (-0.6, 1.8) {};
+    \node[umlport, label={[font=\scriptsize\bfseries]left:\texttt{rx\_pin (Pin 44)}}] (p_rx) at (-0.6, 0.2) {};
+    \node[umlport, label={[font=\scriptsize\bfseries]right:\texttt{tx\_pin (Pin 46)}}] (p_tx) at (16.8, -4.3) {};
+    \node[umlport, label={[font=\scriptsize\bfseries]right:\texttt{led\_busy (Pin 10)}}] (p_led1) at (16.8, 2.5) {};
+    \node[umlport, label={[font=\scriptsize\bfseries]right:\texttt{led\_done (Pin 13)}}] (p_led2) at (16.8, 1.6) {};
+
+    \node[umlcomp, text width=3.1cm, minimum height=2.2cm] (urx) at (1.8, 0.2) {
+        {\scriptsize\texttt{<<transceiver>>}}\\
+        \textbf{\texttt{u\_uart\_rx}}\\
+        \scriptsize (\texttt{uart\_rx.v})\\[2pt]
+        \tiny Penerima 115200 bps\\
+        \tiny \texttt{rx\_count[3:0]} (0..15)\\
+        \tiny Pemicu \texttt{core\_start}
+    };
+
+    \draw[draw=umlborder, dashed, line width=0.9pt, fill=white] (3.8, -3.3) rectangle (15.8, 3.4);
+    \node[font=\scriptsize\bfseries, text=umlborder, anchor=north west] at (4.0, 3.3) {\texttt{<<ip\_core>> u\_accelerator\_core : top.v}};
+
+    \node[umlcomp, text width=3.3cm, minimum height=2.2cm] (fsm) at (6.0, 1.6) {
+        {\scriptsize\texttt{<<controller>>}}\\
+        \textbf{\texttt{u\_fsm}}\\
+        \scriptsize (\texttt{fsm\_controller.v})\\[2pt]
+        \tiny Pengatur Urutan 3 Layer\\
+        \tiny \texttt{neuron\_cnt[5:0]}, \texttt{step\_cnt[3:0]}\\
+        \tiny \texttt{cycle\_count[15:0]}
+    };
+
+    \node[umlmem, text width=3.5cm, minimum height=1.8cm] (rom) at (10.5, 1.9) {
+        {\scriptsize\texttt{<<memory\_bram>>}}\\
+        \textbf{\texttt{u\_weights\_rom}}\\
+        \scriptsize (\texttt{weights\_rom.v} + \texttt{bias\_mem})\\[2pt]
+        \tiny 1 BSRAM \texttt{SPX9} ($260 \times 32\text{-bit}$)\\
+        \tiny + 49 Bias \texttt{INT32} (\texttt{bias.hex})
+    };
+
+    \node[umlmem, text width=3.3cm, minimum height=2.1cm] (abuf) at (6.0, -1.5) {
+        {\scriptsize\texttt{<<register\_file>>}}\\
+        \textbf{Activation RAM}\\[2pt]
+        \tiny $\bullet$ \texttt{in\_buf[0:15]} (\texttt{INT8})\\
+        \tiny $\bullet$ \texttt{h1\_buf[0:31]} (\texttt{INT8})\\
+        \tiny $\bullet$ \texttt{h2\_buf[0:15]} (\texttt{INT8})\\
+        \tiny Pemilih 4-Byte Paralel
+    };
+
+    \node[umlhw, text width=3.7cm, minimum height=2.9cm] (mac) at (10.5, -1.5) {
+        {\scriptsize\texttt{<<datapath\_unit>>}}\\
+        \textbf{\texttt{u\_mac4}}\\
+        \scriptsize (\texttt{mac4\_engine.v})\\[2pt]
+        \tiny \textbf{T1:} 4$\times$ Pengali (\texttt{INT8}$\to$\texttt{INT16})\\
+        \tiny \textbf{T2:} Pohon Penjumlah 4:1\\
+        \tiny \textbf{T3:} Akumulator (\texttt{acc\_out[31:0]})
+    };
+
+    \node[umlpost, text width=2.9cm, minimum height=2.9cm] (post) at (14.1, -1.5) {
+        {\scriptsize\texttt{<<datapath\_unit>>}}\\
+        \textbf{\texttt{u\_post}}\\
+        \scriptsize (\texttt{post\_process.v})\\[2pt]
+        \tiny 1. \texttt{+ bias\_in[31:0]}\\
+        \tiny 2. \texttt{* mult\_scale (32)}\\
+        \tiny 3. \texttt{>>> shift (8)}\\
+        \tiny 4. \texttt{ReLU \& Batas[127]}
+    };
+
+    \node[umlcomp, text width=8.5cm, minimum height=1.3cm] (utx) at (9.5, -4.5) {
+        {\scriptsize\texttt{<<transceiver>>}} \textbf{\texttt{u\_uart\_tx} + Pengirim Balasan (\texttt{top\_soc.v})}\\
+        \tiny Mengirim 3 Byte: \texttt{[Byte0: Prediksi\_INT8, Byte1: Siklus\_MSB, Byte2: Siklus\_LSB]}
+    };
+
+    \draw[umlarrow] (p_rx) -- (urx.west);
+    \draw[umlarrow] (urx.north) |- node[pos=0.7, above, font=\tiny] {\texttt{core\_start}} (fsm.west);
+    \draw[umlarrow] (urx.south) |- node[pos=0.65, below, font=\tiny] {\texttt{in\_feature\_data[7:0], addr[3:0], we}} (abuf.west);
+    \draw[umlarrow] (fsm.east) -- node[above, font=\tiny] {\texttt{step\_addr[8:0]}} node[below, font=\tiny] {\texttt{bias\_addr[5:0]}} (rom.west);
+    \draw[umlarrow] (fsm.south) -- node[left, font=\tiny] {\texttt{layer\_sel[1:0], in\_idx\_base[4:0]}} (abuf.north);
+    \draw[umlarrow] (fsm.south east) -- node[pos=0.5, above, sloped, font=\tiny] {\texttt{mac\_clr, mac\_en}} (mac.north west);
+    \draw[umlarrow] (rom.south) -- node[right, font=\tiny\bfseries] {\texttt{weights\_q[31:0]} (4$\times$INT8)} (mac.north);
+    \draw[umlarrow] (abuf.east) -- node[above, font=\tiny\bfseries] {\texttt{in0..in3}} node[below, font=\tiny] {(4$\times$INT8)} (mac.west);
+    \draw[umlarrow] (mac.east) -- node[above, font=\tiny\bfseries] {\texttt{acc\_out}} node[below, font=\tiny] {\texttt{[31:0]}} (post.west);
+    \draw[umlarrow] (rom.east) -| node[pos=0.25, above, font=\tiny] {\texttt{cur\_bias[31:0]}} (post.north);
+    \draw[umlarrow] (post.south) -- ++(0,-0.45) -| node[pos=0.25, above, font=\tiny\bfseries] {\texttt{act\_post\_out[7:0]} (Simpan Antarlapisan \& Hasil)} (abuf.south);
+    \draw[umlarrow] (post.south) -- ++(0,-0.45) -| (utx.north);
+    \draw[umlarrow] (fsm.north) -- ++(0,0.45) -| node[pos=0.3, above, font=\tiny] {\texttt{busy, done, cycles\_out[15:0]}} (p_led1);
+    \draw[umlarrow] ($(p_led1)+(-0.8,0)$) |- (p_led2);
+    \draw[umlarrow] (utx.east) -- (p_tx);
+\end{tikzpicture}
+\caption{Diagram Struktur Komposit Internal (\textit{UML 2.5 Internal Block Diagram}) pada Modul \texttt{top\_soc.v}.}
+\label{fig:uml_ibd}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=0.85, every node/.style={transform shape}]
+    \node[umlstate, fill=umlgray] (idle) at (0, 0) {
+        \textbf{\texttt{S\_IDLE (0)}}\\[1pt]
+        \tiny \texttt{entry / busy = 0;}\\
+        \tiny \texttt{cycle\_count = 0}
+    };
+
+    \node[umlstate] (l1s) at (4.4, 0) {
+        \textbf{\texttt{S\_L1\_STEP (1)}}\\[1pt]
+        \tiny \texttt{do / mac\_en = 1}\\
+        \tiny 4 langkah/neuron ($\times 32$)\\
+        \tiny (\texttt{step\_cnt: 0..3})
+    };
+
+    \node[umlstate, fill=umlyellow, draw=umlyellowborder] (l1p) at (4.4, -2.4) {
+        \textbf{\texttt{S\_L1\_POST (2)}}\\[1pt]
+        \tiny \texttt{do / write\_act\_en = 1}\\
+        \tiny Simpan \texttt{h1\_buf[0..31]}\\
+        \tiny (160 siklus selesai)
+    };
+
+    \node[umlstate] (l2s) at (9.2, 0) {
+        \textbf{\texttt{S\_L2\_STEP (3)}}\\[1pt]
+        \tiny \texttt{do / mac\_en = 1}\\
+        \tiny 8 langkah/neuron ($\times 16$)\\
+        \tiny (\texttt{step\_cnt: 0..7})
+    };
+
+    \node[umlstate, fill=umlyellow, draw=umlyellowborder] (l2p) at (9.2, -2.4) {
+        \textbf{\texttt{S\_L2\_POST (4)}}\\[1pt]
+        \tiny \texttt{do / write\_act\_en = 1}\\
+        \tiny Simpan \texttt{h2\_buf[0..15]}\\
+        \tiny (144 siklus selesai)
+    };
+
+    \node[umlstate] (l3s) at (13.8, 0) {
+        \textbf{\texttt{S\_L3\_STEP (5)}}\\[1pt]
+        \tiny \texttt{do / mac\_en = 1}\\
+        \tiny 4 langkah/neuron ($\times 1$)\\
+        \tiny (\texttt{step\_cnt: 0..3})
+    };
+
+    \node[umlstate, fill=umlorange, draw=umlorangeborder] (l3p) at (13.8, -2.4) {
+        \textbf{\texttt{S\_L3\_POST (6)}}\\[1pt]
+        \tiny \texttt{do / write\_act\_en = 1}\\
+        \tiny Tulis \texttt{prediction\_out}\\
+        \tiny (5 siklus selesai)
+    };
+
+    \node[umlstate, fill=umlgreen, draw=umlgreenborder] (done) at (0, -2.4) {
+        \textbf{\texttt{S\_DONE (7)}}\\[1pt]
+        \tiny \texttt{entry / done = 1}\\
+        \tiny Picu UART TX (3 Byte)\\
+        \tiny Total = \textbf{310 Siklus}
+    };
+
+    \draw[umlarrow] (idle) -- node[above, font=\tiny\bfseries] {\texttt{[start \&\& !busy]}} (l1s);
+    \draw[umlarrow] ([xshift=0.3cm]l1s.south) -- node[right, font=\tiny] {\texttt{[step==3]}} ([xshift=0.3cm]l1p.north);
+    \draw[umlarrow] ([xshift=-0.3cm]l1p.north) -- node[left, font=\tiny] {\texttt{[neuron<31]}} ([xshift=-0.3cm]l1s.south);
+    \draw[umlarrow] (l1p.east) -- node[above, sloped, font=\tiny\bfseries] {\texttt{[neuron==31]}} (l2s.west);
+    \draw[umlarrow] ([xshift=0.3cm]l2s.south) -- node[right, font=\tiny] {\texttt{[step==7]}} ([xshift=0.3cm]l2p.north);
+    \draw[umlarrow] ([xshift=-0.3cm]l2p.north) -- node[left, font=\tiny] {\texttt{[neuron<15]}} ([xshift=-0.3cm]l2s.south);
+    \draw[umlarrow] (l2p.east) -- node[above, sloped, font=\tiny\bfseries] {\texttt{[neuron==15]}} (l3s.west);
+    \draw[umlarrow] (l3s.south) -- node[right, font=\tiny] {\texttt{[step==3]}} (l3p.north);
+    \draw[umlarrow] (l3p.south) -- ++(0,-0.5) -| node[pos=0.25, below, font=\tiny\bfseries] {Selesai neuron output $\to$ \texttt{S\_DONE}} (done.south);
+    \draw[umlarrow] (done.north) -- node[left, font=\tiny] {1 siklus} (idle.south);
+\end{tikzpicture}
+\caption{Diagram Mesin Status (\textit{UML 2.5 State Machine Diagram}) pada Pengendali \texttt{fsm\_controller.v}.}
+\label{fig:uml_fsm}
+\end{figure}
+
+% ============================================================================
+\section{KONDISI ARSITEKTUR EKSISTING, EVALUASI MVP, DAN RENCANA IMPROVISASI}
+% ============================================================================
+
+\subsection{Cara Kerja Program Chip yang Sudah Berjalan Saat Ini}
+Seluruh desain akselerator telah ditulis dalam bahasa Verilog (6 modul di folder \texttt{hw/rtl/}) dan telah disintesis serta diuji pada papan \textbf{Sipeed Tang Nano 4K}:
+
+\begin{enumerate}[leftmargin=0.7cm, itemsep=3pt]
+    \item \textbf{Antarmuka Serial Berkecepatan Tinggi \& Pengemas Paket Berbingkai (\texttt{top\_soc.v}, \texttt{uart\_rx.v}, \texttt{uart\_tx.v}):}
+    Beroperasi pada clock kristal $27\text{ MHz}$ dengan laju komunikasi berkecepatan tinggi \textbf{921.600 bps} (\texttt{8-N-1}), memangkas waktu transmisi dari $\approx 1{,}65\text{ ms}$ menjadi hanya \textbf{$\approx 206\ \mu\text{s}$ ($8\times$ lebih cepat)}. Protokol mengadopsi bingkai paket (\textit{packet framing}) 19-byte \texttt{[0xAA, 0x55, 16 Byte Fitur INT8, CRC-8]} dengan proteksi kesalahan perangkat keras \textbf{CRC-8 CCITT (Polinomial 0x07, Inisialisasi 0x00)} dan \textit{Watchdog Timeout} ($10\text{ ms}$). Jika paket korup atau terputus di tengah jalan, FSM otomatis kembali ke status awal dan mengirim kode status \texttt{0xE1} tanpa memproses data sampah. Saat komputasi selesai, modul membalas dengan paket berbingkai 7-byte: \texttt{[0x55, 0xAA, STATUS (0x00), PREDIKSI, CYC\_MSB, CYC\_LSB, CRC-8]}.
+    \item \textbf{Pembacaan 4 Bobot Sekaligus dari Memori Blok (\texttt{weights\_rom.v}):}
+    Sebanyak $1.040$ bobot disimpan di dalam 1 blok memori keras (\texttt{BSRAM SPX9}) berlebar 32-bit ($260\text{ baris} \times 32\text{-bit}$, berkas \texttt{weights32.hex}). Penunjuk alamat dirancang membaca satu siklus lebih awal (\textit{prefetch}), sehingga 4 bobot \texttt{INT8} dapat langsung masuk ke unit pengali pada setiap siklus clock tanpa waktu tunggu.
+    \item \textbf{Eksekusi 3 Lapisan \& Pengiriman Hasil (\texttt{mac4\_engine.v}, \texttt{post\_process.v}):}
+    Keempat pengali menghitung hasil kali input dan bobot, menjumlahkannya ke akumulator 32-bit, lalu pada akhir setiap neuron ditambahkan bias 32-bit (\texttt{bias.hex}), dikalikan faktor skala tetap (\texttt{mult\_scale = 32}), digeser 8 bit ke kanan (\texttt{>>> 8}), dan dilewatkan ke fungsi ReLU. Seluruh proses (Lapisan 1: $160$ siklus, Lapisan 2: $144$ siklus, Lapisan 3: $5$ siklus, dan status selesai: $1$ siklus) tuntas dalam \textbf{310 siklus clock} ($11{,}48\text{ }\mu\text{s}$ pada clock $27\text{ MHz}$).
+\end{enumerate}
+
+\begin{table}[h!]
+\centering
+\small
+\setstretch{1.15}
+\caption{Hasil Sintesis, Pemetaan Pin, dan Profil Daya pada Chip Gowin GW1NSR-LV4C}
+\label{tab:resource_usage}
+\begin{tabularx}{\textwidth}{p{3.8cm}p{4.0cm}p{2.2cm}X}
+\toprule
+\textbf{Komponen Silikon} & \textbf{Pemakaian Aktual} & \textbf{Utilisasi} & \textbf{Keterangan Implementasi} \\
+\midrule
+\textbf{Logika (LUT4 + ALU)} & $1.091 \, / \, 4.608\text{ unit}$ & $\mathbf{24\%}$ & Logika FSM, kalkulator CRC-8 hardware, watchdog, dan UART 921.6k. \\
+\textbf{Register Flip-Flop} & $773 \, / \, 3.573\text{ reg}$ ($0\text{ Latch}$) & $\mathbf{22\%}$ & Buffer masukan, register framing FSM, dan akumulator. \\
+\textbf{Memori Blok (BSRAM)} & $1 \, / \, 10\text{ blok}$ (\texttt{pROM SPX9}) & $\mathbf{10\%}$ & Menyimpan $1.040\text{ bobot INT8}$ ($260 \times 32\text{-bit}$). \\
+\textbf{Blok Pengali DSP} & $2 \, / \, 8\text{ MULTADDALU18X18}$ & $\mathbf{25\%}$ & Perkalian paralel MAC4 dan skala pasca-proses. \\
+\textbf{Konsumsi Daya Chip} & Statis: $26{,}02\text{ mW}$ | Dinamis: $0{,}85\text{ mW}$ & $\mathbf{26{,}87\text{ mW}}$ & Energi inferensi $\approx 0{,}31\text{ }\mu\text{J}$/prediksi ($>110\times$ di bawah Raspi 4). \\
+\textbf{Pemetaan Pin QFN48P} & \texttt{clk}:45 | \texttt{rst\_n}:14 | \texttt{rx}:44 | \texttt{tx}:46 & $\mathbf{6 \, / \, 39\text{ Pin}}$ & Pin 10: \texttt{led\_busy} (tahan $0{,}2\text{ s}$), Pin 13: \texttt{led\_done}, UART 921600 bps. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Evaluasi terhadap MVP dan Rencana Penyempurnaan}
+Secara fungsionalitas perangkat keras inti (L3), program yang ada sekarang telah memenuhi target MVP secara andal: seluruh komputasi berjalan di atas silikon fisik Tang Nano 4K, komunikasi serial telah diproteksi penuh oleh bingkai paket dan CRC-8, serta laju baudrate telah diakselerasi ke 921.600 bps. Adapun fokus penyempurnaan berikutnya meliputi:
+\begin{enumerate}[leftmargin=0.7cm, itemsep=2pt]
+    \item \textbf{Faktor Skala Kuantisasi Masih Seragam:} Nilai pengali skala (\texttt{32}) dan geseran bit (\texttt{8}) masih dipatok sama untuk semua lapisan, dan keluaran akhir masih dibatasi oleh fungsi ReLU positif $[0..127]$.
+    \item \textbf{Bobot Masih Bersifat Tetap di \texttt{pROM}:} Jika model AI dilatih ulang dengan data cuaca baru, bobot belum bisa diperbarui langsung dari ESP32 tanpa melakukan kompilasi dan pemrograman ulang FPGA.
+\end{enumerate}
+
+\subsection{Rencana Improvisasi Chip Selanjutnya}
+Karena desain saat ini baru memakai $24\%$ gerbang logika dan $10\%$ memori blok, sisa $76\%$ kapasitas FPGA dapat dimanfaatkan untuk rencana pengembangan pada Tabel \ref{tab:improvisasi_chip}.
+
+\begin{table}[h!]
+\centering
+\small
+\setstretch{1.15}
+\caption{Rencana Improvisasi Chip FPGA (Penyempurnaan MVP dan Pengembangan Lanjut)}
+\label{tab:improvisasi_chip}
+\begin{tabularx}{\textwidth}{p{3.4cm}p{3.8cm}X}
+\toprule
+\textbf{Tahap Pengembangan} & \textbf{Bagian yang Ditingkatkan} & \textbf{Rencana Perbaikan pada Rangkaian} \\
+\midrule
+\textbf{1. Penguatan MVP Sistem} & \textbf{Bingkai Paket (\texttt{0xAA/0x55}), \texttt{CRC-8}, \& \textit{921.6 kbps UART}} & \textbf{[SELESAI \& LOLOS AUDIT]} Paket 19B berbingkai + CRC-8 hardware menolak paket korup (status 0xE1); baudrate 921600 bps memangkas latensi transfer dari 1,65 ms ke 206 μs. \\
+\cmidrule{2-3}
+ & \textbf{Skala Per-Lapisan \& Keluaran Linier} & Menambahkan pemilih nilai skala yang berbeda untuk tiap lapisan serta melewati fungsi ReLU pada lapisan terakhir agar rentang hasil prediksi lebih presisi. \\
+\midrule
+\textbf{2. Pengembangan Melebihi MVP (\textit{Beyond MVP})} & \textbf{Pembaruan Bobot Dinamis via RAM} & Mengubah mode BSRAM dari \texttt{pROM} menjadi \textbf{Dual-Port SRAM} yang dapat ditulis ulang. ESP32 dapat mengirimkan bobot baru hasil pelatihan ulang lewat paket khusus tanpa memprogram ulang FPGA. \\
+\cmidrule{2-3}
+ & \textbf{Jalur Cepat \texttt{Quad-SPI} \& \textit{Clock-Gating}} & Menambahkan antarmuka \texttt{Quad-SPI Slave} untuk mempercepat transfer data, serta mematikan clock pada blok pengali saat chip menunggu jadwal prediksi berikutnya. \\
+\cmidrule{2-3}
+ & \textbf{Pengolahan Sensor Getaran \& Alur ASIC} & Memanfaatkan sisa ruang logika dan DSP kosong untuk mengolah data sensor getaran frekuensi tinggi (deteksi kerusakan mekanis), serta menyiapkan sintesis ke teknologi \textbf{SkyWater SKY130 (130 nm)}. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================================
+\section{TIGA PERTANYAAN UNTUK MENTOR DEEPTECH (TERKAIT KONDISI DAN DINAMIKA LAPANGAN)}
+% ============================================================================
+
+Sebagai mahasiswa yang mengembangkan purwarupa ini di laboratorium, kami ingin memahami kondisi nyata di lapangan melalui tiga pertanyaan berikut kepada Mentor:
+
+\begin{enumerate}[leftmargin=0.7cm, itemsep=8pt]
+    \item \textbf{Pertanyaan 1 — Perangkat yang Dipakai di Lapangan Saat Ini, Kendalanya, dan Kebutuhan Utamanya:}
+    \begin{quote}
+    \itshape
+    ``Sejauh ini kami baru mengacu pada sistem pemantauan turbin angin skala kecil di kampus yang sebelumnya memakai Raspberry Pi. Untuk instalasi pembangkit energi terbarukan yang sudah berjalan di lapangan saat ini, perangkat pemroses atau pengontrol apa yang sebenarnya umum digunakan? Apa kendala atau kekurangan utama dari perangkat yang dipakai sekarang menurut pengalaman di lapangan, dan fitur apa yang paling dibutuhkan oleh pengelola saat ini?''
+    \end{quote}
+
+    \item \textbf{Pertanyaan 2 — Batas Solusi Sederhana dibanding Penggunaan FPGA di Lapangan:}
+    \begin{quote}
+    \itshape
+    ``Kami merancang akselerator di FPGA untuk mendampingi mikrokontroler agar perhitungan prediksi daya berjalan cepat dan hemat listrik. Menurut pandangan Mentor, apakah masalah fluktuasi daya dan pemantauan turbin di lapangan sebenarnya sudah cukup diselesaikan dengan perangkat yang lebih sederhana—seperti mikrokontroler biasa atau PLC standar—atau pada kondisi lapangan seperti apa penggunaan perangkat tingkat lanjut seperti FPGA benar-benar diperlukan?''
+    \end{quote}
+
+    \item \textbf{Pertanyaan 3 — Prioritas Improvisasi Menghadapi Kondisi Lingkungan Lapangan:}
+    \begin{quote}
+    \itshape
+    ``Program inti di papan FPGA kami saat ini sudah berjalan untuk fungsi dasar (MVP) dan masih menyisakan sekitar 80\% kapasitas chip yang kosong. Jika melihat tantangan nyata di lapangan—seperti gangguan kelistrikan dari generator, perubahan cuaca, keterbatasan daya, atau keausan mekanis turbin—ke bagian mana sebaiknya rencana improvisasi perangkat keras kami difokuskan lebih dulu agar alat ini benar-benar andal dipakai di lapangan?''
+    \end{quote}
+\end{enumerate}
+
+% ============================================================================
+\section{KESIMPULAN}
+% ============================================================================
+
+Rancangan akselerator \textbf{MAC4 Pipeline} pada FPGA \textbf{Gowin GW1NSR-LV4C (Tang Nano 4K)} telah berhasil diimplementasikan dan memenuhi fungsi dasar MVP perangkat keras. Seluruh perhitungan jaringan saraf tiruan berformat \texttt{INT8} dapat diselesaikan dalam $310\text{ siklus clock}$ ($11{,}48\text{ }\mu\text{s}$) dengan daya total $26{,}84\text{ mW}$ serta pemakaian ruang logika $20\%\text{ LUT}$. Sisa kapasitas chip yang masih luas memberikan ruang yang cukup untuk penyempurnaan keandalan komunikasi serta pengembangan fitur lanjutan sesuai kebutuhan di lapangan.
+
+\newpage
+\begin{thebibliography}{99}
+\setstretch{1.15}
+
+\bibitem{hartanto2026}
+G.~G. Hartanto, ``Sistem Monitoring Kinerja PLTB Berbasis IoT Menggunakan Metode Support Vector Machine Melalui Protokol Modbus,'' Tugas Akhir, Program Studi Sarjana Terapan Teknik Elektronika, Politeknik Negeri Bandung, 2026.
+
+\bibitem{bmkg2026}
+Badan Meteorologi, Klimatologi, dan Geofisika (BMKG), ``Data Prakiraan Cuaca Terbuka Berbasis Wilayah Administrasi Kelurahan,'' \url{https://api.bmkg.go.id/publik/prakiraan-cuaca}, diakses Okt. 2026.
+
+\bibitem{jacob2018}
+B.~Jacob, S.~Kligys, B.~Chen, M.~Zhu, M.~Tang, A.~Howard, H.~Adam, and D.~Kalenichenko, ``Quantization and training of neural networks for efficient integer-arithmetic-only inference,'' in \emph{Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, 2018, pp.~2704--2713.
+
+\bibitem{prakash2023}
+S.~Prakash, T.~Deloche, J.~Kaur, G.~Alpdogan, R.~F. Townsend, and V.~J. Reddi, ``CFU Playground: Full-stack open-source framework for Tiny Machine Learning (TinyML) acceleration on FPGAs,'' in \emph{2023 IEEE International Symposium on Performance Analysis of Systems and Software (ISPASS)}, 2023, pp.~157--167.
+
+\bibitem{borras2022}
+H.~Borras, G.~Gambardella, B.~B. Le~Minh, L.~Blott, and E.~Nurvitadhi, ``Open-source FPGA-ML codesign for the MLPerf Tiny benchmark,'' \emph{arXiv preprint arXiv:2206.11791}, 2022.
+
+\bibitem{jouppi2017}
+N.~P. Jouppi \emph{et al.}, ``In-datacenter performance of a tensor processing unit,'' in \emph{Proceedings of the 44th Annual International Symposium on Computer Architecture (ISCA)}, 2017, pp.~1--12.
+
+\bibitem{pln2025}
+PT PLN (Persero), \emph{Rencana Usaha Penyediaan Tenaga Listrik (RUPTL) 2025--2034}, Kementerian Energi dan Sumber Daya Mineral Republik Indonesia, 2025.
+
+\bibitem{omg_uml25}
+Object Management Group (OMG), \emph{OMG Unified Modeling Language (OMG UML) Specification, Version 2.5.1}, formal/2017-12-05, 2017.
+
+\end{thebibliography}
+
+\end{document}

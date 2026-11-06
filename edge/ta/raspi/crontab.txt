@@ -1,0 +1,8 @@
+# Raspi turbin (22 Okt 2026). Reboot terjadwal 00.00/12.00 diganti penjaga berbasis kondisi (disetujui Genis).
+# Backup crontab lama: ~/crontab.bak-20261022
+# Penjaga program akuisisi, sensor USB, dan memori (restart dulu, reboot hanya bila perlu)
+*/5 * * * * /home/citamonitoring2025/jaga_sistem.sh
+# Internet: sambung ulang Wi-Fi dulu, reboot hanya setelah gagal 3x berturut-turut
+*/10 * * * * /home/citamonitoring2025/cek_internet.sh
+# Jaring pengaman: reboot mingguan Minggu 03.00 (angin lemah)
+0 3 * * 0 /bin/sh -c 'echo "$(date): Reboot mingguan terjadwal (Minggu 03.00)" >> /home/citamonitoring2025/log_reboot.txt; sudo /sbin/reboot'

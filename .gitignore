@@ -1,0 +1,70 @@
+# File bantu LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.xdv
+*.bbl
+*.blg
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+
+# Data dan file besar (disimpan di Google Drive tim, lihat data/README.md)
+data/raw/
+data/processed/
+*.csv
+
+# Model dan hasil build
+*.tflite
+*.h5
+*.pt
+*.onnx
+build/
+impl/
+*.bit
+*.bin
+*.asc
+*.fs
+*.vcd
+*.fst
+*.vvp
+*.hex
+test.exe
+*.json.gz
+
+# Rahasia dan pengaturan lokal
+.env
+*.pem
+.claude/
+.vscode/
+.idea/
+.DS_Store
+
+# Pencatatan mentah pengukuran kontinu (ringkasan hasil boleh di measurements/results)
+/measurements/records/
+# Bukti programmer FPGA yang dirujuk laporan, bukan log runtime kontinu
+!/measurements/results/*-fpga-internal-flash*.log
+
+# Video (terlalu besar untuk git)
+*.mp4
+
+# Data eksternal (Open-Meteo, BMKG) dan hasil antara ML
+data/external/
+ml/forecast/model/*.npz
+ml/forecast/catboost_info/
+*.nav
+*.snm
+*.vrb
+ml/results/*.parquet
+ml/status/model/*.npz
+dashboard/wec/test/ref/
+
+/*.pptx
+/*.mp4

@@ -1,0 +1,13 @@
+% Datapath akselerator MAC4 (RTL Alif)
+\begin{tikzpicture}[node distance=0.35cm and 0.5cm, every node/.style={font=\scriptsize}]
+  \node[milik=genis, text width=1.6cm] (u) {UART RX\\16 byte fitur};
+  \node[milik=alif, text width=1.6cm, right=of u] (buf) {Buffer\\in / h1 / h2};
+  \node[milik=alif, text width=2.3cm, right=of buf] (mac) {\textbf{MAC4}\\4 × (INT8·INT8)\\+ akum.\ INT32};
+  \node[milik=alif, text width=1.9cm, right=of mac] (pp) {\textbf{Pasca-proses}\\+bias, ×32, $\gg$8\\ReLU, clamp};
+  \node[milik=alif, text width=1.6cm, above=0.45cm of mac] (mem) {BSRAM\\1.040 bobot\\49 bias};
+  \node[milik=alif, text width=1.6cm, below=0.45cm of mac] (fsm) {FSM\\L1$\to$L2$\to$L3\\hitung siklus};
+  \node[milik=genis, text width=1.6cm, right=of pp] (tx) {UART TX\\prediksi + siklus};
+  \draw[panah] (u) -- (buf); \draw[panah] (buf) -- (mac); \draw[panah] (mac) -- (pp); \draw[panah] (pp) -- (tx);
+  \draw[panah] (mem) -- (mac); \draw[panah] (fsm) -- (mac);
+  \draw[panah] (pp.south) |- ([yshift=-0.35cm]fsm.south) node[label, pos=0.75, below] {aktivasi antarlapisan} -| (buf.south);
+\end{tikzpicture}

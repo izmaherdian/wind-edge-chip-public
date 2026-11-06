@@ -1,0 +1,21 @@
+% Topologi sistem monitoring yang berjalan sekarang (hasil penelusuran 20 Okt 2026)
+\begin{tikzpicture}[node distance=0.5cm and 0.9cm]
+  \node[abu, text width=1.8cm] (pz) {PZEM-017\\\scriptsize RS-485};
+  \node[abu, text width=1.8cm, below=0.3cm of pz] (ws) {Stasiun cuaca\\\scriptsize RS-485};
+  \node[abu, text width=1.8cm, right=0.35cm of pz] (ar) {Arduino\\\scriptsize anemometer};
+  \node[milik=genis, text width=1.8cm, below=0.3cm of ar] (pi) {\textbf{Raspi 4}\\\scriptsize 10.18.117.195};
+  \draw[panah] (pz) -- (pi); \draw[panah] (ws) -- (pi); \draw[panah] (ar) -- (pi);
+  \begin{scope}[on background layer]
+    \node[wadah=lama, fit=(pz)(ws)(ar)(pi)] (lap) {};
+  \end{scope}
+  \node[font=\scriptsize\bfseries, above=0.05cm of lap.north] {Atap Gedung CRIMSE (eks PAU)};
+  \node[milik=genis, text width=3.0cm, right=2.4cm of pi.east] (mq) {\textbf{citaitb.com}\\MQTT :1883\\Node-RED :1880};
+  \node[abu, text width=2.5cm, right=0.8cm of mq, yshift=0.65cm] (gs) {Google Sheets\\\scriptsize Turbin 1 \& 2};
+  \node[abu, text width=2.5cm, right=0.8cm of mq, yshift=-0.65cm] (db) {Dashboard 2.0\\\scriptsize\texttt{/dashboard}};
+  \node[milik=izma, text width=2.6cm, below=1.5cm of mq] (lt) {Laptop tim\\\scriptsize VS Code Remote-SSH};
+  \draw[panah] (pi.east) -- node[label, above] {MQTT \texttt{TurbinAngin/*}} (mq.west);
+  \draw[panah] (mq) -- (gs); \draw[panah] (mq) -- (db);
+  \draw[putus] (lt.west) -| node[label, pos=0.3, below] {SSH (jaringan kampus)} (pi.south);
+  \draw[putus] (lt) -- node[label, right] {editor Node-RED} (mq);
+  \node[font=\scriptsize, text=merah, align=left, text width=2.7cm, below=0.15cm of lap.south west, anchor=north west] {Internet mati $\to$ data hilang\\(tidak ada buffer lokal)};
+\end{tikzpicture}

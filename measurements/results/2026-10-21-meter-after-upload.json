@@ -1,0 +1,2315 @@
+{
+  "capture_completed_utc": "2026-10-21T12:07:13.578938+00:00",
+  "duration_s": 50,
+  "mqtt": [
+    {
+      "received_utc": "2026-10-21T12:06:28.691599+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "raspberry_pi": {
+          "voltage_v": 0.068,
+          "current_a": 1.2288,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 122.88,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 138,
+            "shunt": 12288,
+            "current": 12288,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.36,
+          "current_a": 0.5435,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 54.35,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 722,
+            "shunt": 5435,
+            "current": 5435,
+            "power": 102,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:29.667280+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "raspberry_pi": {
+          "voltage_v": 0.064,
+          "current_a": 2.0479,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 204.79,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 130,
+            "shunt": 20479,
+            "current": 20479,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.536,
+          "current_a": 0.5356,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 53.56,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1074,
+            "shunt": 5356,
+            "current": 5356,
+            "power": 149,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:30.721451+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "raspberry_pi": {
+          "voltage_v": 0.064,
+          "current_a": 2.8671,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 286.71,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 130,
+            "shunt": 28671,
+            "current": 28671,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.516,
+          "current_a": 0.537,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 53.7,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1034,
+            "shunt": 5370,
+            "current": 5370,
+            "power": 144,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:31.688873+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "raspberry_pi": {
+          "voltage_v": 0.068,
+          "current_a": 2.8671,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 286.71,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 138,
+            "shunt": 28671,
+            "current": 28671,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.528,
+          "current_a": 0.5378,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 53.78,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1058,
+            "shunt": 5378,
+            "current": 5378,
+            "power": 148,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:32.678575+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "raspberry_pi": {
+          "voltage_v": 0.068,
+          "current_a": 2.0479,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 204.79,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 138,
+            "shunt": 20479,
+            "current": 20479,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.504,
+          "current_a": 0.5412,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 54.12,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1010,
+            "shunt": 5412,
+            "current": 5412,
+            "power": 142,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:33.719640+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "raspberry_pi": {
+          "voltage_v": 0.068,
+          "current_a": 1.2288,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 122.88,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 138,
+            "shunt": 12288,
+            "current": 12288,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.492,
+          "current_a": 0.4946,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 49.46,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 986,
+            "shunt": 4946,
+            "current": 4946,
+            "power": 132,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:34.784624+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "raspberry_pi": {
+          "voltage_v": 0.068,
+          "current_a": 3.2767,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 327.67,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 138,
+            "shunt": 32767,
+            "current": 32767,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.46,
+          "current_a": 0.5625,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 56.25,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 922,
+            "shunt": 5625,
+            "current": 5625,
+            "power": 136,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:35.721837+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584395721,
+        "raspberry_pi": {
+          "voltage_v": 0.064,
+          "current_a": 0.4097,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 40.97,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 130,
+            "shunt": 4097,
+            "current": 4097,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.416,
+          "current_a": 0.5395,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 53.95,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 834,
+            "shunt": 5395,
+            "current": 5395,
+            "power": 117,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:36.683134+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584396721,
+        "raspberry_pi": {
+          "voltage_v": 0.064,
+          "current_a": 2.0479,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 204.79,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 130,
+            "shunt": 20479,
+            "current": 20479,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.36,
+          "current_a": 0.5414,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 54.14,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 722,
+            "shunt": 5414,
+            "current": 5414,
+            "power": 102,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:37.730242+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584397721,
+        "raspberry_pi": {
+          "voltage_v": 0.068,
+          "current_a": 2.4575,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 245.75,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 138,
+            "shunt": 24575,
+            "current": 24575,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.32,
+          "current_a": 0.5798,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 57.98,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 642,
+            "shunt": 5798,
+            "current": 5798,
+            "power": 97,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:38.740223+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584398721,
+        "raspberry_pi": {
+          "voltage_v": 0.068,
+          "current_a": 1.6383,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 163.83,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 138,
+            "shunt": 16383,
+            "current": 16383,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.296,
+          "current_a": 0.543,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 54.3,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 594,
+            "shunt": 5430,
+            "current": 5430,
+            "power": 84,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:39.727699+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584399721,
+        "raspberry_pi": {
+          "voltage_v": 0.064,
+          "current_a": 1.2288,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 122.88,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 130,
+            "shunt": 12288,
+            "current": 12288,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.248,
+          "current_a": 0.5456,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 54.56,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 498,
+            "shunt": 5456,
+            "current": 5456,
+            "power": 71,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:40.690614+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584400721,
+        "raspberry_pi": {
+          "voltage_v": 0.068,
+          "current_a": -2.8674,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": -286.74,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 138,
+            "shunt": 36862,
+            "current": 36862,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.208,
+          "current_a": 0.5431,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 54.31,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 418,
+            "shunt": 5431,
+            "current": 5431,
+            "power": 59,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:41.707583+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584401721,
+        "raspberry_pi": {
+          "voltage_v": 0.068,
+          "current_a": 2.0479,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 204.79,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 138,
+            "shunt": 20479,
+            "current": 20479,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.172,
+          "current_a": 0.5405,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 54.05,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 346,
+            "shunt": 5405,
+            "current": 5405,
+            "power": 49,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:42.681205+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584402721,
+        "raspberry_pi": {
+          "voltage_v": 0.064,
+          "current_a": 1.6383,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 163.83,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 130,
+            "shunt": 16383,
+            "current": 16383,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.316,
+          "current_a": 0.4959,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 49.59,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 634,
+            "shunt": 4959,
+            "current": 4959,
+            "power": 81,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:43.938673+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584403726,
+        "raspberry_pi": {
+          "voltage_v": 0.064,
+          "current_a": 1.2288,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 122.88,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 130,
+            "shunt": 12288,
+            "current": 12288,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.712,
+          "current_a": 0.542,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 54.2,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1426,
+            "shunt": 5420,
+            "current": 5420,
+            "power": 202,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:44.735057+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584404725,
+        "raspberry_pi": {
+          "voltage_v": 0.064,
+          "current_a": 2.8671,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 286.71,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 130,
+            "shunt": 28671,
+            "current": 28671,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.676,
+          "current_a": 0.5437,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 54.37,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1354,
+            "shunt": 5437,
+            "current": 5437,
+            "power": 191,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:45.763804+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584405725,
+        "raspberry_pi": {
+          "voltage_v": 0.064,
+          "current_a": 2.4575,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 245.75,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 130,
+            "shunt": 24575,
+            "current": 24575,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.7,
+          "current_a": 0.5337,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 53.37,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1402,
+            "shunt": 5337,
+            "current": 5337,
+            "power": 193,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:46.797585+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584406725,
+        "raspberry_pi": {
+          "voltage_v": 0.064,
+          "current_a": 1.6384,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 163.84,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 130,
+            "shunt": 16384,
+            "current": 16384,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.676,
+          "current_a": 0.5405,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 54.05,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1354,
+            "shunt": 5405,
+            "current": 5405,
+            "power": 190,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:49.578414+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584407725,
+        "raspberry_pi": {
+          "voltage_v": 0.064,
+          "current_a": 0,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 0,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 130,
+            "shunt": 0,
+            "current": 0,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.708,
+          "current_a": 0.5238,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 52.38,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1418,
+            "shunt": 5238,
+            "current": 5238,
+            "power": 194,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:49.840329+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584408725,
+        "raspberry_pi": {
+          "voltage_v": 0.064,
+          "current_a": 1.2288,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 122.88,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 130,
+            "shunt": 12288,
+            "current": 12288,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.676,
+          "current_a": 0.5439,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 54.39,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1354,
+            "shunt": 5439,
+            "current": 5439,
+            "power": 191,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:49.965444+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584409725,
+        "raspberry_pi": {
+          "voltage_v": 0.064,
+          "current_a": 0.8191,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 81.91,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 130,
+            "shunt": 8191,
+            "current": 8191,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.704,
+          "current_a": 0.5463,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 54.63,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1410,
+            "shunt": 5463,
+            "current": 5463,
+            "power": 200,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:50.770262+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584410725,
+        "raspberry_pi": {
+          "voltage_v": 0.06,
+          "current_a": 3.2767,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 327.67,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 122,
+            "shunt": 32767,
+            "current": 32767,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.696,
+          "current_a": 0.5516,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 55.16,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1394,
+            "shunt": 5516,
+            "current": 5516,
+            "power": 197,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:51.729671+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584411725,
+        "raspberry_pi": {
+          "voltage_v": 0.044,
+          "current_a": 0.8192,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 81.92,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 90,
+            "shunt": 8192,
+            "current": 8192,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.672,
+          "current_a": 0.5591,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 55.91,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1346,
+            "shunt": 5591,
+            "current": 5591,
+            "power": 193,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:52.658261+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584412725,
+        "raspberry_pi": {
+          "voltage_v": 0.036,
+          "current_a": 2.0479,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 204.79,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 74,
+            "shunt": 20479,
+            "current": 20479,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.716,
+          "current_a": 0.5605,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 56.05,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1434,
+            "shunt": 5605,
+            "current": 5605,
+            "power": 203,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:53.669834+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584413725,
+        "raspberry_pi": {
+          "voltage_v": 0.024,
+          "current_a": 0.8191,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 81.91,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 50,
+            "shunt": 8191,
+            "current": 8191,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.668,
+          "current_a": 0.5627,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 56.27,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1338,
+            "shunt": 5627,
+            "current": 5627,
+            "power": 189,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:54.720960+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584414725,
+        "raspberry_pi": {
+          "voltage_v": 0.016,
+          "current_a": 2.4575,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 245.75,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 34,
+            "shunt": 24575,
+            "current": 24575,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.72,
+          "current_a": 0.5338,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 53.38,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1442,
+            "shunt": 5338,
+            "current": 5338,
+            "power": 202,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:55.723692+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584415726,
+        "raspberry_pi": {
+          "voltage_v": 0.012,
+          "current_a": 2.4576,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 245.76,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 26,
+            "shunt": 24576,
+            "current": 24576,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.66,
+          "current_a": 0.5527,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 55.27,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1322,
+            "shunt": 5527,
+            "current": 5527,
+            "power": 187,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:56.761833+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584416724,
+        "raspberry_pi": {
+          "voltage_v": 0.028,
+          "current_a": 2.0479,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 204.79,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 58,
+            "shunt": 20479,
+            "current": 20479,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.684,
+          "current_a": 0.5545,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 55.45,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1370,
+            "shunt": 5545,
+            "current": 5545,
+            "power": 194,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:57.804545+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584417725,
+        "raspberry_pi": {
+          "voltage_v": 0.028,
+          "current_a": 2.0479,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 204.79,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 58,
+            "shunt": 20479,
+            "current": 20479,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.68,
+          "current_a": 0.5514,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 55.14,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1362,
+            "shunt": 5514,
+            "current": 5514,
+            "power": 192,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:58.827184+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584418725,
+        "raspberry_pi": {
+          "voltage_v": 0.032,
+          "current_a": 3.2766,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 327.66,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 66,
+            "shunt": 32766,
+            "current": 32766,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.644,
+          "current_a": 0.5488,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 54.88,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1290,
+            "shunt": 5488,
+            "current": 5488,
+            "power": 181,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:06:59.877009+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584419725,
+        "raspberry_pi": {
+          "voltage_v": 0.04,
+          "current_a": 1.6384,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 163.84,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 82,
+            "shunt": 16384,
+            "current": 16384,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.656,
+          "current_a": 0.5465,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 54.65,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1314,
+            "shunt": 5465,
+            "current": 5465,
+            "power": 185,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:07:00.719100+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584420725,
+        "raspberry_pi": {
+          "voltage_v": 0.044,
+          "current_a": 3.2767,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 327.67,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 90,
+            "shunt": 32767,
+            "current": 32767,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.68,
+          "current_a": 0.5463,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 54.63,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1362,
+            "shunt": 5463,
+            "current": 5463,
+            "power": 192,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:07:01.804951+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584421725,
+        "raspberry_pi": {
+          "voltage_v": 0.044,
+          "current_a": -2.8674,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": -286.74,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 90,
+            "shunt": 36862,
+            "current": 36862,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.668,
+          "current_a": 0.5441,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 54.41,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1338,
+            "shunt": 5441,
+            "current": 5441,
+            "power": 188,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:07:02.822119+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584422725,
+        "raspberry_pi": {
+          "voltage_v": 0.044,
+          "current_a": 1.2287,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 122.87,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 90,
+            "shunt": 12287,
+            "current": 12287,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.644,
+          "current_a": 0.4823,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 48.23,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1290,
+            "shunt": 4823,
+            "current": 4823,
+            "power": 161,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:07:03.845561+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584423725,
+        "raspberry_pi": {
+          "voltage_v": 0.044,
+          "current_a": 0,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 0,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 90,
+            "shunt": 0,
+            "current": 0,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.636,
+          "current_a": 0.5405,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 54.05,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1274,
+            "shunt": 5405,
+            "current": 5405,
+            "power": 179,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:07:04.822504+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584424725,
+        "raspberry_pi": {
+          "voltage_v": 0.048,
+          "current_a": 2.0479,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 204.79,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 98,
+            "shunt": 20479,
+            "current": 20479,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.64,
+          "current_a": 0.5631,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 56.31,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1282,
+            "shunt": 5631,
+            "current": 5631,
+            "power": 187,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:07:05.721892+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584425725,
+        "raspberry_pi": {
+          "voltage_v": 0.052,
+          "current_a": 0.4097,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 40.97,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 106,
+            "shunt": 4097,
+            "current": 4097,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.632,
+          "current_a": 0.5447,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 54.47,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1266,
+            "shunt": 5447,
+            "current": 5447,
+            "power": 179,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:07:06.814491+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584426725,
+        "raspberry_pi": {
+          "voltage_v": 0.052,
+          "current_a": 1.2288,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 122.88,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 106,
+            "shunt": 12288,
+            "current": 12288,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.648,
+          "current_a": 0.5422,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 54.22,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1298,
+            "shunt": 5422,
+            "current": 5422,
+            "power": 182,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:07:07.748811+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584427725,
+        "raspberry_pi": {
+          "voltage_v": 0.056,
+          "current_a": 0.8192,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 81.92,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 114,
+            "shunt": 8192,
+            "current": 8192,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.664,
+          "current_a": 0.5413,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 54.13,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1330,
+            "shunt": 5413,
+            "current": 5413,
+            "power": 186,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:07:10.687443+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584428725,
+        "raspberry_pi": {
+          "voltage_v": 0.056,
+          "current_a": 2.048,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 204.8,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 114,
+            "shunt": 20480,
+            "current": 20480,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.676,
+          "current_a": 0.5462,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 54.62,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1354,
+            "shunt": 5462,
+            "current": 5462,
+            "power": 194,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:07:10.985048+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584429725,
+        "raspberry_pi": {
+          "voltage_v": 0.06,
+          "current_a": 2.4575,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 245.75,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 122,
+            "shunt": 24575,
+            "current": 24575,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.664,
+          "current_a": 0.5396,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 53.96,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1330,
+            "shunt": 5396,
+            "current": 5396,
+            "power": 186,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:07:11.130432+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584430725,
+        "raspberry_pi": {
+          "voltage_v": 0.06,
+          "current_a": 2.048,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 204.8,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 122,
+            "shunt": 20480,
+            "current": 20480,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.644,
+          "current_a": 0.541,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 54.1,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1290,
+            "shunt": 5410,
+            "current": 5410,
+            "power": 181,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:07:11.721173+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584431725,
+        "raspberry_pi": {
+          "voltage_v": 0.056,
+          "current_a": 1.6384,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 163.84,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 114,
+            "shunt": 16384,
+            "current": 16384,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.628,
+          "current_a": 0.5391,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 53.91,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1258,
+            "shunt": 5391,
+            "current": 5391,
+            "power": 177,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    },
+    {
+      "received_utc": "2026-10-21T12:07:12.801664+00:00",
+      "retained": false,
+      "payload": {
+        "schema_version": 2,
+        "shunt_ohm": 0.1,
+        "t": 1792584432725,
+        "raspberry_pi": {
+          "voltage_v": 0.06,
+          "current_a": 1.6384,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 163.84,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 122,
+            "shunt": 16384,
+            "current": 16384,
+            "power": 0,
+            "config": 15971,
+            "calibration": 4096
+          }
+        },
+        "fpga": {
+          "voltage_v": 0.628,
+          "current_a": 0.5424,
+          "power_w": null,
+          "energy_wh": 0,
+          "sensor_ok": true,
+          "measurement_valid": false,
+          "error": "voltage_outside_5v_rail",
+          "shunt_mv": 54.24,
+          "energy_valid_time_s": 0,
+          "registers": {
+            "bus": 1258,
+            "shunt": 5424,
+            "current": 5424,
+            "power": 178,
+            "config": 15971,
+            "calibration": 4096
+          }
+        }
+      }
+    }
+  ],
+  "serial_line_count": 130173,
+  "serial_runs": [
+    {
+      "line": "52,nan",
+      "count": 130126
+    },
+    {
+      "line": "MQTT tersambung lewat eduroam (IP 10.18.116.103)",
+      "count": 1
+    },
+    {
+      "line": "12401,0.068,1.2288,nan,0.360,0.5435,nan",
+      "count": 1
+    },
+    {
+      "line": "13401,0.064,2.0479,nan,0.536,0.5356,nan",
+      "count": 1
+    },
+    {
+      "line": "14401,0.064,2.8671,nan,0.516,0.5370,nan",
+      "count": 1
+    },
+    {
+      "line": "15401,0.068,2.8671,nan,0.528,0.5378,nan",
+      "count": 1
+    },
+    {
+      "line": "16401,0.068,2.0479,nan,0.504,0.5412,nan",
+      "count": 1
+    },
+    {
+      "line": "17401,0.068,1.2288,nan,0.492,0.4946,nan",
+      "count": 1
+    },
+    {
+      "line": "18401,0.068,3.2767,nan,0.460,0.5625,nan",
+      "count": 1
+    },
+    {
+      "line": "19401,0.064,0.4097,nan,0.416,0.5395,nan",
+      "count": 1
+    },
+    {
+      "line": "20401,0.064,2.0479,nan,0.360,0.5414,nan",
+      "count": 1
+    },
+    {
+      "line": "21401,0.068,2.4575,nan,0.320,0.5798,nan",
+      "count": 1
+    },
+    {
+      "line": "22401,0.068,1.6383,nan,0.296,0.5430,nan",
+      "count": 1
+    },
+    {
+      "line": "23401,0.064,1.2288,nan,0.248,0.5456,nan",
+      "count": 1
+    },
+    {
+      "line": "24401,0.068,-2.8674,nan,0.208,0.5431,nan",
+      "count": 1
+    },
+    {
+      "line": "25401,0.068,2.0479,nan,0.172,0.5405,nan",
+      "count": 1
+    },
+    {
+      "line": "26401,0.064,1.6383,nan,0.316,0.4959,nan",
+      "count": 1
+    },
+    {
+      "line": "27405,0.064,1.2288,nan,0.712,0.5420,nan",
+      "count": 1
+    },
+    {
+      "line": "28405,0.064,2.8671,nan,0.676,0.5437,nan",
+      "count": 1
+    },
+    {
+      "line": "29405,0.064,2.4575,nan,0.700,0.5337,nan",
+      "count": 1
+    },
+    {
+      "line": "30405,0.064,1.6384,nan,0.676,0.5405,nan",
+      "count": 1
+    },
+    {
+      "line": "31405,0.064,0.0000,nan,0.708,0.5238,nan",
+      "count": 1
+    },
+    {
+      "line": "32405,0.064,1.2288,nan,0.676,0.5439,nan",
+      "count": 1
+    },
+    {
+      "line": "33405,0.064,0.8191,nan,0.704,0.5463,nan",
+      "count": 1
+    },
+    {
+      "line": "34405,0.060,3.2767,nan,0.696,0.5516,nan",
+      "count": 1
+    },
+    {
+      "line": "35405,0.044,0.8192,nan,0.672,0.5591,nan",
+      "count": 1
+    },
+    {
+      "line": "36405,0.036,2.0479,nan,0.716,0.5605,nan",
+      "count": 1
+    },
+    {
+      "line": "37405,0.024,0.8191,nan,0.668,0.5627,nan",
+      "count": 1
+    },
+    {
+      "line": "38405,0.016,2.4575,nan,0.720,0.5338,nan",
+      "count": 1
+    },
+    {
+      "line": "39405,0.012,2.4576,nan,0.660,0.5527,nan",
+      "count": 1
+    },
+    {
+      "line": "40405,0.028,2.0479,nan,0.684,0.5545,nan",
+      "count": 1
+    },
+    {
+      "line": "41405,0.028,2.0479,nan,0.680,0.5514,nan",
+      "count": 1
+    },
+    {
+      "line": "42405,0.032,3.2766,nan,0.644,0.5488,nan",
+      "count": 1
+    },
+    {
+      "line": "43405,0.040,1.6384,nan,0.656,0.5465,nan",
+      "count": 1
+    },
+    {
+      "line": "44405,0.044,3.2767,nan,0.680,0.5463,nan",
+      "count": 1
+    },
+    {
+      "line": "45405,0.044,-2.8674,nan,0.668,0.5441,nan",
+      "count": 1
+    },
+    {
+      "line": "46405,0.044,1.2287,nan,0.644,0.4823,nan",
+      "count": 1
+    },
+    {
+      "line": "47405,0.044,0.0000,nan,0.636,0.5405,nan",
+      "count": 1
+    },
+    {
+      "line": "48405,0.048,2.0479,nan,0.640,0.5631,nan",
+      "count": 1
+    },
+    {
+      "line": "49405,0.052,0.4097,nan,0.632,0.5447,nan",
+      "count": 1
+    },
+    {
+      "line": "50405,0.052,1.2288,nan,0.648,0.5422,nan",
+      "count": 1
+    },
+    {
+      "line": "51405,0.056,0.8192,nan,0.664,0.5413,nan",
+      "count": 1
+    },
+    {
+      "line": "52405,0.056,2.0480,nan,0.676,0.5462,nan",
+      "count": 1
+    },
+    {
+      "line": "53405,0.060,2.4575,nan,0.664,0.5396,nan",
+      "count": 1
+    },
+    {
+      "line": "54405,0.060,2.0480,nan,0.644,0.5410,nan",
+      "count": 1
+    },
+    {
+      "line": "55405,0.056,1.6384,nan,0.628,0.5391,nan",
+      "count": 1
+    },
+    {
+      "line": "56405,0.060,1.6384,nan,0.628,0.5424,nan",
+      "count": 1
+    },
+    {
+      "line": "57405,0.060,1.2288,nan,0.632,0.5863,nan",
+      "count": 1
+    }
+  ],
+  "serial_encoding": "Consecutive identical lines stored as line/count; no lines discarded.",
+  "physical_mapping": {
+    "fpga": "Raspberry Pi, installed",
+    "raspberry_pi": "FPGA + ESP32-S3, load not installed"
+  },
+  "assessment": "MQTT restored; all captured measurements invalid for energy; check VIN- to module GND and shared supply ground."
+}

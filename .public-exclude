@@ -1,0 +1,28 @@
+# Paths kept only in the private repo (izmaherdian/wind-edge-chip).
+# scripts/publish_public.sh drops them before pushing to wind-edge-chip-public.
+# Same syntax as .gitignore.
+/docs/log-kegiatan/
+/docs/bootcamp/
+/docs/guidelines/
+/docs/ta-genis/
+/docs/brainstorming/
+/docs/business/
+/docs/proposal/*
+!/docs/proposal/gambar/
+/docs/proposal/gambar/*
+!/docs/proposal/gambar/foto-turbin-*
+!/docs/proposal/gambar/ta-*
+!/docs/proposal/gambar/dashboard-ponsel.jpeg
+!/docs/proposal/gambar/ukur-cpu-raspi.jpeg
+/docs/proposal/gambar/ta-peta-lokasi.png
+/docs/demo/mentoring-hari-2.md
+/docs/demo/qna-juri.md
+/docs/presentasi/hackathon-2026/naskah-pitch.md
+/docs/presentasi/hackathon-2026/template-pitch-deck-demo-day.pptx
+/docs/presentasi/hackathon-2026/demo-day/naskah.md
+/docs/presentasi/hackathon-2026/demo-day/review-juri.md
+/wind-edge-chip.md
+/edge/ta/program-utama-akuisisi-data.docx
+/.public-secrets-patterns
+/.public-redact
+/.public-overrides/

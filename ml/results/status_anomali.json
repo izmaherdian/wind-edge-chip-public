@@ -1,0 +1,130 @@
+{
+  "kerusakan_buatan": {
+    "jendela": 40,
+    "panjang_menit": 30,
+    "faktor_daya": 0.6
+  },
+  "ambang_rasio": [
+    0.607,
+    2.217
+  ],
+  "cakupan_P10_P90_data_normal": 0.839,
+  "MAE_P50_W_data_normal": 3.63,
+  "distribusi_status_test": {
+    "Normal": 0.987,
+    "Di bawah normal": 0.008,
+    "Di atas normal (cek sensor)": 0.005
+  },
+  "metode": {
+    "Kurva daya kuantil (baru)": {
+      "recall_jendela_rusak": 0.025,
+      "alarm_palsu_menit_normal_turbin_on": 0.0095
+    },
+    "Aturan Cp < 0,10 (gaya TA)": {
+      "recall_jendela_rusak": 0.0,
+      "alarm_palsu_menit_normal_turbin_on": 0.0048
+    },
+    "Isolation Forest": {
+      "recall_jendela_rusak": 0.0,
+      "alarm_palsu_menit_normal_turbin_on": 0.0
+    }
+  },
+  "sapuan_deteksi": [
+    {
+      "jendela_menit": 30,
+      "daya_tersisa": 0.2,
+      "n_jendela": 40,
+      "ambang": 0.607,
+      "recall_jendela_rusak": 0.675,
+      "alarm_palsu_menit_normal_turbin_on": 0.0377
+    },
+    {
+      "jendela_menit": 30,
+      "daya_tersisa": 0.4,
+      "n_jendela": 40,
+      "ambang": 0.607,
+      "recall_jendela_rusak": 0.25,
+      "alarm_palsu_menit_normal_turbin_on": 0.0234
+    },
+    {
+      "jendela_menit": 30,
+      "daya_tersisa": 0.6,
+      "n_jendela": 40,
+      "ambang": 0.607,
+      "recall_jendela_rusak": 0.025,
+      "alarm_palsu_menit_normal_turbin_on": 0.0088
+    },
+    {
+      "jendela_menit": 30,
+      "daya_tersisa": 0.8,
+      "n_jendela": 40,
+      "ambang": 0.607,
+      "recall_jendela_rusak": 0.0,
+      "alarm_palsu_menit_normal_turbin_on": 0.0079
+    },
+    {
+      "jendela_menit": 120,
+      "daya_tersisa": 0.2,
+      "n_jendela": 40,
+      "ambang": 0.829,
+      "recall_jendela_rusak": 0.775,
+      "alarm_palsu_menit_normal_turbin_on": 0.2259
+    },
+    {
+      "jendela_menit": 120,
+      "daya_tersisa": 0.4,
+      "n_jendela": 40,
+      "ambang": 0.829,
+      "recall_jendela_rusak": 0.625,
+      "alarm_palsu_menit_normal_turbin_on": 0.1932
+    },
+    {
+      "jendela_menit": 120,
+      "daya_tersisa": 0.6,
+      "n_jendela": 40,
+      "ambang": 0.829,
+      "recall_jendela_rusak": 0.325,
+      "alarm_palsu_menit_normal_turbin_on": 0.1049
+    },
+    {
+      "jendela_menit": 120,
+      "daya_tersisa": 0.8,
+      "n_jendela": 40,
+      "ambang": 0.829,
+      "recall_jendela_rusak": 0.05,
+      "alarm_palsu_menit_normal_turbin_on": 0.0147
+    },
+    {
+      "jendela_menit": 360,
+      "daya_tersisa": 0.2,
+      "n_jendela": 20,
+      "ambang": 0.972,
+      "recall_jendela_rusak": 0.8,
+      "alarm_palsu_menit_normal_turbin_on": 0.3486
+    },
+    {
+      "jendela_menit": 360,
+      "daya_tersisa": 0.4,
+      "n_jendela": 20,
+      "ambang": 0.972,
+      "recall_jendela_rusak": 0.8,
+      "alarm_palsu_menit_normal_turbin_on": 0.3143
+    },
+    {
+      "jendela_menit": 360,
+      "daya_tersisa": 0.6,
+      "n_jendela": 20,
+      "ambang": 0.972,
+      "recall_jendela_rusak": 0.75,
+      "alarm_palsu_menit_normal_turbin_on": 0.2442
+    },
+    {
+      "jendela_menit": 360,
+      "daya_tersisa": 0.8,
+      "n_jendela": 20,
+      "ambang": 0.972,
+      "recall_jendela_rusak": 0.35,
+      "alarm_palsu_menit_normal_turbin_on": 0.0794
+    }
+  ]
+}

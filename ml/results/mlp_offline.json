@@ -1,0 +1,33 @@
+{
+  "n_menit_uji": 16255,
+  "model_utama_dengan_open_meteo": {
+    "MAE_W": 5.480970443298076,
+    "RMSE_W": 10.250596736771126,
+    "nMAE_pct": 52.018543236026794,
+    "bias_W": -2.1520195682688033,
+    "skill_vs_persistence": 0.40106961159761256
+  },
+  "model_offline_tanpa_open_meteo": {
+    "MAE_W": 5.617594864904217,
+    "RMSE_W": 10.18005656039941,
+    "nMAE_pct": 53.31521203873972,
+    "bias_W": -1.032233575981816,
+    "skill_vs_persistence": 0.4051911916692126
+  },
+  "model_utama_om_0_tanpa_model_offline": {
+    "MAE_W": 5.727203847124802,
+    "RMSE_W": 10.978922306081873,
+    "nMAE_pct": 54.35548394673189,
+    "bias_W": -3.7078792297550796,
+    "skill_vs_persistence": 0.358514399709716
+  },
+  "persistence": {
+    "MAE_W": 8.6744785284014,
+    "RMSE_W": 17.114838277139363,
+    "nMAE_pct": 82.32734349651273,
+    "bias_W": 0.011239153945652593,
+    "skill_vs_persistence": 0.0
+  },
+  "beda_pytorch_vs_integer": 0,
+  "menit_latih": 99260
+}

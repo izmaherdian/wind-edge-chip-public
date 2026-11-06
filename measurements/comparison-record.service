@@ -1,0 +1,13 @@
+[Unit]
+Description=Wind Edge Chip continuous comparison recorder
+After=network-online.target wec-inference.service
+
+[Service]
+WorkingDirectory=%h/wec-comparison
+EnvironmentFile=%h/wec-comparison/mqtt.env
+ExecStart=/usr/bin/python3 %h/wec-comparison/live_record.py --output-dir %h/wec-comparison/records --meter-config %h/wec-comparison/meter.json --model-header %h/wec-comparison/mlp_int8.h
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

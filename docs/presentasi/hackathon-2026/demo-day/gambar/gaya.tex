@@ -1,0 +1,27 @@
+% Gaya bersama gambar deck Demo Day (dipakai semua gambar/*.tex standalone).
+\usepackage{amssymb}
+\usepackage{fontspec}
+\setmainfont{DejaVu Sans Condensed}
+\setsansfont{DejaVu Sans Condensed}
+\newfontfamily\judulfont{DejaVu Sans}[BoldFont={DejaVu Sans Bold}, Ligatures=TeX]
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=1.18, every axis/.append style={/pgf/number format/assume math mode=true, /pgf/number format/use comma, /pgf/number format/1000 sep={.}}}
+\usetikzlibrary{positioning,arrows.meta,calc,shapes.geometric,fit,backgrounds}
+\definecolor{gelap}{HTML}{15242B}
+\definecolor{teal}{HTML}{285052}
+\definecolor{amber}{HTML}{E8A317}
+\definecolor{muda}{HTML}{DCE8E8}
+\definecolor{abu}{HTML}{8A9499}
+\definecolor{teks}{HTML}{1E2B30}
+\definecolor{hijau}{HTML}{2F7D5B}
+\definecolor{merah}{HTML}{A33A2A}
+\color{teks}
+\tikzset{
+  ubin/.style={fill=muda, rounded corners=5pt, align=center, inner sep=6pt},
+  inti/.style={ubin, fill=gelap, text=white},
+  panah/.style={-{Stealth[length=3mm]}, line width=1.3pt, draw=amber},
+  panahabu/.style={-{Stealth[length=2.5mm]}, line width=1pt, draw=abu},
+  judulubin/.style={font=\judulfont\bfseries},
+}
+\input{angka.tex}
+\AtBeginDocument{\hyphenpenalty=10000 \exhyphenpenalty=10000}

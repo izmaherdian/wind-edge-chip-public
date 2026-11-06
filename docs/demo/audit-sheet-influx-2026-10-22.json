@@ -1,0 +1,204 @@
+{
+  "audit_utc": "2026-10-22T10:51:39.078110+00:00",
+  "csv_file": "Turbine Database - Sheet1.csv",
+  "csv_bytes": 27158595,
+  "csv_rows": 326585,
+  "csv_first_wib": "2026-10-01 13:58:56",
+  "csv_last_wib": "2026-10-22 17:11:07",
+  "csv_header": "first row empty; 13 columns mapped from existing Node-RED writer",
+  "csv_raw_rows_by_selected_day": {
+    "2026-10-21": {
+      "rows": 11779,
+      "off": 4413
+    },
+    "2026-10-22": {
+      "rows": 4480,
+      "off": 816
+    }
+  },
+  "comparison": {
+    "off_policy": "OFF is missing PZEM data in current Sheet writer, not measured zero",
+    "selected_duplicate_timestamps": 214,
+    "selected_reverse_steps": 1072,
+    "days": {
+      "2026-10-21": {
+        "sheet": {
+          "rows": 11732,
+          "first_wib": "2026-10-21 00:00:01",
+          "last_wib": "2026-10-21 19:42:11",
+          "off": 4411,
+          "mean_power_w_sample_weighted": 79.31583117060511,
+          "energy_first_wh": 433.0,
+          "energy_last_wh": 1273.0,
+          "negative_counter_steps_sorted": 23
+        },
+        "influx": {
+          "rows": 7208,
+          "first_wib": "2026-10-21 06:22:42",
+          "last_wib": "2026-10-21 19:41:56",
+          "off": 0,
+          "mean_power_w_sample_weighted": 79.9742230854606,
+          "energy_first_wh": 432.0,
+          "energy_last_wh": 1273.0,
+          "negative_counter_steps_sorted": 20
+        },
+        "common_minutes": 599,
+        "mean_absolute_difference_common_minute_power_w": 0.6171108246233453,
+        "sheet_off_rows_in_influx_minutes": 420,
+        "sheet_minutes_without_influx": 18,
+        "influx_minutes_without_sheet": 0
+      },
+      "2026-10-22": {
+        "sheet": {
+          "rows": 4313,
+          "first_wib": "2026-10-22 11:00:24",
+          "last_wib": "2026-10-22 17:11:07",
+          "off": 796,
+          "mean_power_w_sample_weighted": 41.60073926642024,
+          "energy_first_wh": 1521.0,
+          "energy_last_wh": 1740.0,
+          "negative_counter_steps_sorted": 42
+        },
+        "influx": {
+          "rows": 3003,
+          "first_wib": "2026-10-22 12:03:01",
+          "last_wib": "2026-10-22 17:20:05",
+          "off": 0,
+          "mean_power_w_sample_weighted": 37.51988011988012,
+          "energy_first_wh": 1579.0,
+          "energy_last_wh": 1715.0,
+          "negative_counter_steps_sorted": 39
+        },
+        "common_minutes": 280,
+        "mean_absolute_difference_common_minute_power_w": 0.6561656503219003,
+        "sheet_off_rows_in_influx_minutes": 565,
+        "sheet_minutes_without_influx": 58,
+        "influx_minutes_without_sheet": 9
+      }
+    }
+  },
+  "comparison_limitations": [
+    "Different collection periods and arrival timestamps; per-minute means compared only where both have measured numeric power.",
+    "OFF in Sheet is an absent PZEM field in a weather buffer, not proof of zero generation.",
+    "Energy counter has negative steps even after sorting/dedup; no daily energy computed from naive last-first."
+  ],
+  "deployed_history": {
+    "retained": true,
+    "received_utc_ms": 1792665840122,
+    "payload": {
+      "window_hours": 3,
+      "minute_rows": 172,
+      "raw_rows": 2128,
+      "duplicates": 40,
+      "fetched_at_ms": 1792665803055,
+      "oldest_at_ms": 1792655008000,
+      "newest_at_ms": 1792665785000,
+      "last_row": 326894,
+      "cells": "Sheet1!A311895:M326894",
+      "source": "Google Sheets"
+    }
+  },
+  "live_prediction": {
+    "retained": true,
+    "received_utc_ms": 1792665840122,
+    "payload": {
+      "t": 1792665780000,
+      "power_w": 13.61,
+      "p10": 4.84,
+      "p90": 33.19,
+      "out_q": 14,
+      "xq": [
+        14,
+        17,
+        30,
+        9,
+        3,
+        17,
+        41,
+        48,
+        38,
+        8,
+        81,
+        -98,
+        -127,
+        -10,
+        -27,
+        58
+      ],
+      "persistence_w": 20.49,
+      "om_wind_next": 1.64,
+      "mode": "campuran",
+      "menit_estimasi": 10,
+      "celah": true,
+      "offline": false
+    }
+  },
+  "browser_verification": {
+    "ui": {
+      "ready": true,
+      "status": "Riwayat 3 jam · 171 menit berisi data · garis kosong berarti tidak ada rekaman. Nilai live tetap dari MQTT.",
+      "minutes": 171,
+      "charts": [
+        {
+          "points": 181,
+          "series": [
+            {
+              "nulls": 20,
+              "recorded": 161
+            }
+          ]
+        },
+        {
+          "points": 181,
+          "series": [
+            {
+              "nulls": 20,
+              "recorded": 161
+            }
+          ]
+        },
+        {
+          "points": 181,
+          "series": [
+            {
+              "name": "Arduino",
+              "nulls": 10,
+              "recorded": 171
+            },
+            {
+              "name": "Stasiun",
+              "nulls": 10,
+              "recorded": 171
+            }
+          ]
+        },
+        {
+          "points": 181,
+          "series": [
+            {
+              "nulls": 20,
+              "recorded": 161
+            }
+          ]
+        },
+        {
+          "series": [
+            {
+              "nulls": 0,
+              "recorded": 36
+            }
+          ]
+        }
+      ],
+      "gauges": [
+        15.29,
+        0.46,
+        7,
+        1.25
+      ],
+      "url": "http://citaitb.com:1880/dashboard/hackathon",
+      "state": "complete"
+    },
+    "runtime_errors": []
+  }
+}

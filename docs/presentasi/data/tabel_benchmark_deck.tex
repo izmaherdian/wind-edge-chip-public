@@ -1,0 +1,45 @@
+{\scriptsize\begin{minipage}[t]{0.49\linewidth}\setlength{\tabcolsep}{3pt}\begin{tabular}{@{}r p{4.1cm} r r@{}}
+\toprule
+\# & Metode & RMSE & Skill \\ \midrule
+1 & Transformer (riwayat 60 menit) & 10,07 & +0,411 \\
+2 & Regresi linear & 10,23 & +0,402 \\
+3 & Ridge & 10,23 & +0,402 \\
+4 & TCN (riwayat 60 menit) & 10,25 & +0,401 \\
+5 & MLP float 16-8-1 & 10,25 & +0,401 \\
+6 & \textbf{MLP INT8 (QAT, identik RTL)} & 10,25 & +0,401 \\
+7 & Lasso & 10,25 & +0,401 \\
+8 & ElasticNet & 10,25 & +0,401 \\
+9 & LSTM (riwayat 60 menit) & 10,35 & +0,395 \\
+10 & GRU (riwayat 60 menit) & 10,41 & +0,392 \\
+11 & MLP float 16-16-1 & 10,41 & +0,392 \\
+12 & MLP float 16-32-16-1 (acuan QAT, train\_mlp.py) & 10,44 & +0,390 \\
+13 & CNN 1D (riwayat 60 menit) & 10,46 & +0,389 \\
+14 & MLP float 16-32-16-1 & 10,47 & +0,388 \\
+15 & MLP float 16-64-32-1 & 10,49 & +0,387 \\
+16 & ExtraTrees & 10,59 & +0,382 \\
+17 & KNN (k=25) & 10,62 & +0,380 \\
+18 & MLP INT8 (PTQ: dibulatkan tanpa QAT) & 10,65 & +0,378 \\
+\bottomrule
+\end{tabular}\end{minipage}\hfill\begin{minipage}[t]{0.49\linewidth}\setlength{\tabcolsep}{3pt}\begin{tabular}{@{}r p{4.1cm} r r@{}}
+\toprule
+\# & Metode & RMSE & Skill \\ \midrule
+19 & ARIMA(2,0,1) deret 10 menit* & 10,77 & +0,391 \\
+20 & Polinomial derajat 2 + Ridge & 10,87 & +0,365 \\
+21 & Random Forest & 10,91 & +0,363 \\
+22 & campuran mean60 + klimatologi (a=0.35) & 11,00 & +0,357 \\
+23 & LightGBM tanpa Open-Meteo (offline) & 11,03 & +0,355 \\
+24 & LightGBM kuantil P50 (+ interval P10–P90) & 11,12 & +0,350 \\
+25 & LightGBM & 11,16 & +0,348 \\
+26 & SVR RBF (15 rb sampel) & 11,23 & +0,344 \\
+27 & HistGradientBoosting & 11,27 & +0,341 \\
+28 & XGBoost & 11,40 & +0,334 \\
+29 & CatBoost & 11,47 & +0,330 \\
+30 & Decision Tree & 11,58 & +0,323 \\
+31 & Kurva daya $\times$ angin 60 menit terakhir & 12,38 & +0,277 \\
+32 & smart persistence (rata-rata 60 menit terakhir) & 12,62 & +0,262 \\
+33 & klimatologi per jam & 12,89 & +0,247 \\
+34 & moving average 10 menit & 14,39 & +0,159 \\
+35 & persistence (P sekarang) & 17,11 & +0,000 \\
+36 & Kurva daya $\times$ prakiraan Open-Meteo & 17,19 & -0,005 \\
+\bottomrule
+\end{tabular}\end{minipage}}

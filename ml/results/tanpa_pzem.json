@@ -1,0 +1,19 @@
+{
+ "mlp_normal": {
+  "MAE_W": 5.414,
+  "RMSE_W": 10.4
+ },
+ "mlp_cadangan_tanpa_pzem": {
+  "MAE_W": 5.418,
+  "RMSE_W": 10.579
+ },
+ "persistence_asli": {
+  "MAE_W": 8.477,
+  "RMSE_W": 16.805
+ },
+ "persistence_daya_wajar": {
+  "MAE_W": 7.057,
+  "RMSE_W": 12.834
+ },
+ "n_menit": 10946
+}

@@ -1,0 +1,45 @@
+{
+  "kind": "passive live path via Raspberry Pi",
+  "started_utc": "2026-10-21T13:27:31Z",
+  "observed_seconds": 69.26,
+  "passed": false,
+  "requested_pairs": 1,
+  "fresh_sensor_topics_ok": false,
+  "message_counts": {
+    "WEC/prediksi": 1
+  },
+  "latest_sensors": {},
+  "retained_not_counted": [
+    {
+      "topic": "WEC/prediksi",
+      "payload": {
+        "t": 1792589160000
+      }
+    },
+    {
+      "topic": "WEC/fpga",
+      "payload": {
+        "t": 1792583400000,
+        "out_q_fpga": 26,
+        "out_q_cpu": 26,
+        "cocok": true,
+        "cycles": 309,
+        "us": 564,
+        "watt": 25.27,
+        "sumber": "tang-nano-4k",
+        "port": "ESP32-S3 UART1"
+      }
+    }
+  ],
+  "cycles": [],
+  "prediction_messages": [
+    {
+      "t": 1792589220000
+    }
+  ],
+  "reply_messages": [],
+  "fresh_predictions": 1,
+  "fresh_replies": 0,
+  "errors": [],
+  "unmatched_prediction_timestamps": []
+}

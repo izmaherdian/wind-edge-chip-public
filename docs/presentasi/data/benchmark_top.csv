@@ -1,0 +1,14 @@
+label;RMSE_W
+Transformer (riwayat 60 menit): 10,07;10.07
+Regresi linear: 10,23;10.23
+Ridge: 10,23;10.23
+TCN (riwayat 60 menit): 10,25;10.25
+MLP float 16-8-1: 10,25;10.25
+MLP INT8 (QAT, identik RTL): 10,25;10.25
+Lasso: 10,25;10.25
+ElasticNet: 10,25;10.25
+LSTM (riwayat 60 menit): 10,35;10.35
+GRU (riwayat 60 menit): 10,41;10.41
+MLP float 16-16-1: 10,41;10.41
+MLP float 16-32-16-1 (acuan QAT, tra…: 10,44;10.44
+persistence (P sekarang): 17,11;17.11

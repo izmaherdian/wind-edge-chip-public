@@ -1,0 +1,17 @@
+% Contoh prediksi 2 hari data uji (MLP INT8 = chip) vs aktual.
+\documentclass[border=4pt]{standalone}
+\input{gaya.tex}
+\usepgfplotslibrary{fillbetween}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9}{11}\selectfont]
+\begin{axis}[width=13cm, height=5cm, ymin=0, ymax=135, xmin=0, xmax=48, xtick={0,6,...,48}, ylabel={W, rata-rata 1 jam ke depan}, xlabel={jam},
+  axis line style={abu}, tick style={abu}, legend style={draw=none, fill=none, at={(0.99,0.99)}, anchor=north east, legend columns=3}]
+  \addplot[name path=lo, draw=none, forget plot] table[col sep=comma, x=jam, y=p10] {../../../data/contoh_prediksi.csv};
+  \addplot[name path=hi, draw=none, forget plot] table[col sep=comma, x=jam, y=p90] {../../../data/contoh_prediksi.csv};
+  \addplot[muda, forget plot] fill between[of=lo and hi];
+  \addplot[gelap, line width=1.2pt] table[col sep=comma, x=jam, y=aktual] {../../../data/contoh_prediksi.csv};
+  \addplot[amber, line width=1.6pt] table[col sep=comma, x=jam, y=int8] {../../../data/contoh_prediksi.csv};
+  \legend{aktual, prediksi chip}
+\end{axis}
+\end{tikzpicture}
+\end{document}

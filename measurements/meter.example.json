@@ -1,0 +1,8 @@
+{
+  "note": "Isi hanya sesudah dua kanal terpasang dan dibandingkan alat ukur. Jangan aktifkan verified untuk bacaan yang belum diuji.",
+  "physical_channel_swap": true,
+  "devices": {
+    "rpi": {"installed": true, "verified": false, "instrument": "", "reference_voltage_v": null, "reference_current_a": null, "verified_utc": "", "shunt_ohm": null},
+    "fpga": {"installed": false, "verified": false, "instrument": "", "reference_voltage_v": null, "reference_current_a": null, "verified_utc": "", "shunt_ohm": null}
+  }
+}

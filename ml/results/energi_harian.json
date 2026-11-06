@@ -1,0 +1,68 @@
+{
+  "metode": "register PZEM dibersihkan (lihat docstring ml/common/energi_harian.py)",
+  "periode": "2026-03-31 s.d. 2026-10-20",
+  "hari_lengkap": 140,
+  "hari_ada_data": 143,
+  "median_wh_per_hari": 270.5,
+  "kuartil_wh_per_hari": [
+    187.2,
+    377.2
+  ],
+  "median_integrasi_daya_wh_per_hari": 154.5,
+  "rasio_register_per_integrasi_median": 1.6,
+  "validasi_segmen_tanpa_celah": {
+    "jam": 74.0,
+    "register_wh": 4493,
+    "integrasi_wh": 4443,
+    "rasio": 1.011
+  },
+  "baris_off_persen": 61.4,
+  "reset_register": 2638,
+  "kenaikan_setelah_celah": 2574,
+  "per_bulan": {
+    "2026-03": {
+      "hari": 1,
+      "median_wh": 91.0
+    },
+    "2026-04": {
+      "hari": 29,
+      "median_wh": 256.0
+    },
+    "2026-05": {
+      "hari": 25,
+      "median_wh": 236.0
+    },
+    "2026-06": {
+      "hari": 30,
+      "median_wh": 267.0
+    },
+    "2026-07": {
+      "hari": 8,
+      "median_wh": 182.5
+    },
+    "2026-08": {
+      "hari": 21,
+      "median_wh": 326.0
+    },
+    "2026-09": {
+      "hari": 6,
+      "median_wh": 611.0
+    },
+    "2026-10": {
+      "hari": 20,
+      "median_wh": 468.5
+    }
+  },
+  "konsumsi_komputer": {
+    "raspi_wh_per_hari": 71.0,
+    "chip_wh_per_hari": 4.1,
+    "raspi_persen_median": 26.3,
+    "chip_persen_median": 1.5,
+    "raspi_persen_rentang_kuartil": [
+      18.8,
+      37.9
+    ],
+    "hemat_kwh_per_tahun_per_turbin": 24.4,
+    "sumber_daya": "INA219 22 Okt 2026, rata-rata seluruh papan (estimasi tanpa multimeter)"
+  }
+}

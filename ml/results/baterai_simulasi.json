@@ -1,0 +1,60 @@
+{
+  "asumsi": {
+    "eta_charge_controller": 0.95,
+    "kapasitas_Wh": 600.0,
+    "eta_isi": 0.9,
+    "eta_buang": 0.95,
+    "soc_min": 0.5,
+    "soc_max": 1.0,
+    "soc_awal": 0.75,
+    "inverter": "Hoymiles_Converter_Technology__MI_250__240V_",
+    "beban_dasar_W": 6.0,
+    "beban_malam_W": 25.0,
+    "jam_malam_WIB": [
+      18,
+      23
+    ]
+  },
+  "inverter_efisiensi_nominal": 0.964,
+  "ringkasan_simulasi_okt": {
+    "energi_turbin_DC_Wh": 4706.8,
+    "energi_beban_AC_Wh": 5139.5,
+    "energi_dibuang_Wh": 78.1,
+    "impor_PLN_Wh": 1553.0,
+    "persen_waktu_SoC_minimum": 34.1,
+    "SoC_rata_rata_persen": 57.8
+  },
+  "prediksi_1jam": {
+    "persistence": {
+      "MAE_SoC_1jam_poin_persen": 1.086,
+      "MAE_energi_ke_baterai_1jam_Wh": 10.8,
+      "impor_PLN_terprediksi_presisi": 0.945,
+      "impor_PLN_terprediksi_recall": 0.93
+    },
+    "smart persistence": {
+      "MAE_SoC_1jam_poin_persen": 0.905,
+      "MAE_energi_ke_baterai_1jam_Wh": 9.41,
+      "impor_PLN_terprediksi_presisi": 0.949,
+      "impor_PLN_terprediksi_recall": 0.971
+    },
+    "MLP INT8 (FPGA)": {
+      "MAE_SoC_1jam_poin_persen": 0.662,
+      "MAE_energi_ke_baterai_1jam_Wh": 8.09,
+      "impor_PLN_terprediksi_presisi": 0.965,
+      "impor_PLN_terprediksi_recall": 0.929
+    },
+    "LightGBM": {
+      "MAE_SoC_1jam_poin_persen": 0.722,
+      "MAE_energi_ke_baterai_1jam_Wh": 8.14,
+      "impor_PLN_terprediksi_presisi": 0.967,
+      "impor_PLN_terprediksi_recall": 0.922
+    },
+    "Ideal (daya DC aktual)": {
+      "MAE_SoC_1jam_poin_persen": 0.081,
+      "MAE_energi_ke_baterai_1jam_Wh": 4.26,
+      "impor_PLN_terprediksi_presisi": 0.996,
+      "impor_PLN_terprediksi_recall": 0.952
+    }
+  },
+  "catatan": "Simulasi dengan asumsi; angka nyata butuh pengukuran baterai/inverter (docs/kajian-inverter-baterai.md)."
+}

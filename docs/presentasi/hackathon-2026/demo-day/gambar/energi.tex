@@ -1,0 +1,13 @@
+% Lampiran: energi harian turbin per bulan (median, register PZEM bersih).
+\documentclass[border=4pt]{standalone}
+\input{gaya.tex}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9}{11}\selectfont]
+\begin{axis}[width=11cm, height=5.2cm, ybar, bar width=14pt, ymin=0, ylabel={Wh per hari (median)},
+  symbolic x coords={2026-04,2026-05,2026-06,2026-07,2026-08,2026-09,2026-10}, xtick=data,
+  xticklabels={Apr,Mei,Jun,Jul,Agu,Sep,Okt}, nodes near coords={\pgfmathprintnumber[fixed, precision=0]{\pgfplotspointmeta}}, nodes near coords style={font=\fontsize{8}{9}\selectfont},
+  axis line style={abu}, tick style={abu}, enlarge x limits=0.08]
+  \addplot[fill=teal, draw=teal] table[col sep=comma, x=bulan, y=median_wh] {../../../data/energi_harian.csv};
+\end{axis}
+\end{tikzpicture}
+\end{document}

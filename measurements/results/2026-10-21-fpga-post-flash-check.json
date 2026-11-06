@@ -1,0 +1,196 @@
+{
+  "kind": "MQTT ESP32-S3 FPGA check after internal flash and JTAG reset",
+  "captured_utc": "2026-10-21T13:32:48Z",
+  "run_id": "flash-check-f6002d222d",
+  "passed": true,
+  "checks": [
+    {
+      "seq": 0,
+      "expected_q": 0,
+      "reply": {
+        "t": 1792589566581,
+        "run_id": "flash-check-f6002d222d",
+        "seq": 0,
+        "phase": "active",
+        "executed": true,
+        "ok": true,
+        "source": "esp32s3+fpga",
+        "xq": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          4,
+          11,
+          0,
+          0,
+          0,
+          116,
+          -52,
+          22,
+          38
+        ],
+        "out_q": 0,
+        "uart_us": 560,
+        "cycles": 309
+      },
+      "passed": true
+    },
+    {
+      "seq": 1,
+      "expected_q": 0,
+      "reply": {
+        "t": 1792589567052,
+        "run_id": "flash-check-f6002d222d",
+        "seq": 1,
+        "phase": "active",
+        "executed": true,
+        "ok": true,
+        "source": "esp32s3+fpga",
+        "xq": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          29,
+          33,
+          27,
+          2,
+          -126,
+          18,
+          67,
+          108,
+          37,
+          62
+        ],
+        "out_q": 0,
+        "uart_us": 561,
+        "cycles": 309
+      },
+      "passed": true
+    },
+    {
+      "seq": 2,
+      "expected_q": 10,
+      "reply": {
+        "t": 1792589567803,
+        "run_id": "flash-check-f6002d222d",
+        "seq": 2,
+        "phase": "active",
+        "executed": true,
+        "ok": true,
+        "source": "esp32s3+fpga",
+        "xq": [
+          4,
+          11,
+          0,
+          11,
+          0,
+          20,
+          29,
+          33,
+          40,
+          3,
+          -127,
+          6,
+          79,
+          -99,
+          -26,
+          51
+        ],
+        "out_q": 10,
+        "uart_us": 572,
+        "cycles": 309
+      },
+      "passed": true
+    }
+  ],
+  "requests": [
+    {
+      "request": {
+        "t": 1792589566581,
+        "run_id": "flash-check-f6002d222d",
+        "seq": 0,
+        "phase": "active",
+        "xq": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          4,
+          11,
+          0,
+          0,
+          0,
+          116,
+          -52,
+          22,
+          38
+        ]
+      },
+      "expected_q": 0
+    },
+    {
+      "request": {
+        "t": 1792589567052,
+        "run_id": "flash-check-f6002d222d",
+        "seq": 1,
+        "phase": "active",
+        "xq": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          29,
+          33,
+          27,
+          2,
+          -126,
+          18,
+          67,
+          108,
+          37,
+          62
+        ]
+      },
+      "expected_q": 0
+    },
+    {
+      "request": {
+        "t": 1792589567803,
+        "run_id": "flash-check-f6002d222d",
+        "seq": 2,
+        "phase": "active",
+        "xq": [
+          4,
+          11,
+          0,
+          11,
+          0,
+          20,
+          29,
+          33,
+          40,
+          3,
+          -127,
+          6,
+          79,
+          -99,
+          -26,
+          51
+        ]
+      },
+      "expected_q": 10
+    }
+  ]
+}

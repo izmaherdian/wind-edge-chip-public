@@ -1,0 +1,15 @@
+% Status verifikasi model -> FPGA -> dashboard (21 Okt 2026). Hijau = selesai, putus-putus = belum.
+\begin{tikzpicture}[node distance=0.28cm, every node/.style={font=\scriptsize}]
+  \tikzset{ok/.style={milik=genis, text width=1.75cm, minimum height=1.25cm},
+           belum/.style={kotak, draw=lama, dashed, fill=white, text width=1.75cm, minimum height=1.25cm}}
+  \node[ok] (a) {\textbf{QAT PyTorch}\\= integer numpy\\16.255 sampel};
+  \node[ok, right=of a] (b) {\textbf{Golden model}\\= cermin RTL\\597 vektor};
+  \node[ok, right=of b] (c) {\textbf{iverilog core}\\2.000 acak +\\597 nyata};
+  \node[ok, right=of c] (d) {\textbf{iverilog SoC}\\UART 921600\\+ CRC-8, 50 vektor};
+  \node[ok, right=of d] (e) {\textbf{Bitstream}\\LUT 24\%\\Fmax 86,7 MHz};
+  \node[ok, right=of e] (f) {\textbf{Flash}\\Tang Nano 4K\\CRC sukses};
+  \node[ok, right=of f] (g) {\textbf{HIL di papan}\\ESP32-S3 $\leftrightarrow$ FPGA\\5.373 identik};
+  \node[ok, right=of g] (h) {\textbf{Live}\\data turbin $\to$\\chip $\to$ dashboard};
+  \foreach \x/\y in {a/b, b/c, c/d, d/e, e/f, f/g, g/h} {\draw[panah] (\x) -- (\y);}
+  \node[font=\scriptsize\bfseries, text=genis!70!black, above=0.08cm of c.north east] {semua 0 beda (bit-exact), 309 siklus};
+\end{tikzpicture}

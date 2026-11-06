@@ -1,0 +1,53 @@
+{
+  "fitur": [
+    "w_now",
+    "w_mean10",
+    "w_mean30",
+    "w_mean60",
+    "w3_mean10",
+    "w3_mean30",
+    "w_max10",
+    "w_std10",
+    "dir_sin",
+    "dir_cos",
+    "hour_sin",
+    "hour_cos",
+    "rho",
+    "humidity_pct",
+    "temp_c",
+    "om_wind_now"
+  ],
+  "test_kurva_daya": {
+    "MAE_W": 2.5720714594576655,
+    "RMSE_W": 5.931552183940736,
+    "nMAE_pct": 23.99848070265523,
+    "bias_W": 0.22338956808782334
+  },
+  "beda_pytorch_vs_integer": 0,
+  "ambang_rasio": [
+    0.42,
+    1.463
+  ],
+  "uji_kerusakan_30_menit": [
+    {
+      "daya_tersisa": 0.2,
+      "recall_jendela": 0.675,
+      "alarm_palsu": 0.0402
+    },
+    {
+      "daya_tersisa": 0.4,
+      "recall_jendela": 0.1,
+      "alarm_palsu": 0.0176
+    },
+    {
+      "daya_tersisa": 0.6,
+      "recall_jendela": 0.075,
+      "alarm_palsu": 0.0054
+    }
+  ],
+  "max_abs_bobot": [
+    8,
+    16,
+    5
+  ]
+}

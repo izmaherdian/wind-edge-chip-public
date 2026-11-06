@@ -1,0 +1,22 @@
+% Arsitektur target: sensor → ESP32 → FPGA → MQTT → Node-RED → dashboard
+\begin{tikzpicture}[node distance=0.45cm and 0.8cm]
+  \node[abu, text width=2.7cm] (sens) {\textbf{Sensor turbin}\\PZEM-017 (V, I)\\stasiun cuaca};
+  \node[milik=genis, text width=2.7cm, below=0.5cm of sens] (rep) {\textbf{Turbin virtual}\\data 7 bulan diputar ulang};
+  \node[abu, text width=2.7cm, above=0.5cm of sens] (om) {\textbf{Open-Meteo / BMKG}\\prakiraan angin};
+  \node[milik=genis, text width=3.0cm, right=1.1cm of sens] (esp) {\textbf{ESP32}\\16 fitur $\to$ INT8\\buffer lokal, MQTT};
+  \node[milik=alif, text width=3.0cm, right=1.1cm of esp] (fpga) {\textbf{FPGA: akselerator MAC4}\\MLP 16-32-16-1 INT8\\309 siklus/prediksi};
+  \node[milik=genis, text width=3.0cm, above=0.9cm of fpga] (srv) {\textbf{Node-RED + database}\\\texttt{citaitb.com}};
+  \node[milik=genis, text width=3.0cm, right=0.9cm of srv] (dash) {\textbf{Dashboard}\\daya aktual vs\\prediksi 1 jam};
+  \node[milik=izma, text width=3.0cm, below=0.9cm of fpga] (ml) {\textbf{Model AI}\\pelatihan QAT\\golden model};
+  \node[abu, text width=3.0cm, right=0.9cm of fpga] (bat) {\textbf{Keputusan energi}\\isi baterai / beban / PLN};
+  \draw[panah] (sens) -- node[label, above] {Modbus} (esp);
+  \draw[putus] (rep) -| node[label, pos=0.25, below] {serial} (esp.south);
+  \draw[putus] (om) -| node[label, pos=0.25, above] {HTTPS} (esp.north);
+  \draw[panah] ([yshift=4pt]esp.east) -- node[label, above] {fitur} ([yshift=4pt]fpga.west);
+  \draw[panah] ([yshift=-4pt]fpga.west) -- node[label, below] {prediksi} ([yshift=-4pt]esp.east);
+  \draw[panah] (esp.north) |- node[label, pos=0.75, above] {MQTT} (srv.west);
+  \draw[panah] (srv) -- (dash);
+  \draw[panah] (ml) -- node[label, right] {bobot \texttt{.hex}} (fpga);
+  \draw[panah] (ml.west) -| node[label, pos=0.3, below] {\texttt{mlp\_int8.h}} (esp.south);
+  \draw[putus] (fpga) -- (bat);
+\end{tikzpicture}

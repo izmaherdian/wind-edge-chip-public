@@ -1,0 +1,306 @@
+# Dashboard InfluxDB "Wind Edge Chip". Pasang/perbarui: dashboard/db/apply_dashboard.sh
+apiVersion: influxdata.com/v2alpha1
+kind: Dashboard
+metadata:
+  name: wec-dashboard
+spec:
+  name: Wind Edge Chip · Turbin 1
+  description: Data live MQTT, historis 1 menit (30 Mar–20 Okt), hasil uji ML, dan simulasi baterai.
+  charts:
+    - kind: Markdown
+      name: Keterangan
+      xPos: 0
+      yPos: 0
+      width: 4
+      height: 3
+      note: |
+        **Wind Edge Chip · Tim Chitato**
+
+        - *Live*: MQTT `TurbinAngin/#` + `WEC/#` (bucket `turbin`, `wec`), ikut rentang waktu di kanan atas.
+        - *Historis*: rata-rata per jam dari data 1 menit 30 Mar–20 Okt (rentang tetap).
+        - *Uji ML*: 1–20 Okt, prediksi rata-rata daya 60 menit ke depan.
+        - Baterai: simulasi 384 Wh, belum terpasang.
+    - kind: Single_Stat
+      name: Daya live (W)
+      xPos: 4
+      yPos: 0
+      width: 2
+      height: 3
+      decimalPlaces: 1
+      suffix: " W"
+      queries:
+        - query: |-
+            from(bucket: "turbin")
+              |> range(start: -15m)
+              |> filter(fn: (r) => r._measurement == "turbin_live" and r.turbin == "1" and r._field == "power_w")
+              |> last()
+      colors:
+        - name: emas
+          type: text
+          hex: "#C8961F"
+    - kind: Single_Stat
+      name: Angin stasiun live (m/s)
+      xPos: 6
+      yPos: 0
+      width: 2
+      height: 3
+      decimalPlaces: 2
+      suffix: " m/s"
+      queries:
+        - query: |-
+            from(bucket: "turbin")
+              |> range(start: -15m)
+              |> filter(fn: (r) => r._measurement == "turbin_live" and r.turbin == "1" and r._field == "wind_ms")
+              |> last()
+      colors:
+        - name: patina
+          type: text
+          hex: "#3A9D97"
+    - kind: Single_Stat
+      name: Prediksi 1 jam (W)
+      xPos: 8
+      yPos: 0
+      width: 2
+      height: 3
+      decimalPlaces: 1
+      suffix: " W"
+      queries:
+        - query: |-
+            from(bucket: "wec")
+              |> range(start: -3h)
+              |> filter(fn: (r) => r._measurement == "wec_prediksi" and r._field == "power_w")
+              |> last()
+      colors:
+        - name: emas
+          type: text
+          hex: "#C8961F"
+    - kind: Single_Stat
+      name: SoC baterai simulasi (%)
+      xPos: 10
+      yPos: 0
+      width: 2
+      height: 3
+      decimalPlaces: 1
+      suffix: " %"
+      queries:
+        - query: |-
+            from(bucket: "wec")
+              |> range(start: -3h)
+              |> filter(fn: (r) => r._measurement == "wec_baterai" and r._field == "soc")
+              |> last()
+      colors:
+        - name: patina
+          type: text
+          hex: "#3A9D97"
+    - kind: Xy
+      name: Live · daya dan angin
+      xPos: 0
+      yPos: 3
+      width: 6
+      height: 4
+      geom: line
+      position: overlaid
+      xCol: _time
+      yCol: _value
+      queries:
+        - query: |-
+            from(bucket: "turbin")
+              |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+              |> filter(fn: (r) => r._measurement == "turbin_live" and r.turbin == "1")
+              |> filter(fn: (r) => r._field == "power_w" or r._field == "wind_ms")
+              |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
+      colors:
+        - name: c1
+          type: scale
+          hex: "#C8961F"
+        - name: c2
+          type: scale
+          hex: "#3A9D97"
+        - name: c3
+          type: scale
+          hex: "#262626"
+      axes:
+        - name: x
+          base: "10"
+          scale: linear
+        - name: y
+          base: "10"
+          scale: linear
+    - kind: Xy
+      name: Live · prediksi 1 jam vs persistence (W)
+      xPos: 6
+      yPos: 3
+      width: 6
+      height: 4
+      geom: line
+      position: overlaid
+      xCol: _time
+      yCol: _value
+      queries:
+        - query: |-
+            from(bucket: "wec")
+              |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+              |> filter(fn: (r) => r._measurement == "wec_prediksi")
+              |> filter(fn: (r) => r._field == "power_w" or r._field == "p10" or r._field == "p90" or r._field == "persistence_w")
+      colors:
+        - name: c1
+          type: scale
+          hex: "#C8961F"
+        - name: c2
+          type: scale
+          hex: "#3A9D97"
+        - name: c3
+          type: scale
+          hex: "#8A8A8A"
+      axes:
+        - name: x
+          base: "10"
+          scale: linear
+        - name: y
+          base: "10"
+          scale: linear
+    - kind: Xy
+      name: Historis · daya rata-rata per jam (W), 30 Mar–20 Okt
+      xPos: 0
+      yPos: 7
+      width: 12
+      height: 4
+      geom: line
+      position: overlaid
+      xCol: _time
+      yCol: _value
+      queries:
+        - query: |-
+            from(bucket: "turbin")
+              |> range(start: 2026-03-30T00:00:00Z, stop: 2026-10-21T00:00:00Z)
+              |> filter(fn: (r) => r._measurement == "turbin_1min" and r._field == "power_w")
+              |> aggregateWindow(every: 1h, fn: mean, createEmpty: false)
+      colors:
+        - name: c1
+          type: scale
+          hex: "#C8961F"
+        - name: c2
+          type: scale
+          hex: "#C8961F"
+        - name: c3
+          type: scale
+          hex: "#C8961F"
+      axes:
+        - name: x
+          base: "10"
+          scale: linear
+        - name: y
+          base: "10"
+          scale: linear
+    - kind: Xy
+      name: Uji 1–20 Okt · aktual vs MLP INT8 (= FPGA) vs persistence (W)
+      xPos: 0
+      yPos: 11
+      width: 8
+      height: 4
+      geom: line
+      position: overlaid
+      xCol: _time
+      yCol: _value
+      queries:
+        - query: |-
+            from(bucket: "wec")
+              |> range(start: 2026-10-01T00:00:00Z, stop: 2026-10-21T00:00:00Z)
+              |> filter(fn: (r) => r._measurement == "prediksi_uji")
+              |> filter(fn: (r) => r._field == "aktual_w" or r._field == "mlp_int8_w" or r._field == "persistence_w")
+              |> aggregateWindow(every: 15m, fn: mean, createEmpty: false)
+      colors:
+        - name: c1
+          type: scale
+          hex: "#262626"
+        - name: c2
+          type: scale
+          hex: "#C8961F"
+        - name: c3
+          type: scale
+          hex: "#3A9D97"
+      axes:
+        - name: x
+          base: "10"
+          scale: linear
+        - name: y
+          base: "10"
+          scale: linear
+    - kind: Table
+      name: Uji 1–20 Okt · galat rata-rata (MAE, W)
+      xPos: 8
+      yPos: 11
+      width: 4
+      height: 4
+      queries:
+        - query: |-
+            import "math"
+            from(bucket: "wec")
+              |> range(start: 2026-10-01T00:00:00Z, stop: 2026-10-21T00:00:00Z)
+              |> filter(fn: (r) => r._measurement == "prediksi_uji")
+              |> pivot(rowKey: ["_time"], columnKey: ["_field"], valueColumn: "_value")
+              |> filter(fn: (r) => exists r.aktual_w and exists r.mlp_int8_w and exists r.persistence_w and exists r.transformer_w)
+              |> group()
+              |> reduce(identity: {n: 0.0, a: 0.0, b: 0.0, c: 0.0}, fn: (r, accumulator) => ({
+                  n: accumulator.n + 1.0,
+                  a: accumulator.a + math.abs(x: r.mlp_int8_w - r.aktual_w),
+                  b: accumulator.b + math.abs(x: r.transformer_w - r.aktual_w),
+                  c: accumulator.c + math.abs(x: r.persistence_w - r.aktual_w)}))
+              |> map(fn: (r) => ({"MLP INT8 (FPGA)": r.a / r.n, "Transformer": r.b / r.n, "Persistence": r.c / r.n, "Jumlah menit": r.n}))
+      colors:
+        - name: base
+          type: text
+          hex: "#262626"
+    - kind: Xy
+      name: Simulasi baterai 384 Wh · SoC (%), 1–20 Okt
+      xPos: 0
+      yPos: 15
+      width: 12
+      height: 3
+      geom: line
+      position: overlaid
+      xCol: _time
+      yCol: _value
+      queries:
+        - query: |-
+            from(bucket: "wec")
+              |> range(start: 2026-10-01T00:00:00Z, stop: 2026-10-21T00:00:00Z)
+              |> filter(fn: (r) => r._measurement == "baterai_sim" and r._field == "soc_pct")
+              |> aggregateWindow(every: 10m, fn: mean, createEmpty: false)
+      colors:
+        - name: c1
+          type: scale
+          hex: "#3A9D97"
+        - name: c2
+          type: scale
+          hex: "#3A9D97"
+        - name: c3
+          type: scale
+          hex: "#3A9D97"
+      axes:
+        - name: x
+          base: "10"
+          scale: linear
+        - name: y
+          base: "10"
+          scale: linear
+    - kind: Table
+      name: Chip FPGA · hasil terakhir vs CPU (fpga_bridge.py)
+      xPos: 0
+      yPos: 18
+      width: 12
+      height: 3
+      queries:
+        - query: |-
+            from(bucket: "wec")
+              |> range(start: -24h)
+              |> filter(fn: (r) => r._measurement == "wec_fpga")
+              |> pivot(rowKey: ["_time"], columnKey: ["_field"], valueColumn: "_value")
+              |> group()
+              |> sort(columns: ["_time"], desc: true)
+              |> limit(n: 10)
+              |> keep(columns: ["_time", "sumber", "out_q_fpga", "out_q_cpu", "cocok", "cycles", "us", "watt"])
+      colors:
+        - name: base
+          type: text
+          hex: "#262626"

@@ -1,0 +1,43 @@
+\begin{small}
+\begin{longtable}{@{}r p{6.2cm} p{3.4cm} r r r p{2.6cm}@{}}
+\toprule
+\# & Metode & Kelompok & MAE (W) & RMSE (W) & Skill & FPGA MAC4 \\ \midrule \endhead
+1 & Transformer (riwayat 60 menit) & Jaringan saraf (sekuensial) & 5,70 & 10,07 & +0,411 & sulit (softmax, memori besar) \\
+2 & Regresi linear & Linear & 5,71 & 10,23 & +0,402 & ya \\
+3 & Ridge & Linear & 5,71 & 10,23 & +0,402 & ya \\
+4 & TCN (riwayat 60 menit) & Jaringan saraf (sekuensial) & 5,46 & 10,25 & +0,401 & mungkin (konvolusi) \\
+5 & MLP float 16-8-1 & Jaringan saraf (tabular) & 5,59 & 10,25 & +0,401 & ya, bila FSM diubah \\
+6 & \textbf{MLP INT8 (QAT, identik RTL)} & Varian hardware (INT8) & 5,48 & 10,25 & +0,401 & ya (bobot ini) \\
+7 & Lasso & Linear & 5,71 & 10,25 & +0,401 & ya \\
+8 & ElasticNet & Linear & 5,70 & 10,25 & +0,401 & ya \\
+9 & LSTM (riwayat 60 menit) & Jaringan saraf (sekuensial) & 5,59 & 10,35 & +0,395 & sulit (sigmoid/tanh, sekuensial) \\
+10 & GRU (riwayat 60 menit) & Jaringan saraf (sekuensial) & 5,54 & 10,41 & +0,392 & sulit (sigmoid/tanh, sekuensial) \\
+11 & MLP float 16-16-1 & Jaringan saraf (tabular) & 5,67 & 10,41 & +0,392 & ya, bila FSM diubah \\
+12 & MLP float 16-32-16-1 (acuan QAT, train\_mlp.py) & Varian hardware (INT8) & 5,59 & 10,44 & +0,390 & ya \\
+13 & CNN 1D (riwayat 60 menit) & Jaringan saraf (sekuensial) & 5,60 & 10,46 & +0,389 & mungkin (MAC sama, FSM lebih rumit) \\
+14 & MLP float 16-32-16-1 & Jaringan saraf (tabular) & 5,62 & 10,47 & +0,388 & ya (16-32-16-1 = RTL sekarang) \\
+15 & MLP float 16-64-32-1 & Jaringan saraf (tabular) & 5,64 & 10,49 & +0,387 & ya, bila FSM diubah \\
+16 & ExtraTrees & Pohon & 5,46 & 10,59 & +0,382 & tidak \\
+17 & KNN (k=25) & Kernel/tetangga & 5,52 & 10,62 & +0,380 & tidak \\
+18 & MLP INT8 (PTQ: dibulatkan tanpa QAT) & Varian hardware (INT8) & 6,75 & 10,65 & +0,378 & ya (bobot ini) \\
+19 & ARIMA(2,0,1) deret 10 menit* & Statistik & 6,19 & 10,77 & +0,391 & ya (kecil) \\
+20 & Polinomial derajat 2 + Ridge & Linear & 5,89 & 10,87 & +0,365 & ya \\
+21 & Random Forest & Pohon & 5,74 & 10,91 & +0,363 & tidak \\
+22 & campuran mean60 + klimatologi (a=0.35) & Baseline & 5,91 & 11,00 & +0,357 & tidak perlu \\
+23 & LightGBM tanpa Open-Meteo (offline) & Varian data & 5,76 & 11,03 & +0,355 & tidak \\
+24 & LightGBM kuantil P50 (+ interval P10–P90) & Probabilistik & 5,64 & 11,12 & +0,350 & tidak \\
+25 & LightGBM & Pohon & 5,79 & 11,16 & +0,348 & tidak \\
+26 & SVR RBF (15 rb sampel) & Kernel/tetangga & 5,65 & 11,23 & +0,344 & tidak \\
+27 & HistGradientBoosting & Pohon & 5,82 & 11,27 & +0,341 & tidak \\
+28 & XGBoost & Pohon & 5,98 & 11,40 & +0,334 & tidak \\
+29 & CatBoost & Pohon & 5,91 & 11,47 & +0,330 & tidak \\
+30 & Decision Tree & Pohon & 6,20 & 11,58 & +0,323 & tidak \\
+31 & Kurva daya $\times$ angin 60 menit terakhir & Fisika & 7,06 & 12,38 & +0,277 & tabel di ESP32 \\
+32 & smart persistence (rata-rata 60 menit terakhir) & Baseline & 7,12 & 12,62 & +0,262 & tidak perlu \\
+33 & klimatologi per jam & Baseline & 6,85 & 12,89 & +0,247 & tidak perlu \\
+34 & moving average 10 menit & Baseline & 7,47 & 14,39 & +0,159 & tidak perlu \\
+35 & persistence (P sekarang) & Baseline & 8,67 & 17,11 & +0,000 & tidak perlu \\
+36 & Kurva daya $\times$ prakiraan Open-Meteo & Fisika & 11,45 & 17,19 & -0,005 & tabel di ESP32 \\
+\bottomrule
+\end{longtable}
+\end{small}

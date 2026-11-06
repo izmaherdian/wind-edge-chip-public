@@ -1,0 +1,14 @@
+% Tiga bukti (3 angka kunci deck): hemat, identik, jalan live.
+\documentclass[border=4pt]{standalone}
+\input{gaya.tex}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,
+  bukti/.style={rounded corners=7pt, text width=4.25cm, minimum height=3.55cm, align=center, inner sep=8pt, anchor=north west}]
+  \node[bukti, fill=amber!30] at (0,0) {{\judulfont\bfseries\fontsize{30}{32}\selectfont\color{gelap}\kaliHemat\texttimes}\\[4pt]
+    {\bfseries lebih hemat energi}\\[2pt]chip vs Raspberry Pi untuk tugas ML yang sama, diukur INA219 secara live};
+  \node[bukti, fill=gelap, text=white] at (5.0,0) {{\judulfont\bfseries\fontsize{30}{32}\selectfont\color{amber}100\%}\\[4pt]
+    {\bfseries hasil chip identik}\\[2pt]dengan model acuan, diuji di papan dan tiap menit secara live};
+  \node[bukti, fill=muda] at (10.0,0) {{\judulfont\bfseries\fontsize{30}{32}\selectfont\color{teal}LIVE}\\[4pt]
+    {\bfseries jalan di turbin nyata}\\[2pt]atap Gedung CRIMSE ITB, prediksi tiap menit, tetap jalan saat data putus};
+\end{tikzpicture}
+\end{document}

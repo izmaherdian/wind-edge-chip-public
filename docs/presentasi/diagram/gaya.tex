@@ -1,0 +1,16 @@
+% Gaya bersama diagram (dipakai laporan progress dan deck). Warna anggota sama dengan jobdesc.tex.
+\providecolor{izma}{RGB}{31,94,170}
+\providecolor{genis}{RGB}{40,130,70}
+\providecolor{alif}{RGB}{190,90,20}
+\providecolor{shania}{RGB}{140,60,150}
+\providecolor{lama}{RGB}{110,110,110}
+\providecolor{merah}{RGB}{185,40,40}
+\tikzset{
+  kotak/.style={draw, rounded corners=3pt, align=center, font=\footnotesize, inner sep=4pt, line width=0.8pt, minimum height=0.9cm},
+  milik/.style={kotak, draw=#1, fill=#1!10},
+  abu/.style={kotak, draw=lama, fill=black!4},
+  panah/.style={-{Stealth[length=2mm]}, line width=0.7pt, draw=black!70},
+  putus/.style={panah, dashed},
+  label/.style={font=\scriptsize\itshape, text=black!70, fill=white, inner sep=1pt},
+  wadah/.style={draw=#1!60, fill=#1!4, rounded corners=5pt, line width=0.6pt, inner sep=6pt},
+}

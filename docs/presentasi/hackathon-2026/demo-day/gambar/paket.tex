@@ -1,0 +1,35 @@
+% Yang kami jual: tiga paket (sistem, bukan turbin) + jenjang pelanggan.
+\documentclass[border=4pt]{standalone}
+\input{gaya.tex}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{9.5}{12}\selectfont,
+  kartu/.style={rounded corners=6pt, text width=4.45cm, minimum height=4.75cm, align=left, inner sep=8pt, anchor=north},
+  nomor/.style={circle, fill=amber, text=gelap, font=\judulfont\bfseries, inner sep=2.5pt}]
+  \def\isi#1#2#3{{\color{#3}\judulfont\bfseries\fontsize{12.5}{14}\selectfont #1}\\[2pt]{\color{#3}\fontsize{8.5}{10}\selectfont\itshape #2}\\[5pt]}
+  \node[kartu, fill=gelap, text=white] (a) at (0,0) {\isi{Edge Kit}{perangkat, sekali beli}{amber}
+    $\blacktriangleright$ ESP32 + chip FPGA ML\\
+    $\blacktriangleright$ antarmuka sensor daya \& angin\\
+    $\blacktriangleright$ kontrol \& pengaman\textsuperscript{*}: isi baterai, dump load, PLN\\
+    $\blacktriangleright$ tetap jalan tanpa internet};
+  \node[kartu, fill=teal, text=white] (b) at (5.35,0) {\isi{Platform}{langganan per turbin}{amber}
+    $\blacktriangleright$ dashboard web \& ponsel\\
+    $\blacktriangleright$ digital twin 3D turbin\\
+    $\blacktriangleright$ database riwayat \& laporan\\
+    $\blacktriangleright$ model ML diperbarui per lokasi};
+  \node[kartu, fill=muda] (c) at (10.7,0) {\isi{Layanan}{per proyek}{teal}
+    $\blacktriangleright$ survei \& pemasangan di turbin\\
+    $\blacktriangleright$ integrasi baterai \& PLTS (hybrid)\\
+    $\blacktriangleright$ kalibrasi model untuk turbin \& iklim baru\\
+    $\blacktriangleright$ dukungan \& perawatan};
+  \foreach \n/\k in {1/a,2/b,3/c} \node[nomor] at (\k.north west) {\n};
+  % jenjang pelanggan
+  \begin{scope}[shift={(-2.55,-5.95)}]
+    \node[anchor=south west, text=abu, font=\fontsize{8.5}{10}\selectfont] at (0,0.45) {jenjang pelanggan: mulai dari rumah, berkembang ke armada};
+    \foreach \x/\t/\s/\w in {0/Rumah \& vila/1 turbin + baterai/4.4, 5.35/Kawasan \& resort/beberapa turbin + PLTS/4.4, 10.7/Armada B2B/{banyak lokasi, 1 dashboard}/4.4}
+      {\node[draw=teal, line width=0.9pt, rounded corners=4pt, text width=\w cm, align=center, anchor=west, inner sep=4pt] at (\x,0) {\textbf{\t}\\{\color{abu}\fontsize{8.5}{10}\selectfont\s}};}
+    \draw[panah] (4.65,0) -- (5.25,0);
+    \draw[panah] (10.0,0) -- (10.6,0);
+  \end{scope}
+  \node[anchor=north, text=abu, text width=14.6cm, align=center, font=\fontsize{8.5}{10}\selectfont] at ([yshift=-4pt]current bounding box.south) {\textsuperscript{*} Pengembangan selanjutnya. Saat ini: prediksi live, baterai masih simulasi di dashboard.};
+\end{tikzpicture}
+\end{document}

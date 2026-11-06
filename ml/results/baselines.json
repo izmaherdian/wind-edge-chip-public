@@ -1,0 +1,76 @@
+{
+  "val": {
+    "persistence (P sekarang)": {
+      "MAE_W": 7.584740392838692,
+      "RMSE_W": 14.638516975210479,
+      "nMAE_pct": 79.85827937908324,
+      "bias_W": -0.04770198941198565,
+      "skill_vs_persistence": 0.0
+    },
+    "smart persistence (rata-rata 60 menit terakhir)": {
+      "MAE_W": 6.244871058970567,
+      "RMSE_W": 11.157816522340035,
+      "nMAE_pct": 65.751051701715,
+      "bias_W": -0.07831995281450402,
+      "skill_vs_persistence": 0.237776849851991
+    },
+    "moving average 10 menit": {
+      "MAE_W": 6.508020790551153,
+      "RMSE_W": 12.258114129422259,
+      "nMAE_pct": 68.52170484139724,
+      "bias_W": -0.050579084079508875,
+      "skill_vs_persistence": 0.16261229534517063
+    },
+    "klimatologi per jam": {
+      "MAE_W": 6.193450514861955,
+      "RMSE_W": 11.467466896353242,
+      "nMAE_pct": 65.20965463806242,
+      "bias_W": -2.330086701982218,
+      "skill_vs_persistence": 0.21662372521938078
+    },
+    "campuran mean60 + klimatologi (a=0.35)": {
+      "MAE_W": 5.20058834791463,
+      "RMSE_W": 9.619247876873438,
+      "nMAE_pct": 54.75599898125664,
+      "bias_W": -1.5419683397735182,
+      "skill_vs_persistence": 0.34288098356116925
+    }
+  },
+  "test": {
+    "persistence (P sekarang)": {
+      "MAE_W": 8.6744785284014,
+      "RMSE_W": 17.114838277139363,
+      "nMAE_pct": 82.32734349651273,
+      "bias_W": 0.011239153945652593,
+      "skill_vs_persistence": 0.0
+    },
+    "smart persistence (rata-rata 60 menit terakhir)": {
+      "MAE_W": 7.124838148929044,
+      "RMSE_W": 12.624775633420864,
+      "nMAE_pct": 67.62008756185563,
+      "bias_W": 0.030500789910270592,
+      "skill_vs_persistence": 0.2623491131503104
+    },
+    "moving average 10 menit": {
+      "MAE_W": 7.470001344730414,
+      "RMSE_W": 14.385575882378914,
+      "nMAE_pct": 70.89594661091023,
+      "bias_W": -0.015723628435847018,
+      "skill_vs_persistence": 0.15946761228857065
+    },
+    "klimatologi per jam": {
+      "MAE_W": 6.852681325018299,
+      "RMSE_W": 12.890591686243871,
+      "nMAE_pct": 65.03711404319861,
+      "bias_W": -3.605471689665491,
+      "skill_vs_persistence": 0.2468177918185709
+    },
+    "campuran mean60 + klimatologi (a=0.35)": {
+      "MAE_W": 5.910018543436061,
+      "RMSE_W": 11.001689816019873,
+      "nMAE_pct": 56.090533292943284,
+      "bias_W": -2.332881321813974,
+      "skill_vs_persistence": 0.3571841207103281
+    }
+  }
+}

@@ -1,0 +1,11 @@
+write to flash
+Jtag frequency : requested 6.00MHz    -> real 6.00MHz
+Parse file Parse /tmp/claude-1000/-home-izmaherdian-Documents-wind-edge-chip/e2c44612-0aa9-4a6e-a6c2-edf1bf445832/scratchpad/wind_edge_chip_20261021.fs:
+Done
+DONE
+Jtag frequency : requested 2.50MHz    -> real 2.00MHz
+Erase SRAM DONE
+Erase FLASH Erasing FLASH: DONE
+Done
+write Flash: Done
+CRC check: Success

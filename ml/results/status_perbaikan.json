@@ -1,0 +1,37 @@
+{
+  "n_train": 39102,
+  "n_test": 12001,
+  "distribusi_test": {
+    "Optimal": 0.66,
+    "Anomaly": 0.338,
+    "Inefisien": 0.002
+  },
+  "cp_median_test": 0.495,
+  "model": {
+    "Aturan Cp langsung (rumus label)": {
+      "akurasi": 1.0,
+      "macro_F1": 1.0,
+      "ms_per_1000": null
+    },
+    "SVM RBF (seperti TA, 20 rb sampel)": {
+      "akurasi": 0.9911,
+      "macro_F1": 0.9565,
+      "ms_per_1000": 32.999
+    },
+    "SVM linear": {
+      "akurasi": 0.9048,
+      "macro_F1": 0.7036,
+      "ms_per_1000": 0.138
+    },
+    "Random Forest": {
+      "akurasi": 0.9875,
+      "macro_F1": 0.9575,
+      "ms_per_1000": 3.714
+    },
+    "LightGBM": {
+      "akurasi": 0.9868,
+      "macro_F1": 0.9658,
+      "ms_per_1000": 13.596
+    }
+  }
+}

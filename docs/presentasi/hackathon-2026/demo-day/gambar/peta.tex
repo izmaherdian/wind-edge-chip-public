@@ -1,0 +1,20 @@
+% Peta jalan TKT + ajakan pilot.
+\documentclass[border=4pt]{standalone}
+\input{gaya.tex}
+\begin{document}
+\begin{tikzpicture}[x=3.7cm, font=\fontsize{9.5}{12}\selectfont]
+  \draw[line width=3pt, teal!30] (0,0) -- (3.3,0);
+  \draw[line width=3pt, amber] (0,0) -- (0.5,0);
+  \foreach \x/\t/\k/\b/\c in {0/Okt 2026/TKT 5/{\textbf{sekarang}: jalan di turbin\\nyata, chip di papan}/amber,
+                              1/Des 2026/TKT 6/{Edge Kit terpasang\\+ baterai 12 V 50 Ah}/teal,
+                              2/2027/TKT 7/{pilot 2--3 lokasi:\\multi-turbin + PLTS}/teal,
+                              3/2028/TKT 8/{produk siap jual,\\chip menuju ASIC}/teal}
+    {\fill[\c] (\x,0) circle (6pt);
+     \node[above=9pt, font=\judulfont\bfseries\fontsize{12}{14}\selectfont, text=gelap] at (\x,0) {\k};
+     \node[above=25pt, text=abu] at (\x,0) {\t};
+     \node[below=9pt, align=center] at (\x,0) {\b};}
+  \node[draw=amber, line width=1.3pt, rounded corners=6pt, text width=13.6cm, align=left, inner sep=8pt, anchor=north west] at (-0.35,-1.95)
+    {{\judulfont\bfseries\color{gelap} Yang kami cari:}\quad lokasi pilot multi-turbin / hybrid PLTS \textbullet{} pendanaan pilot \textbullet{} data turbin di iklim lain\\[3pt]
+     {\color{abu}Calon mitra: PLN Puslitbang, PT Len, Indismart, CITA ITB}};
+\end{tikzpicture}
+\end{document}

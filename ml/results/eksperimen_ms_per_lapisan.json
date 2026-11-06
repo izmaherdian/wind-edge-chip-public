@@ -1,0 +1,83 @@
+{
+  "n_menit_uji": 16255,
+  "catatan": "S = 8 tetap; M=32/32/32 = RTL sekarang (dilatih ulang dengan seed sama)",
+  "hasil": {
+    "M=32/32/32": {
+      "MAE_W": 5.652,
+      "RMSE_W": 10.232,
+      "skill": 0.402,
+      "max_abs_bobot": [
+        6,
+        5,
+        3
+      ],
+      "beda_pytorch_vs_integer": 0
+    },
+    "M=16/16/16": {
+      "MAE_W": 5.481,
+      "RMSE_W": 10.115,
+      "skill": 0.409,
+      "max_abs_bobot": [
+        10,
+        10,
+        7
+      ],
+      "beda_pytorch_vs_integer": 0
+    },
+    "M=8/8/8": {
+      "MAE_W": 5.454,
+      "RMSE_W": 10.305,
+      "skill": 0.398,
+      "max_abs_bobot": [
+        19,
+        19,
+        15
+      ],
+      "beda_pytorch_vs_integer": 0
+    },
+    "M=4/4/4": {
+      "MAE_W": 5.544,
+      "RMSE_W": 10.391,
+      "skill": 0.393,
+      "max_abs_bobot": [
+        36,
+        45,
+        34
+      ],
+      "beda_pytorch_vs_integer": 0
+    },
+    "M=8/8/32": {
+      "MAE_W": 5.496,
+      "RMSE_W": 10.328,
+      "skill": 0.397,
+      "max_abs_bobot": [
+        20,
+        30,
+        6
+      ],
+      "beda_pytorch_vs_integer": 0
+    },
+    "M=16/8/32": {
+      "MAE_W": 5.594,
+      "RMSE_W": 10.457,
+      "skill": 0.389,
+      "max_abs_bobot": [
+        12,
+        20,
+        5
+      ],
+      "beda_pytorch_vs_integer": 0
+    },
+    "M=8/4/32": {
+      "MAE_W": 5.487,
+      "RMSE_W": 10.399,
+      "skill": 0.392,
+      "max_abs_bobot": [
+        20,
+        39,
+        6
+      ],
+      "beda_pytorch_vs_integer": 0
+    }
+  }
+}

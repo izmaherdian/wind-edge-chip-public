@@ -1,0 +1,22 @@
+% Sistem sekarang vs usulan baterai/inverter, dengan letak sensor baru
+\begin{tikzpicture}[node distance=0.35cm and 0.5cm, every node/.style={font=\scriptsize}]
+  \node[font=\scriptsize\bfseries, anchor=west] (t1) at (0,0) {Sekarang};
+  \node[abu, text width=1.4cm, below right=0.15cm and 0cm of t1.south west, anchor=north west] (g1) {Generator\\3 fasa};
+  \node[abu, text width=1.3cm, right=of g1] (r1) {Rectifier};
+  \node[abu, text width=1.3cm, right=of r1] (p1) {PZEM-017};
+  \node[abu, text width=1.6cm, right=of p1] (d1) {Resistor 35\,$\Omega$\\(dibuang)};
+  \draw[panah] (g1) -- (r1); \draw[panah] (r1) -- (p1); \draw[panah] (p1) -- (d1);
+  \node[font=\scriptsize\bfseries, anchor=west, below=1.0cm of g1.south west, anchor=north west] (t2) {Usulan};
+  \node[abu, text width=1.4cm, below=0.15cm of t2.south west, anchor=north west] (g2) {Generator +\\rectifier};
+  \node[milik=genis, text width=1.6cm, right=of g2] (cc) {Charge\\controller};
+  \node[milik=genis, text width=1.4cm, right=of cc] (bt) {Baterai\\LiFePO4};
+  \node[milik=genis, text width=1.3cm, right=of bt] (iv) {Inverter};
+  \node[abu, text width=1.2cm, right=of iv] (ld) {Beban AC};
+  \node[abu, text width=1.4cm, below=0.5cm of cc] (dl) {Dump load};
+  \node[abu, text width=1.2cm, below=0.5cm of iv] (pln) {PLN};
+  \draw[panah] (g2) -- (cc); \draw[panah] (cc) -- (bt); \draw[panah] (bt) -- (iv); \draw[panah] (iv) -- (ld);
+  \draw[panah] (cc) -- (dl); \draw[putus] (pln) -- (iv);
+  \node[font=\tiny, text=merah, right=0.05cm of dl] {PZEM-017};
+  \foreach \n/\s in {g2/PZEM-017, bt/PZEM-017 + SoC + suhu, iv/PZEM-004T}
+    {\node[font=\tiny, text=merah, above=0.02cm of \n] {\s};}
+\end{tikzpicture}

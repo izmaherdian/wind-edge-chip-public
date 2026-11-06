@@ -1,0 +1,13 @@
+\begin{center}\small
+\begin{tabular}{@{}l r r r r@{}}
+\toprule
+Prediksi daya DC yang dipakai & MAE SoC 1 jam (poin \%) & MAE energi ke baterai (Wh) & Presisi impor PLN & Recall \\ \midrule
+persistence & 1,82 & 10,54 & 0,94 & 0,93 \\
+smart persistence & 1,51 & 9,01 & 0,95 & 0,97 \\
+MLP INT8 (FPGA) & 1,12 & 7,66 & 0,96 & 0,93 \\
+LightGBM & 1,22 & 7,76 & 0,96 & 0,92 \\
+Ideal (daya DC aktual) & 0,12 & 3,49 & 1,00 & 0,95 \\
+\bottomrule
+\end{tabular}
+\end{center}
+Simulasi 1--20 Okt: energi turbin 4706,80 Wh, beban 5139,50 Wh, dibuang 56,00 Wh, impor PLN 1278,20 Wh; SoC di batas minimum 29,50\% waktu.

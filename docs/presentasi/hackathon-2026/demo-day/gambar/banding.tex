@@ -1,0 +1,21 @@
+% Kenapa ESP32 + chip FPGA, bukan komputer mini (Raspberry Pi/SBC) seperti sistem TA saat ini.
+\documentclass[border=4pt]{standalone}
+\input{gaya.tex}
+\begin{document}
+\begin{tikzpicture}[font=\fontsize{10}{12.5}\selectfont,
+  sel/.style={minimum height=1.12cm, text width=#1, align=left, inner sep=6pt, anchor=west}]
+  \def\baris#1#2#3#4{%
+    \node[sel=3.1cm, font=\bfseries\fontsize{10}{12.5}\selectfont] at (0,#1) {#2};
+    \node[sel=4.6cm, fill=abu!15] at (3.4,#1) {#3};
+    \node[sel=5.7cm, fill=amber!25] at (8.45,#1) {#4};}
+  \node[sel=4.6cm, fill=abu!45, minimum height=1.25cm] at (3.4,1.35) {{\judulfont\bfseries\fontsize{10.5}{13}\selectfont Komputer mini}\\{\fontsize{8.5}{10}\selectfont Raspberry Pi, sistem TA saat ini}};
+  \node[sel=5.7cm, fill=gelap, text=white, minimum height=1.25cm] at (8.45,1.35) {{\judulfont\bfseries\fontsize{10.5}{13}\selectfont\color{amber}Wind Edge Kit}\\{\fontsize{8.5}{10}\selectfont ESP32 + chip FPGA rancangan kami}};
+  \baris{0}{Harga perangkat}{$\pm$Rp3,3 jt satu set}{$\pm$Rp0,6 jt komponen}
+  \baris{-1.22}{Listrik terpakai}{$\pm$3 W terus-menerus}{$\pm$0,2 W ($\approx$17$\times$ lebih hemat)}
+  \baris{-2.44}{Internet putus}{reboot, data dan prediksi hilang}{tetap memprediksi, data disimpan di turbin}
+  \baris{-3.66}{Hasil prediksi}{acuan (model asli)}{sama persis dengan acuan (identik bit demi bit)}
+  \baris{-4.88}{Buatan}{impor}{chip \& software rancangan sendiri (TKDN)}
+  \node[anchor=north west, text=abu, font=\fontsize{8}{10}\selectfont, text width=14.2cm] at (0,-5.55)
+    {Harga set komputer mini dari RAB (SBC + kartu memori + casing + adaptor); daya diukur INA219 22 Okt 2026 (estimasi).};
+\end{tikzpicture}
+\end{document}

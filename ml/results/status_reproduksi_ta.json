@@ -1,0 +1,31 @@
+{
+  "jumlah_baris": 924287,
+  "distribusi_label": {
+    "Optimal": 530691,
+    "Anomaly": 357576,
+    "Infisien": 36020
+  },
+  "persen_angin_arduino_1_25": 42.3,
+  "reproduksi_split_acak": {
+    "parameter_terbaik": {
+      "kernel": "rbf",
+      "gamma": 0.3999999999999998,
+      "C": 8.0
+    },
+    "akurasi_test": 0.9758,
+    "laporan": {
+      "precision": 0.9761208594670756,
+      "recall": 0.9754067941482266,
+      "f1-score": 0.9754768050213118,
+      "support": 4500.0
+    },
+    "klaim_TA": "98,22% (dataset), 96,35% (21.225 data lapangan)"
+  },
+  "model_raspi_pada_test_sama": 0.9784,
+  "uji_kronologis_16jun_20okt": {
+    "n": 444172,
+    "akurasi_model_reproduksi": 0.9815,
+    "akurasi_model_raspi": 0.9824,
+    "akurasi_selalu_tebak_kelas_terbanyak": 0.519
+  }
+}

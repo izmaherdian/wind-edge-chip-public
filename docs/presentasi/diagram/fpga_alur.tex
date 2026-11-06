@@ -1,0 +1,15 @@
+% Alur ML -> FPGA: QAT -> golden model -> hex + test vector -> RTL
+\begin{tikzpicture}[node distance=0.35cm and 0.55cm, every node/.style={font=\scriptsize}]
+  \node[milik=izma, text width=2.2cm] (q) {\textbf{QAT PyTorch}\\bobot integer\\STE round/floor};
+  \node[milik=izma, text width=2.2cm, right=of q] (g) {\textbf{golden\_model.py}\\integer murni};
+  \node[milik=izma, text width=2.2cm, right=of g] (x) {\texttt{weights.hex}\\\texttt{bias.hex}\\597 test vector};
+  \node[milik=alif, text width=2.4cm, right=of x] (r) {\textbf{RTL MAC4}\\\texttt{\$readmemh}};
+  \node[milik=genis, text width=2.2cm, below=0.5cm of g] (c) {\texttt{mlp\_int8.h}\\ESP32 (cadangan)};
+  \draw[panah] (q) -- node[label, above] {0 beda} (g);
+  \draw[panah] (g) -- (x); \draw[panah] (x) -- node[label, above] {0 beda} (r);
+  \draw[panah] (g) -- (c);
+  \node[draw=black!40, rounded corners, fill=black!3, text width=4.6cm, below=0.5cm of r, xshift=-0.9cm, align=left, font=\scriptsize] (f)
+    {Tiap lapisan, sama dengan \texttt{post\_process.v}:\\[1pt]
+     $\mathrm{acc} = b + \sum_i x_i w_i$ \quad (INT8$\times$INT8, INT32)\\
+     $y = \mathrm{clamp}\big((\mathrm{acc}\cdot 32) \gg 8,\; 0,\; 127\big)$ \;(= $\lfloor \mathrm{acc}/8 \rfloor$)};
+\end{tikzpicture}

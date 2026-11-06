@@ -1,0 +1,368 @@
+{
+  "kind": "passive live path via Raspberry Pi",
+  "started_utc": "2026-10-21T09:09:09Z",
+  "observed_seconds": 99.24,
+  "passed": true,
+  "requested_pairs": 2,
+  "fresh_sensor_topics_ok": true,
+  "message_counts": {
+    "TurbinAngin/voltage": 22,
+    "TurbinAngin/current": 22,
+    "TurbinAngin/power": 22,
+    "TurbinAngin/energy": 22,
+    "TurbinAngin/Windspeed": 22,
+    "TurbinAngin/windspeedstation": 22,
+    "TurbinAngin/winddirdeg": 22,
+    "TurbinAngin/humidity": 22,
+    "TurbinAngin/temperature": 22,
+    "TurbinAngin/noise": 22,
+    "TurbinAngin/rainfall": 22,
+    "TurbinAngin/ML_Status": 22,
+    "WEC/prediksi": 2,
+    "WEC/fpga": 2
+  },
+  "latest_sensors": {
+    "TurbinAngin/voltage": {
+      "value": 70.16,
+      "received_utc": "2026-10-21T09:10:44Z"
+    },
+    "TurbinAngin/current": {
+      "value": 2,
+      "received_utc": "2026-10-21T09:10:44Z"
+    },
+    "TurbinAngin/power": {
+      "value": 140.3,
+      "received_utc": "2026-10-21T09:10:44Z"
+    },
+    "TurbinAngin/energy": {
+      "value": 1059,
+      "received_utc": "2026-10-21T09:10:44Z"
+    },
+    "TurbinAngin/Windspeed": {
+      "value": 1.25,
+      "received_utc": "2026-10-21T09:10:44Z"
+    },
+    "TurbinAngin/windspeedstation": {
+      "value": 3.77,
+      "received_utc": "2026-10-21T09:10:44Z"
+    },
+    "TurbinAngin/winddirdeg": {
+      "value": 129,
+      "received_utc": "2026-10-21T09:10:44Z"
+    },
+    "TurbinAngin/humidity": {
+      "value": 41.69,
+      "received_utc": "2026-10-21T09:10:44Z"
+    },
+    "TurbinAngin/temperature": {
+      "value": 31.1,
+      "received_utc": "2026-10-21T09:10:44Z"
+    },
+    "TurbinAngin/noise": {
+      "value": 69.0,
+      "received_utc": "2026-10-21T09:10:44Z"
+    },
+    "TurbinAngin/rainfall": {
+      "value": 175.9,
+      "received_utc": "2026-10-21T09:10:44Z"
+    },
+    "TurbinAngin/ML_Status": {
+      "value": "Anomaly",
+      "received_utc": "2026-10-21T09:10:44Z"
+    }
+  },
+  "retained_not_counted": [
+    {
+      "topic": "WEC/prediksi",
+      "payload": {
+        "t": 1792573680000,
+        "power_w": 46.66,
+        "p10": 19.99,
+        "p90": 61.59,
+        "out_q": 48,
+        "xq": [
+          44,
+          59,
+          7,
+          21,
+          28,
+          71,
+          58,
+          76,
+          69,
+          30,
+          75,
+          -102,
+          -112,
+          -60,
+          -60,
+          78
+        ],
+        "persistence_w": 65,
+        "om_wind_next": 2.19,
+        "mode": "campuran",
+        "menit_estimasi": 3,
+        "celah": false,
+        "offline": false
+      }
+    },
+    {
+      "topic": "WEC/fpga",
+      "payload": {
+        "t": 1792573680000,
+        "out_q_fpga": 48,
+        "out_q_cpu": 48,
+        "cocok": true,
+        "cycles": 309,
+        "us": 578,
+        "watt": 46.66,
+        "sumber": "tang-nano-4k",
+        "port": "ESP32-S3 UART1"
+      }
+    }
+  ],
+  "cycles": [
+    {
+      "t": 1792573740000,
+      "utc": "2026-10-21T09:09:00Z",
+      "xq": [
+        50,
+        87,
+        80,
+        15,
+        20,
+        72,
+        60,
+        74,
+        69,
+        28,
+        79,
+        -100,
+        -112,
+        -60,
+        -60,
+        78
+      ],
+      "golden_q": 54,
+      "prediction": {
+        "t": 1792573740000,
+        "power_w": 52.49,
+        "p10": 19.99,
+        "p90": 61.59,
+        "out_q": 54,
+        "xq": [
+          50,
+          87,
+          80,
+          15,
+          20,
+          72,
+          60,
+          74,
+          69,
+          28,
+          79,
+          -100,
+          -112,
+          -60,
+          -60,
+          78
+        ],
+        "persistence_w": 73.18,
+        "om_wind_next": 2.19,
+        "mode": "campuran",
+        "menit_estimasi": 3,
+        "celah": false,
+        "offline": false
+      },
+      "fpga": {
+        "t": 1792573740000,
+        "out_q_fpga": 54,
+        "out_q_cpu": 54,
+        "cocok": true,
+        "cycles": 309,
+        "us": 561,
+        "watt": 52.49,
+        "sumber": "tang-nano-4k",
+        "port": "ESP32-S3 UART1"
+      },
+      "observed_reply_after_prediction_ms": 230.38,
+      "checks": {
+        "matches_golden": true,
+        "matches_cpu": true,
+        "matches_node_red": true,
+        "cycles_309": true,
+        "hardware_source": true,
+        "fresh_generation": true
+      },
+      "passed": true
+    },
+    {
+      "t": 1792573800000,
+      "utc": "2026-10-21T09:10:00Z",
+      "xq": [
+        72,
+        107,
+        55,
+        40,
+        25,
+        73,
+        67,
+        74,
+        69,
+        28,
+        80,
+        -99,
+        -112,
+        -59,
+        -59,
+        78
+      ],
+      "golden_q": 60,
+      "prediction": {
+        "t": 1792573800000,
+        "power_w": 58.32,
+        "p10": 19.99,
+        "p90": 61.59,
+        "out_q": 60,
+        "xq": [
+          72,
+          107,
+          55,
+          40,
+          25,
+          73,
+          67,
+          74,
+          69,
+          28,
+          80,
+          -99,
+          -112,
+          -59,
+          -59,
+          78
+        ],
+        "persistence_w": 106.33,
+        "om_wind_next": 2.18,
+        "mode": "campuran",
+        "menit_estimasi": 3,
+        "celah": false,
+        "offline": false
+      },
+      "fpga": {
+        "t": 1792573800000,
+        "out_q_fpga": 60,
+        "out_q_cpu": 60,
+        "cocok": true,
+        "cycles": 309,
+        "us": 562,
+        "watt": 58.32,
+        "sumber": "tang-nano-4k",
+        "port": "ESP32-S3 UART1"
+      },
+      "observed_reply_after_prediction_ms": 332.94,
+      "checks": {
+        "matches_golden": true,
+        "matches_cpu": true,
+        "matches_node_red": true,
+        "cycles_309": true,
+        "hardware_source": true,
+        "fresh_generation": true
+      },
+      "passed": true
+    }
+  ],
+  "prediction_messages": [
+    {
+      "t": 1792573740000,
+      "power_w": 52.49,
+      "p10": 19.99,
+      "p90": 61.59,
+      "out_q": 54,
+      "xq": [
+        50,
+        87,
+        80,
+        15,
+        20,
+        72,
+        60,
+        74,
+        69,
+        28,
+        79,
+        -100,
+        -112,
+        -60,
+        -60,
+        78
+      ],
+      "persistence_w": 73.18,
+      "om_wind_next": 2.19,
+      "mode": "campuran",
+      "menit_estimasi": 3,
+      "celah": false,
+      "offline": false
+    },
+    {
+      "t": 1792573800000,
+      "power_w": 58.32,
+      "p10": 19.99,
+      "p90": 61.59,
+      "out_q": 60,
+      "xq": [
+        72,
+        107,
+        55,
+        40,
+        25,
+        73,
+        67,
+        74,
+        69,
+        28,
+        80,
+        -99,
+        -112,
+        -59,
+        -59,
+        78
+      ],
+      "persistence_w": 106.33,
+      "om_wind_next": 2.18,
+      "mode": "campuran",
+      "menit_estimasi": 3,
+      "celah": false,
+      "offline": false
+    }
+  ],
+  "reply_messages": [
+    {
+      "t": 1792573740000,
+      "out_q_fpga": 54,
+      "out_q_cpu": 54,
+      "cocok": true,
+      "cycles": 309,
+      "us": 561,
+      "watt": 52.49,
+      "sumber": "tang-nano-4k",
+      "port": "ESP32-S3 UART1"
+    },
+    {
+      "t": 1792573800000,
+      "out_q_fpga": 60,
+      "out_q_cpu": 60,
+      "cocok": true,
+      "cycles": 309,
+      "us": 562,
+      "watt": 58.32,
+      "sumber": "tang-nano-4k",
+      "port": "ESP32-S3 UART1"
+    }
+  ],
+  "fresh_predictions": 2,
+  "fresh_replies": 2,
+  "errors": [],
+  "unmatched_prediction_timestamps": []
+}

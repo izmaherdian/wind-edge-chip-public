@@ -1,0 +1,9 @@
+{
+  "kind": "raw WEC/daya capture",
+  "samples": [],
+  "capture_completed_utc": "2026-10-21T10:39:03.418452+00:00",
+  "capture_duration_s": 20,
+  "fresh_samples": 0,
+  "status": "no_new_WEC/daya_messages",
+  "hardware_user_confirmation": "ESP32 classic powered; USB not connected to laptop. INA219 measures Pi only."
+}

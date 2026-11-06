@@ -1,0 +1,27 @@
+// ============================================================================
+// Physical Constraints File (.cst) for Sipeed Tang Nano 4K (Gowin GW1NSR-LV4C)
+// Paket: QFN48P (GW1NSR-LV4CQN48PC7/I6)
+// Memetakan port sirkuit top_soc.v ke pin fisik board Sipeed Tang Nano 4K
+// ============================================================================
+
+// Clock kristal onboard 27 MHz
+IO_LOC "clk" 45;
+IO_PORT "clk" PULL_MODE=UP;
+
+// Tombol Reset fisik (Key S1 onboard - Active Low, Bank 3)
+IO_LOC "rst_n" 14;
+IO_PORT "rst_n" PULL_MODE=UP;
+
+// UART RX (Header GPIO Pin 44 <- TX dari ESP32 / USB-TTL Eksternal)
+IO_LOC "rx_pin" 44;
+IO_PORT "rx_pin" PULL_MODE=UP;
+
+// UART TX (Header GPIO Pin 46 -> RX ke ESP32 / USB-TTL Eksternal)
+IO_LOC "tx_pin" 46;
+IO_PORT "tx_pin" PULL_MODE=UP;
+
+// Indikator LED Onboard (Pin 10, Active-Low)
+IO_LOC "led_busy" 10;
+
+// Indikator Selesai Inferensi (Header GPIO Pin 13 - menggantikan Pin 11 yang bukan GPIO pada QFN48P)
+IO_LOC "led_done" 13;

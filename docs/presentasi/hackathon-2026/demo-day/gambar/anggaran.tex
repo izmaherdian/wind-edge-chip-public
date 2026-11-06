@@ -1,0 +1,25 @@
+% Energi harian turbin: porsi untuk komputer (Raspi vs chip). Angka dari angka.tex (energi_harian.json).
+\documentclass[border=4pt]{standalone}
+\input{gaya.tex}
+\begin{document}
+\begin{tikzpicture}[x=0.95cm, y=1cm, font=\fontsize{10}{12}\selectfont]
+  \def\L{10}                               % panjang batang = energi turbin per hari
+  \pgfmathsetmacro{\r}{\L*\raspiPersenNum/100}
+  \pgfmathsetmacro{\c}{max(\L*\chipPersenNum/100, 0.12)}
+  % baris 1: sekarang
+  \node[anchor=east, align=right, font=\fontsize{10}{12}\selectfont\bfseries] at (-0.2,1.6) {Sekarang\\[-1pt]{\mdseries\color{abu}Raspberry Pi}};
+  \fill[abu!80, rounded corners=3pt] (0,1.15) rectangle (\r,2.05);
+  \fill[teal, rounded corners=3pt] (\r,1.15) rectangle (\L,2.05);
+  \node[text=white, font=\fontsize{12}{14}\selectfont\bfseries] at (\r/2,1.6) {$\approx$\textonequarter};
+  \node[text=white, anchor=west] at (\r+0.2,1.6) {sisa untuk rumah dan baterai};
+  % baris 2: dengan chip
+  \node[anchor=east, align=right, font=\fontsize{10}{12}\selectfont\bfseries] at (-0.2,0.2) {Wind Edge Chip\\[-1pt]{\mdseries\color{abu}chip rancangan sendiri}};
+  \fill[amber, rounded corners=1pt] (0,-0.25) rectangle (\c,0.65);
+  \fill[teal, rounded corners=3pt] (\c,-0.25) rectangle (\L,0.65);
+  \node[text=white, anchor=west] at (\c+0.2,0.2) {hampir semua energi untuk rumah dan baterai};
+  % keterangan
+  \draw[abu, line width=0.6pt] (0,-0.55) -- (\L,-0.55);
+  \node[anchor=north, text=abu, font=\fontsize{8.5}{10}\selectfont] at (\L/2,-0.6) {energi yang dihasilkan turbin dalam sehari ($\approx$\energiTurbin\ Wh, median \hariEnergi\ hari)};
+  \node[anchor=south west, text=abu, font=\fontsize{8.5}{10}\selectfont] at (0,2.1) {porsi untuk komputer logging + ML \textbf{saat angin ringan} (hari tipikal)};
+\end{tikzpicture}
+\end{document}
